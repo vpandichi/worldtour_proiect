@@ -1,2 +1,6 @@
 287A49 - base color for a green color scheme
 A33542 - base color for a red-pink color scheme
+918300 - base color for a yellow color scheme
+
+http://paletton.com/#uid=12Y1u0klwliaWvSgkqwqQf+wraG - green
+http://paletton.com/#uid=11D1u0kw0ico7qusem7GudzQK8g - yellow

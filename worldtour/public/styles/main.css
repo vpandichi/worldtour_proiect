@@ -1,8 +1,4 @@
-* {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-}
+* {margin: 0;padding: 0;font-family: sans-serif;}
 
 /*
 ***********************
@@ -13,8 +9,10 @@
 .bgvideo {position: fixed;bottom: 0;top: 0;min-width: 100%;min-height: 100%;width: auto;height: auto;z-index: -9999;}
 div#logo img {margin-left:50px;margin-top: 30px;}
 
-nav {background-color:rgba(0,79,0,0.3);margin-top:35%;padding:28px;text-align: right;}
+nav {background-color:rgba(0,79,0,0.3);margin-top:35%;padding:28px;text-align: right;transition:all 0.4s;}
 #lpage nav ul li {display: inline;}
 #lpage nav ul li a {text-decoration: none;color:#bafbbc; font-weight: bold;font-size: 20px;margin-left:40px;}
-#lpage nav ul li a:hover {color: #001801;border-bottom: 2px solid #001801;}
+#lpage nav ul li a:hover {color: #001801;}
 
+#dynamic video {position: absolute;bottom: 0;top: 0;min-width: 100%;min-height: 20%;width: auto;height: auto;z-index: -9999;}
+#page-content {margin-top:30%;}

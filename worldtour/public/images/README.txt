@@ -1,0 +1,1 @@
+This is the default folder for sliced images in photoshop
