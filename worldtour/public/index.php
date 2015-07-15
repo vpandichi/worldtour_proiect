@@ -21,12 +21,12 @@
 					<li><a href="#stories">stories</a></li>
 					<li><a href="contact.php">contact</a></li>
 					<li><a href="login.php">log in</a></li>
-					<li><a href="lang.php">en</a></li>
+					<li><a href="lang.php">ro</a></li>
 				</ul>
 			</nav>
 			<div id="dynamic"></div>
 		</div>
-		<div id="page-content"></div>
+		<div id="page-content"><script type="text/javascript">for (var i = 0; i < 50; i++) {document.write("Dummy content" + i + "<br/>" )}</script></div>
 		<div id="footer"></div>
 	</div>
 	<script type="text/javascript" src="/sites/worldtour/public/scripts/scroll.js"></script>
