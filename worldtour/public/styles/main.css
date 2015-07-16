@@ -1,16 +1,65 @@
 * {margin: 0;padding: 0;font-family: sans-serif;}
 
-/*********************************
-		=BEGIN LANDING PAGE
-*********************************/		
+/********************************* =BEGIN LANDING PAGE *********************************/	
 
-.bgvideo {position: fixed;bottom: 0;top: 0;min-width: 100%;min-height: 100%;width: auto;height: auto;z-index: -9999;}
-div#logo img {margin-left:50px;margin-top: 30px;}
-nav {background-color:rgba(0,79,0,0.3);margin-top:35%;padding:28px;text-align: right;transition:all 0.5s;y-index: -999;}
+.bgvideo {
+	position: fixed;
+	bottom: 0;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -9999;
+}
+
+div#logo img {
+	margin-left:50px;
+	margin-top: 30px;
+}
+
+nav {
+	background-color: rgba(0,79,0,0.3);
+	margin-top: 35%;
+	padding: 28px;
+	text-align: right;
+	transition: all 0.5s;
+}
+
 #lpage nav ul li {display: inline;}
-#lpage nav ul li a {text-decoration: none;color:#bafbbc; font-weight: bold;font-size: 20px;margin-left:40px;}
+
+#lpage nav ul li a {
+	text-decoration: none;
+	color:#bafbbc; 
+	font-weight: bold;
+	font-size: 20px;
+	margin-left:40px;
+}
+
 #lpage nav ul li a:hover {color: #001801;}
 
-/*not on landing page - new styles dynamically generated - need to think of a category name - dont have time now..*/
-#dynamic video {width:100%;height:40%;position:static;margin-top: 27px;}
+/********************************* =END LANDING PAGE *********************************/
 
+/********************************* =BEGIN DYNAMIC CONTENT AFTER SCROLL *********************************/
+
+#dynamic_video video {
+	width:100%;
+	height:40%;
+	position:static;
+	margin-top: 5em;
+	border-bottom: 2px solid #f00;
+}
+
+#dynamic_logo img {
+	float: left;
+	position: absolute;
+	margin-left: -90%;
+	margin-top: -4.7%;
+}
+
+/********************************* =END DYNAMIC CONTENT *********************************/
+
+/********************************* =BEGIN PAGE CONTENT *********************************/
+
+#page_wrapper {background-color: #f00;width:100%;}
+#page_content {background-color: #ff0;width:80%;margin: auto;} /*testing wrappers*/

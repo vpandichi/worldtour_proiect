@@ -1,14 +1,16 @@
 function yScroll() {
 	var video = document.getElementById('bgvideo');
 	var logo = document.getElementById('logo');
-	var dynamicSlider = document.getElementById('dynamic');
+	var dynamic_logo = document.getElementById('dynamic_logo');
+	var dynamicSlider = document.getElementById('dynamic_video');
 	var nav = document.getElementById('nav');
 	var ypos = window.pageYOffset; // keeps track of the scrollbar's position
 	var navNode1 = nav.childNodes[1]; // getting a hold of the li elements in the navigation parent - first child is a #text node, do not use
 
-	if (ypos > 2 && ypos < 7) {
-		logo.innerHTML = "<img id=/'dynLogo/' src='/sites/worldtour/public/img/..'>"; // insert another image to fit the new navigation layout (need to design it)
-		nav.style.marginTop = "-4%";
+	if (ypos > 1 && ypos < 7) {
+		logo.style.display = "none"; // remove the landing page logo
+		dynamic_logo.innerHTML = "<img src='/sites/worldtour/public/img/provisory-logo.gif'>";
+		nav.style.marginTop = "0%";
 		nav.style.backgroundColor = "#fff";
 		nav.style.position = "fixed";
 		nav.style.width = "96%";
@@ -90,10 +92,6 @@ function yScroll() {
 		  // end navigation styles
 		video.style.visibility = "hidden"; // making the landing page video not visible after we trigger the scroll event
 		dynamicSlider.innerHTML = '<video autoplay loop muted><source src="/sites/worldtour/public/img/dynamic_slideshow.mp4" type="video/mp4"></video>';
-		// dynamicSlider.innerHTML = '<div id="dynamic">';
-		// dynamicSlider.innerHTML += '<img id="img1" src="/sites/worldtour/public/img/bali_resort_indonesia_slider.jpg">';
-		// dynamicSlider.innerHTML += '<img id="img2" src="/sites/worldtour/public/img/hanging_gardens_indonesia_slider.jpg">';
-		// dynamicSlider.innerHTML += '</div>'; trying to generate two images to build a javascript slideshow rather than a video slideshow - need to decide which is best
 	} else {
 		// return landing page
 	}
