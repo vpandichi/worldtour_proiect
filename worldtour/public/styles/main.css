@@ -3,6 +3,7 @@
 /********************************* =BEGIN LANDING PAGE *********************************/	
 
 .bgvideo {
+	margin-top: -8%;
 	position: fixed;
 	bottom: 0;
 	top: 0;
@@ -14,14 +15,16 @@
 }
 
 div#logo img {
-	margin-left:50px;
-	margin-top: 30px;
+	margin-left: 6%;
+	margin-top: -38%;
+	position: absolute;
 }
 
 nav {
-	background-color: rgba(0,79,0,0.3);
-	margin-top: 35%;
-	padding: 28px;
+	border-top: 2px solid #322D00;
+	background-color: rgba(0,20,0,1);
+	margin-top: 42%;
+	padding: 44px;
 	text-align: right;
 	transition: all 0.5s;
 }
@@ -36,7 +39,7 @@ nav {
 	margin-left:40px;
 }
 
-#lpage nav ul li a:hover {color: #001801;}
+#lpage nav ul li a:hover {color: #FFF27A;}
 
 /********************************* =END LANDING PAGE *********************************/
 
@@ -61,5 +64,21 @@ nav {
 
 /********************************* =BEGIN PAGE CONTENT *********************************/
 
-#page_wrapper {background-color: #f00;width:100%;}
-#page_content {background-color: #ff0;width:80%;margin: auto;} /*testing wrappers*/
+#above_wrapper img {
+	min-width:100%;
+	width:auto;
+	height:95px;
+}
+
+#page_wrapper {
+	background-color: #f00;
+	width:100%;
+	margin-top: 5%;
+	position: static;
+}
+
+#page_content {
+	background-color: #ff0;
+	width:80%;
+	margin: auto;
+} /*testing wrappers*/

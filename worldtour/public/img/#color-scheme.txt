@@ -4,3 +4,4 @@ A33542 - base color for a red-pink color scheme
 
 http://paletton.com/#uid=12Y1u0klwliaWvSgkqwqQf+wraG - green
 http://paletton.com/#uid=11D1u0kw0ico7qusem7GudzQK8g - yellow
+http://paletton.com/#uid=11E1u0kullIgBBle8stRSd7VD3Q - better yellow

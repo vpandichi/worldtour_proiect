@@ -6,11 +6,13 @@ function yScroll() {
 	var nav = document.getElementById('nav');
 	var ypos = window.pageYOffset; // keeps track of the scrollbar's position
 	var navNode1 = nav.childNodes[1]; // getting a hold of the li elements in the navigation parent - first child is a #text node, do not use
+	var page_wrapper = document.getElementById('page_wrapper');
 
 	if (ypos > 1 && ypos < 7) {
 		logo.style.display = "none"; // remove the landing page logo
 		dynamic_logo.innerHTML = "<img src='/sites/worldtour/public/img/provisory-logo.gif'>";
 		nav.style.marginTop = "0%";
+		nav.style.padding = "32px";
 		nav.style.backgroundColor = "#fff";
 		nav.style.position = "fixed";
 		nav.style.width = "96%";
@@ -91,7 +93,8 @@ function yScroll() {
 		} // the onmouseover and onmouse leave functions are responsible for the navigation effects after layout transition (dynamically generated)
 		  // end navigation styles
 		video.style.visibility = "hidden"; // making the landing page video not visible after we trigger the scroll event
-		dynamicSlider.innerHTML = '<video autoplay loop muted><source src="/sites/worldtour/public/img/dynamic_slideshow.mp4" type="video/mp4"></video>';
+		dynamicSlider.innerHTML = '<video autoplay loop muted><source src="/sites/worldtour/public/img/dynamic_video2.mp4" type="video/mp4"></video>';
+		// page_wrapper.style.opacity = "0.5"; - implement a fade-in effect later
 	} else {
 		// return landing page
 	}

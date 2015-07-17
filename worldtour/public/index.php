@@ -10,7 +10,7 @@
 		<div id="lpage">
 			<div id="logo"><img src="/sites/worldtour/public/img/provisory-logo.gif" alt="worldtour"></div>
 			<video autoplay loop muted class="bgvideo" id="bgvideo">
-				<source src="/sites/worldtour/public/img/slideshow.mp4" type="video/mp4">
+				<source src="/sites/worldtour/public/img/lpage_video.mp4" type="video/mp4">
 			</video>
 			<nav id="nav">
 				<ul>
@@ -25,6 +25,7 @@
 			</nav>
 		</div>
 		<div id="dynamic_video"></div> 
+		<div id="above_wrapper"><img src="/sites/worldtour/public/img/above-content.jpg" alt=""></div>
 		<div id="page_wrapper">
 			<div id="page_content">
 				<script type="text/javascript">for (var i = 0; i < 50; i++) {document.write("Dummy content" + i + "<br/>" )}</script>
