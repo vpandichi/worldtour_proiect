@@ -1,7 +1,26 @@
 * {margin: 0;padding: 0;font-family: sans-serif;}
 
-/********************************* =BEGIN LANDING PAGE *********************************/	
+/********************************* =BEGIN SCROLLBAR STYLES *********************************/
+::-webkit-scrollbar {
+	height:9px;
+	width:9px;
+	background: #ccdff6;
+}
 
+::-webkit-scrollbar-thumb {
+	/*chrome 10*/
+	background-image: -webkit-gradient(radial, center center, 0, center center, 500, color-stop(0, #A3C3EA), color-stop(1, #031A37));
+	/*chrome 11*/
+	background-image: -webkit-radial-gradient(center, circle cover, #A3C3EA 0%. #031A37 100%);
+	-webkit-border-raduis: 1ex;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+::-webkit-scrollbar-corner {
+	background: #ccdff6;
+}
+
+/********************************* =BEGIN LANDING PAGE *********************************/	
 .bgvideo {
 	margin-top: -8%;
 	position: fixed;
@@ -24,9 +43,10 @@ nav {
 	border-top: 2px solid #322D00;
 	background-color: rgba(0,20,0,1);
 	margin-top: 42%;
-	padding: 44px;
+	padding: 3%;
 	text-align: right;
 	transition: all 0.5s;
+	z-index: 100;
 }
 
 #lpage nav ul li {display: inline;}
@@ -41,16 +61,13 @@ nav {
 
 #lpage nav ul li a:hover {color: #FFF27A;}
 
-/********************************* =END LANDING PAGE *********************************/
-
 /********************************* =BEGIN DYNAMIC CONTENT AFTER SCROLL *********************************/
-
 #dynamic_video video {
 	width:100%;
 	height:40%;
 	position:static;
 	margin-top: 5em;
-	border-bottom: 2px solid #f00;
+	border-bottom: 2px solid #67b700;
 }
 
 #dynamic_logo img {
@@ -60,25 +77,29 @@ nav {
 	margin-top: -4.7%;
 }
 
-/********************************* =END DYNAMIC CONTENT *********************************/
+#above_wraper {
+	background: url(/sites/worldtour/public/img/above-content.png) repeat;
+	min-width:100%;
+	width:auto;
+	height:200px;
+	position: static; 
+}
+
+#boat {
+	opacity: 0.5;
+	visibility: hidden;
+	position: absolute;
+}
 
 /********************************* =BEGIN PAGE CONTENT *********************************/
 
-#above_wrapper img {
-	min-width:100%;
-	width:auto;
-	height:95px;
-}
-
-#page_wrapper {
-	background-color: #f00;
+#page_wraper {
 	width:100%;
 	margin-top: 5%;
 	position: static;
 }
 
 #page_content {
-	background-color: #ff0;
 	width:80%;
 	margin: auto;
-} /*testing wrappers*/
+} 
