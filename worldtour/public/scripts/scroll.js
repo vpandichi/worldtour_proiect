@@ -102,7 +102,7 @@ function yScroll() {
 				navNode1.childNodes[11].firstChild.style.borderTop = "none";
 			} // the onmouseover and onmouse leave functions are responsible for the navigation effects after layout transition (dynamically generated)
 		  
-			video.style.display = "none"; // need to decide which is best (visibility hidden or display none)
+			video.style.display = "none"; 
 		    // page_wrapper.style.opacity = "0.5"; - implement a fade-in effect later
 		    break;
 		case false: break; // also need to add back the lpage styles so when this is false it will go back to the landing page

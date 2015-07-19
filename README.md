@@ -7,6 +7,7 @@
 6. Switched from if statements to switch statements as these are better fitted for my needs. Improved color scheme, removed red banner, changed to a blue gradient that fits the theme, created about me content. Added dynamic image in the banner area that changes position as you scroll. Changed scrollbar CSS for chrome.
 7. Fixed boat bug overlapping navigation (needed z-index property)
 8. Fixed major page bug - when clicking on the about link on the landing page it would scroll to the relevant content but wouldn't load the dynamic styles as it would normally when scrolling (needed to remove the && ypos < 7 condition as this caused the switch statement to always be false, therefore not firing the dynamic styles)
+9. Designed about me area and added content, designed recommendations area and added content, designed contact form, designed footer area
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -22,4 +23,15 @@ TO DO FOR TOMORROW 18/07: - improve color scheme - ok (decided upon blue/green a
                           - create content for the about page - ok (created about me content)
                           - design the about page wraper - ok - this is going to be white (will consider changing this to light blue, not needed now)
                           - design the page layout wraper - ok - this is going to be a blue gradient with a width of 100%
+
+TO DO FOR TOMORROW 19/07: - design the about page text - ok
+                          - create the recommendations page, design and content - ok 
+                          - design contact form - ok
+                          - design footeer and add footer content - x
+                          
+TO DO FOR TOMORROW 20/07: - finish the footer area
+                          - design the recommendations page and content
+                          - design the stories page and content, add content
+                          - design the log in page
+                                      
                           
