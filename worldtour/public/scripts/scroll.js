@@ -8,7 +8,7 @@ function yScroll() {
 	var navNode1 = nav.childNodes[1]; // getting a hold of the li elements in the navigation parent - first child is a #text node, do not use
 	var boat = document.getElementById('boat');
 	
-	// console.log(ypos);
+	// console.log(ypos); // 706 for Contact // 343 for Recommendations // 119 for About
 
 	switch (ypos < 5) {
 		case true: 

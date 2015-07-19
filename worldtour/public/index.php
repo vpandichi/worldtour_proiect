@@ -68,7 +68,40 @@
 		</div>
 		<div id="footer_wrap">
 			<footer id="footer">
-				<a href="/sites/worldtour/public/recom.php">recommendations</a>
+				<div id="recom">
+					<h1>Popular destinations</h1>
+					<ul>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Italy</a></li>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Romania</a></li>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Iceland</a></li>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Iceland</a></li>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Iceland</a></li>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Iceland</a></li>
+						<li><a href="/sites/worldtour/public/recom.php" id="#">Iceland</a></li>
+					</ul>
+				</div>
+				<div id="recent_stories">
+					<h1>Recent stories</h1>
+					<ul>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+					</ul>
+				</div>
+				<div id="featured_location">
+					<h1>Featured location</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea sequi, magnam ipsa deleniti illo totam eum tempore, veniam suscipit! Eligendi, perspiciatis accusamus quisquam harum nesciunt dolor cumque, minima est ex. <a href="recom.php">(Read more...)</a></p>
+				</div>
+				<div class="social">
+					<a href="https://www.facebook.com/vlad.pandichi"><img src="/sites/worldtour/public/img/facebook.png" alt="facebook"></a>
+					<a href="https://www.twitter.com"><img src="/sites/worldtour/public/img/twitter.png" alt="twitter"></a>
+					<a href="https://plus.google.com/"><img src="/sites/worldtour/public/img/gplus.png" alt="google plus"></a>
+					<a href="https://youtube.com"><img src="/sites/worldtour/public/img/youtube.png" alt="youtube"></a>
+				</div>
 			</footer>
 		</div>
 	</div>

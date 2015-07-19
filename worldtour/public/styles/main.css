@@ -248,13 +248,64 @@ span#last {margin-left: 243px;}
 
 /********************************* =BEGIN FOOTER *********************************/
 #footer_wrap {
-	min-width: 100%;
+
 	border-top: 2px solid #70be12;
 	margin-top: 7%;
 	background: url(/sites/worldtour/public/img/above-content.png) repeat;
-	height: 200px;
 }
 
 #footer {
-	min-width: 80%;
+	width: 80%;
+	margin:auto;
 }
+
+#recom {margin-left: 20px;}
+
+#recom, #featured_location, #recent_stories {
+	width:30%;
+	float: left;
+	padding: 10px;
+	margin-top: 10px;
+	color: #70be12;
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+#footer h1 {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+#footer ul li {
+	list-style-type: none;
+	text-align: center;
+}
+
+#footer a {
+	text-decoration: none; 
+	color: #70be12;
+}
+
+#footer a:hover {text-decoration: underline;}
+
+#footer p {color: #97b8e0;}
+
+.social {text-align: center;}
+
+.social img {
+	opacity: 0.5;
+	padding: 10px;
+	-moz-transform-style: preserve-3d; /*Mozilla*/
+	-webkit-transform-style: preserve-3d; /*Chrome, Safari, Opera*/
+	transform-style: preserve-3d; /* child elements will preserve its 3D position */
+	transition: all 0.7s ease;
+}
+
+.social img:hover {
+	-moz-transform: rotateY(360deg); /*Mozilla*/
+	-webkit-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+
+

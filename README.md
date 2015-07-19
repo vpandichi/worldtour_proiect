@@ -8,6 +8,7 @@
 7. Fixed boat bug overlapping navigation (needed z-index property)
 8. Fixed major page bug - when clicking on the about link on the landing page it would scroll to the relevant content but wouldn't load the dynamic styles as it would normally when scrolling (needed to remove the && ypos < 7 condition as this caused the switch statement to always be false, therefore not firing the dynamic styles)
 9. Designed about me area and added content, designed recommendations area and added content, designed contact form, designed footer area
+10. Created provisory footer content
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
