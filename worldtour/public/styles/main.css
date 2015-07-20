@@ -67,7 +67,6 @@ nav {
 }
 
 #dynamic_logo img {
-	float: left;
 	position: absolute;
 	margin-left: -90%;
 	margin-top: -4.7%;
@@ -143,6 +142,7 @@ nav {
 
 /********************************* =RECOMMENDATIONS *********************************/
 h1#recommendations {margin-bottom: 35px;}
+
 #box1, #box2, #box3 {
 	margin-left: 13px;
 	margin-bottom: 20px;
@@ -266,7 +266,7 @@ span#last {margin-left: 243px;}
 	float: left;
 	padding: 10px;
 	margin-top: 10px;
-	color: #70be12;
+	color: #b5c8df;
 	font-size: 14px;
 	letter-spacing: 1px;
 }
@@ -288,8 +288,6 @@ span#last {margin-left: 243px;}
 }
 
 #footer a:hover {text-decoration: underline;}
-
-#footer p {color: #97b8e0;}
 
 .social {text-align: center;}
 

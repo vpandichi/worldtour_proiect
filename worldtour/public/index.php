@@ -33,12 +33,12 @@
 					<h1 id="about">Who am I?</h1>
 					<article>
 						<img src="/sites/worldtour/public/img/aboutme.jpg" alt="">
-						Hello! My name is Vlad, I am 23 years old, and I absolutely love travelling!
-						Not having any travelling experience before, when I first started to travel 2 years ago 
-						I was trying to find out as much as I can about the chosen location. 
-						Whether touristic attractions, places to stay, where to eat, how much would it cost, where to go and where not to – these are questions we’re all asking ourselves when trying to plan our next trip. 
-						Having a hard time finding all the information I needed in a single place, I have decided it’s time to build a community where all your questions have an answer, 
-						based on user reviews from people who have been there themselves - be it Greece, Italy, or anywhere else on the globe.<br/>
+							Hello! My name is Vlad, I am 23 years old, and I absolutely love travelling!
+							Not having any travelling experience before, when I first started to travel 2 years ago 
+							I was trying to find out as much as I can about the chosen location. 
+							Whether touristic attractions, places to stay, where to eat, how much would it cost, where to go and where not to – these are questions we’re all asking ourselves when trying to plan our next trip. 
+							Having a hard time finding all the information I needed in a single place, I have decided it’s time to build a community where all your questions have an answer, 
+							based on user reviews from people who have been there themselves - be it Greece, Italy, or anywhere else on the globe.<br/>
 						<a href="/sites/worldtour/stories.php">Share your traveling stories</a> with us and help improve the experience of our users worldwide! Knowledge is power. 
 					</article>
 					<h1 id="recommendations">Recommendations</h1>
@@ -94,7 +94,7 @@
 				</div>
 				<div id="featured_location">
 					<h1>Featured location</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea sequi, magnam ipsa deleniti illo totam eum tempore, veniam suscipit! Eligendi, perspiciatis accusamus quisquam harum nesciunt dolor cumque, minima est ex. <a href="recom.php">(Read more...)</a></p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea sequi, magnam ipsa deleniti illo totam eum tempore, veniam suscipit! Eligendi, perspiciatis accusamus quisquam harum nesciunt dolor cumque, minima est ex. <a href="recom.php">[Read more...]</a></p>
 				</div>
 				<div class="social">
 					<a href="https://www.facebook.com/vlad.pandichi"><img src="/sites/worldtour/public/img/facebook.png" alt="facebook"></a>
