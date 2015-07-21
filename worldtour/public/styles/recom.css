@@ -66,21 +66,47 @@ nav ul li a:hover {
 #page_content {
 	width:80%;
 	margin: auto;
-	padding-top: 15%;
+	padding-top: 7%;
 }
 
-#page_content p {
+#page_content p, article {
 	letter-spacing: 1px;
 	line-height: 21px;
 	font-size: 14px;
 }
 
-#contact {
+#etna, #iasi {float: left;padding-right: 10px; padding-bottom: -5px;}
+
+article {text-align: justify;color:#05356E;}
+
+.rmore, .vless {
+	color: #70be12;
+}
+
+.rmore:hover, .vless:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#hidden_article, #hidden_article1 {display: none;}
+
+.artline {
+	border-color: #70be12;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	opacity: 0.2;
+	margin-bottom: 2px;
+}
+
+
+/********************************* =BEGIN CONTACT & MISC STYLES *********************************/
+
+#contact, .content_headers {
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
 
-#contact, #page_content p {
+#contact, #page_content p, .content_headers {
 	color:#05356E;
 	text-align: center;
 }
