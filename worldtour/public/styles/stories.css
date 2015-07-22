@@ -74,26 +74,10 @@ nav ul li a:hover {
 	letter-spacing: 1px;
 	line-height: 21px;
 	font-size: 14px;
+	text-align: justify;
+	color:#05356E;
 }
 
-#etna, #iasi, #bran {
-	float: left;
-	padding-right: 10px; 
-	padding-bottom: -5px;
-}
-
-article {text-align: justify;color:#05356E;}
-
-.rmore, .vless {
-	color: #70be12;
-}
-
-.rmore:hover, .vless:hover {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-#hidden_article, #hidden_article1, #hidden_article2 {display: none;}
 
 .artline {
 	border-color: #70be12;
@@ -103,20 +87,19 @@ article {text-align: justify;color:#05356E;}
 	margin-bottom: 2px;
 }
 
+/********************************* =BEGIN MISC STYLES *********************************/
 
-/********************************* =BEGIN CONTACT & MISC STYLES *********************************/
-
-#contact, .content_headers {
+.content_headers {
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
 
-#contact, #page_content p, .content_headers {
+#page_content p, .content_headers {
 	color:#05356E;
 	text-align: center;
 }
 
-/********************************* =BEGIN FORM STYLE *********************************/
+/********************************* =BEGIN FORM STYLES *********************************/
 
 #name, #email {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
@@ -151,7 +134,7 @@ article {text-align: justify;color:#05356E;}
 	padding:10px;
 	position: absolute;
 	margin-top: 20px;
-	margin-left: 120px;
+	margin-left: 145px;
 	background: url(/sites/worldtour/public/img/above-content.png) no-repeat;
 	color: #d2e3ff;
 	font-size: 14px;

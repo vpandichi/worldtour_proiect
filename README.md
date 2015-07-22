@@ -11,6 +11,7 @@
 10. Created provisory footer content
 11. Amended footer style and content. Created design of recommendations page, added provisory content.
 12. 90% of recommendations page completed, created design and added content. Added read more / view less buttons.
+13. Finished recommendations page, created content for stories page, amended footer area for all pages.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -40,6 +41,12 @@ TO DO FOR TOMORROW 20/07: - finish the footer area - ok
 TO DO FOR TOMORROW 21/07: - finish the recommendations page - 90%
                           - design the stories page, content and style - x
 
-TO DO FOR TOMORROW 22/07: - finish the recommendations page 
-                          - design the stories page, content and style
+TO DO FOR TOMORROW 22/07: - finish the recommendations page - ok
+                          - design the stories page, content and style - content only
+
+TO DO FOR TOMORROW 23/07: - finish the design of the stories page
+                          - create the log in page
+                          - create the ro version of the website
+                          
+                    
                           

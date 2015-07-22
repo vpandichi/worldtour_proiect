@@ -59,7 +59,7 @@
 					<form action="submit.php" id="contact_form">
 							<input type="text" name="name" placeholder="name... *" id="name" maxlength="30">
 							<input type="text" name="email" placeholder="email... *" id="email" maxlength="30">
-							<textarea name="comments" placeholder="Your message... *" id="textarea" maxlength="3220"></textarea><br/>
+							<textarea name="comments" placeholder="your message... *" id="textarea" maxlength="3220"></textarea><br/>
 							<input type="submit" class="button" value="Send!" id="submit">
 							<input type="reset" class="button" value="Clear form" id="clear">
 					</form>
@@ -83,7 +83,7 @@
 				<div id="recent_stories">
 					<h1>Recent stories</h1>
 					<ul>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
+						<li><a href="/sites/worldtour/public/stories.php">We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets.</a></li>
 						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
 						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
 						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>

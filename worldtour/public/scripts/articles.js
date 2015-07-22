@@ -28,6 +28,21 @@ rmore1.onclick = function() {
 	rmore1.style.display = "none";
 }
 
+var target2 = document.getElementById('article2');
+var hidden_article2 = document.getElementById('hidden_article2');
+var vless2 = hidden_article2.childNodes[7];
+var rmore2 = target2.childNodes[3];
+
+vless2.onclick = function() {
+	hidden_article2.style.display = "none";
+	rmore2.style.display = "inline";
+}
+
+rmore2.onclick = function() {
+	hidden_article2.style.display = "inline";
+	rmore2.style.display = "none";
+}
+
 
 
 
