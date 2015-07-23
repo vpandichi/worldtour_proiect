@@ -114,15 +114,7 @@
 			<footer id="footer">
 				<div id="recent_stories">
 					<h1>Recent stories</h1>
-					<ul>
-						<li><a href="/sites/worldtour/public/stories.php">We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets.</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-					</ul>
+					<p>We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. <a href="/sites/worldtour/public/stories.php">[Read more...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Featured location</h1>

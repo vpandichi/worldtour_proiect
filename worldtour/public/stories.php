@@ -20,6 +20,9 @@
 		<div id="page_wrapper">
 			<div id="page_content">
 				<h1 class="content_headers">Bella Taormina!</h1>
+				<span class="postedby" id="postedby">
+					Posted by <a href="">admin</a> on <span class="time">time</span>
+				</span>
 				<article>
 					We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. After a bit of research we learned that many important civilizations had left their mark upon this island, such as Greeks, Romans, Turks and Arabs - this being easily seen in the architecture of the buildings. <br><br> When we planned our stay, we tried to rent something as close as possible to Fontanarossa airport but the prices were too high for us, and we ended up choosing Taormina. It was there that we found an apartment, situated in Giardini-Naxos, an old Greek colony, under the foothills of Mount Tauro.
 					The plane tickets were about 200€ (two-ways) from airport Henri Coanda (Romania) to Fontanarossa and as for the rent this was very cheap, 125€ for a whole week. 
@@ -32,15 +35,14 @@
 					You can reach Isola Bella by taking the funivia and I will most surely recommend that you visit Etna through a tourism agency, having thus the advantage of a tour guide speaking about the history. It's worth every cent. 
 					I don't advise paying for staying on a private beach as you will find rocks in the water and the same conditions you could enjoy on any beach.
 					You shouldn't miss on going on a boat ride, it's about 20 euros, including refreshments, a stop to swim and a summary of the island's history. <br><br> All in all, it was a wonderful experience and I recommend this place to everybody. [...]
-					
 				</article>
 				<hr class="artline">
 				<div class="comments">
 					<div class="posted"></div>
 					<form action="comments.php" id="comments">
-						<input type="text" name="name" placeholder="name..." id="name" maxlength="30">
+						<input type="text" name="name" placeholder="name... *" id="name" maxlength="30">
 						<input type="text" name="email" placeholder="email..." id="email" maxlength="30">
-						<textarea name="text" placeholder="your comment..." id="textarea" maxlength="3220"></textarea><br/>
+						<textarea name="text" placeholder="your comment... *" id="textarea" maxlength="3220"></textarea><br/>
 						<input type="submit" class="button" value="comment" id="submit">
 						<input type="reset" class="button" value="clear all" id="clear">
 					</form>
