@@ -1,0 +1,16 @@
+287A49 - base color for a green color scheme
+A33542 - base color for a red-pink color scheme
+918300 - base color for a yellow color scheme
+245fa5 - base color for a blue color scheme
+
+http://paletton.com/#uid=12Y1u0klwliaWvSgkqwqQf+wraG - green
+http://paletton.com/#uid=11D1u0kw0ico7qusem7GudzQK8g - yellow
+http://paletton.com/#uid=11E1u0kullIgBBle8stRSd7VD3Q - better yellow
+http://paletton.com/#uid=13C1u0krfvDaETs9LI+Jcl5HPay - blue
+
+FFF27A - light yellow for lpage nav hover
+ccdff6 - light blue for scrollbar background
+A3C3EA - light blue - darker than above for scrollbar
+67b700 - lime green - darker for borders
+70be12 - lime green for hover effects on text
+031A37 - for active buttons on website - dark blue

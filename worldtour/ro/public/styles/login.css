@@ -1,0 +1,194 @@
+* {margin: 0;padding: 0;font-family: sans-serif;}
+
+/********************************* =BEGIN SCROLLBAR STYLES *********************************/
+
+::-webkit-scrollbar {
+	height:9px;
+	width:9px;
+	background: #ccdff6;
+}
+
+::-webkit-scrollbar-thumb {
+	/*chrome 10*/
+	background-image: -webkit-gradient(radial, center center, 0, center center, 500, color-stop(0, #A3C3EA), color-stop(1, #031A37));
+	/*chrome 11*/
+	background-image: -webkit-radial-gradient(center, circle cover, #A3C3EA 0% #031A37 100%);
+	-webkit-border-raduis: 1ex;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/********************************* =BEGIN NAV STYLES *********************************/
+
+nav {
+	width: 100%;
+	min-width: 30%;
+	position: fixed;
+	border-bottom: 2px solid #67b700;
+	padding: 32px;
+	background-color: #fff;
+	text-align: right;
+	z-index: 100;
+}
+
+#logo {
+	position: absolute;
+	margin-top: -4.6%;
+	margin-left: 5.1%;
+}
+
+nav ul {
+	margin-right: 4%;
+}
+
+nav ul li {
+	display: inline;
+	padding-left: 45px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #235fa5;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+nav ul li a:hover {
+	transition: all 0.4s;
+	border-top: 3.5px solid #70be12;
+	color: #70be12;
+}
+
+
+/********************************* =BEGIN FORM STYLES *********************************/
+.loreg {
+	margin-top: 15%;
+	text-align: center;
+	color:#05356E;
+}
+
+#login_box {float: left;width:50%;}
+
+#register_box {float: left;width:50%;}
+
+#email {margin-top: 20px;}
+
+#email, #password, #password2, #country, #squestion, #sanswer {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+
+#password, #email, #password2, #country, #squestion, #sanswer {border:none; padding:10px;color:#d2e3ff;}
+
+#password {margin-top: 5px;margin-bottom: 5px;}
+
+#password2, #squestion {margin-top: -1px;margin-bottom: 5px;}
+
+#email, #password, #password2, #country, #squestion, #sanswer {margin-left: 3.5%;}
+
+#login, #register  {
+	border: none;
+	float: left;
+	padding:10px;
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 24px;
+	background: url(/sites/worldtour/public/img/above-content.png) no-repeat;
+	color: #d2e3ff;
+	font-size: 14px;
+}
+
+#cancel, #clear {
+	border: none;
+	float: left;
+	padding:10px;
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 90px;
+	background: url(/sites/worldtour/public/img/above-content.png) no-repeat;
+	color: #d2e3ff;
+	font-size: 14px;
+}
+
+#login:hover, #cancel:hover, #register:hover, #clear:hover {
+	background: url(/sites/worldtour/public/img/green_button.png) no-repeat;
+	cursor: pointer;
+	color: #05356E;
+	font-weight: bold;
+}
+
+select option {
+    margin:40px;
+    background: #3a6597;
+}
+
+#country {width:93%;margin-bottom: 5px;}
+
+#register, #clear {margin-top: 5px;}
+
+#clear {margin-left: 122px;}
+
+/********************************* =BEGIN FOOTER *********************************/
+#footer_wrap {
+	position: absolute;
+	border-top: 2px solid #70be12;
+	background: url(/sites/worldtour/public/img/above-content.png) repeat;
+	margin-top: 33.5%;
+}
+
+#footer {
+	width: 80%;
+	margin:auto;
+}
+
+#recom {margin-left: 0px;margin-right: -55px;}
+
+#recom, #featured_location, #recent_stories {
+	width:30%;
+	float: left;
+	padding-left: 45px;
+	padding-top: 10px;
+	margin-top: 10px;
+	color: #b5c8df;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+#footer h1 {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+#footer p {color:#b5c8df;}
+
+#footer ul li {
+	list-style-type: none;
+	text-align: center;
+}
+
+#footer a {
+	text-decoration: none; 
+	color: #70be12;
+}
+
+#footer a:hover {text-decoration: underline;}
+
+.social {
+	text-align: center;
+	float: left;
+	width:100%;
+}
+
+.social img {
+	opacity: 0.5;
+	padding: 10px;
+	-moz-transform-style: preserve-3d; /*Mozilla*/
+	-webkit-transform-style: preserve-3d; /*Chrome, Safari, Opera*/
+	transform-style: preserve-3d; /* child elements will preserve its 3D position */
+	transition: all 0.7s ease;
+}
+
+.social img:hover {
+	-moz-transform: rotateY(360deg); /*Mozilla*/
+	-webkit-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+

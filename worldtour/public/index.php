@@ -19,7 +19,7 @@
 					<li><a href="stories.php">stories</a></li>
 					<li><a href="#contact">contact</a></li>
 					<li><a href="login.php">log in</a></li>
-					<li><a href="lang.php">ro</a></li>
+					<li><a href="/sites/worldtour/ro/public/index.php">ro</a></li>
 				</ul>
 				<div id="dynamic_logo"></div>
 			</nav>
@@ -30,7 +30,7 @@
 			<div id="page_content">
 				<!-- <script type="text/javascript">for (var i = 0; i < 50; i++) {document.write("dummy content" + ' ' + i + "<br/>")};</script> -->
 				<div id="about_content">
-					<h1 id="about">Who am I?</h1>
+					<h1 id="about">About me</h1>
 					<article>
 						<img src="/sites/worldtour/public/img/aboutme.jpg" alt="">
 							Hello! My name is Vlad, I am 23 years old, and I absolutely love travelling!

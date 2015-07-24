@@ -14,13 +14,13 @@
 				<li><a href="index.php#contact">contact</a></li>
 				<li><a href="login.php">log in</a></li>
 				<li><a href="index.php">back to main page</a></li>
-				<li><a href="lang.php">ro</a></li>
+				<li><a href="/sites/worldtour/ro/public/login.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
 		</nav>
 		<div id="login_box">
 			<h1 class="loreg">Log in</h1>
-			<form action="submit.php" id="contact_form">
+			<form action="submit.php" method="post" id="contact_form">
 				<input type="text" name="email" placeholder="email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="password... *" id="password" maxlength="30"><br>
 				<input type="submit" class="button" value="log in" id="login">
@@ -29,7 +29,7 @@
 		</div>
 		<div id="register_box">
 			<h1 class="loreg">Register</h1>
-			<form action="submit.php" id="contact_form">
+			<form action="register.php" method="get" id="contact_form">
 				<input type="text" name="email" placeholder="email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="password... *" id="password" maxlength="30"><br>
 				<input type="password" name="password2" placeholder="password check... *" id="password2" maxlength="30"><br>

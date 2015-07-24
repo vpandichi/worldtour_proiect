@@ -13,7 +13,7 @@
 				<li><a href="index.php#contact">contact</a></li>
 				<li><a href="login.php">log in</a></li>
 				<li><a href="index.php">back to main page</a></li>
-				<li><a href="lang.php">ro</a></li>
+				<li><a href="/sites/worldtour/ro/public/stories.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
 		</nav>
