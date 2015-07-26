@@ -10,7 +10,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="/sites/worldtour/ro/public/stories.php">articole</a></li>
-				<li><a href="#contact">contact</a></li>
+				<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 				<li><a href="login.php">logare</a></li>
 				<li><a href="/sites/worldtour/ro/public/index.php">pagina principala</a></li>
 				<li><a href="/sites/worldtour/public/recom.php">en</a></li>

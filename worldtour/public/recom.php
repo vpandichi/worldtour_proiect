@@ -10,7 +10,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="stories.php">stories</a></li>
-				<li><a href="#contact">contact</a></li>
+				<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 				<li><a href="login.php">log in</a></li>
 				<li><a href="index.php">back to main page</a></li>
 				<li><a href="/sites/worldtour/ro/public/recom.php">ro</a></li>
@@ -105,8 +105,8 @@
 					<input type="text" name="name" placeholder="name... *" id="name" maxlength="30">
 					<input type="text" name="email" placeholder="email... *" id="email" maxlength="30">
 					<textarea name="comments" placeholder="your message... *" id="textarea" maxlength="3220"></textarea><br/>
-					<input type="submit" class="button" value="Send!" id="submit">
-					<input type="reset" class="button" value="Clear form" id="clear">
+					<input type="submit" class="button" value="send!" id="submit">
+					<input type="reset" class="button" value="clear form" id="clear">
 				</form>
 			</div>
 		</div>

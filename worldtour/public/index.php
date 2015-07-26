@@ -14,10 +14,10 @@
 			</video>
 			<nav id="nav">
 				<ul>
-					<li><a href="#about">about</a></li>
-					<li><a href="#recommendations">recommendations</a></li>
+					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('about');">about</a></li>
+					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('recommendations');">recommendations</a></li>
 					<li><a href="stories.php">stories</a></li>
-					<li><a href="#contact">contact</a></li>
+					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 					<li><a href="login.php">log in</a></li>
 					<li><a href="/sites/worldtour/ro/public/index.php">ro</a></li>
 				</ul>
