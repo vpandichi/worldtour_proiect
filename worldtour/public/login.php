@@ -1,3 +1,23 @@
+<?php 
+	error_reporting(E_ALL & ~E_NOTICE); 
+	session_start();
+	
+	if($_POST['submit']) {
+		$dbUserName = "admin";
+		$dbPassword = "password";
+
+		$username = strip_tags($_POST['username']);
+		$username = strtolower($username);
+		$password = strip_tags($_POST['password']);
+
+		if ($username == $dbUserName && $password == $dbPassword) {
+			$_SESSION['username'] = $username;
+			header('Location: admin.php');
+		} else {
+			echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +30,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="recom.php">recommendations</a></li>
-				<li><a href="stories.php">stories</a></li>
+				<li><a href="blog.php">blog</a></li>
 				<li><a href="index.php#contact">contact</a></li>
 				<li><a href="login.php">log in</a></li>
 				<li><a href="index.php">back to main page</a></li>
@@ -20,16 +40,17 @@
 		</nav>
 		<div id="login_box">
 			<h1 class="loreg">Log in</h1>
-			<form action="submit.php" method="post" id="contact_form">
-				<input type="text" name="email" placeholder="email... *" id="email" maxlength="60"><br>
-				<input type="password" name="password" placeholder="password... *" id="password" maxlength="30"><br>
-				<input type="submit" class="button" value="log in" id="login">
-				<input type="reset" class="button" value="cancel" id="cancel">
-			</form>
+				<form action='login.php' method='post' id='contact_form'>
+					<input type='text' name='username' placeholder='username... *' id='email' maxlength='60'><br>
+					<input type='password' name='password' placeholder='password... *' id='password' maxlength='30'><br>
+					<input type='submit' name='submit' class='button' value='log in' id='login' >
+					<input type='reset' name='reset' class='button' value='cancel' id='cancel'>
+				</form>
 		</div>
 		<div id="register_box">
 			<h1 class="loreg">Register</h1>
 			<form action="register.php" method="get" id="contact_form">
+				<input type="text" name="username" placeholder="username... *" id="username" maxlength="60"><br>
 				<input type="text" name="email" placeholder="email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="password... *" id="password" maxlength="30"><br>
 				<input type="password" name="password2" placeholder="password check... *" id="password2" maxlength="30"><br>
@@ -307,7 +328,7 @@
 				</div>
 				<div id="recent_stories">
 					<h1>Recent stories</h1>
-					<p>We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. <a href="/sites/worldtour/public/stories.php">[Read more...]</a></p>
+					<p>We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. <a href="/sites/worldtour/public/blog.php">[Read more...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Featured location</h1>

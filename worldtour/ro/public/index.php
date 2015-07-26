@@ -16,7 +16,7 @@
 				<ul>
 					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('about');">despre mine</a></li>
 					<li><a href="/sites/worldtour/ro/public/recom.php">recomandari</a></li>
-					<li><a href="/sites/worldtour/ro/public/stories.php">articole</a></li>
+					<li><a href="/sites/worldtour/ro/public/blog.php">blog</a></li>
 					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 					<li><a href="/sites/worldtour/ro/public/login.php">logare</a></li>
 					<li><a href="/sites/worldtour/public/index.php">en</a></li>
@@ -39,7 +39,7 @@
 							Atractii turistice, unde sa te cazezi, unde sa mananci, cat te va costa, unde sa mergi si unde nu - intrebari pe care le avem cu totii in momentul in care ne planificam viitoarea calatorie. 
 							La prima vedere, aceste intrebari par simple si cu siguranta vei gasi un raspuns dupa cateva ore de cautare. Adeseori informatiile pe care le cauti nu se regasesc intr-un singur loc, acest lucru conducand la ore bune petrecute in fata calculatorului pentru ati aduna materialul necesar. Date fiind aceste lucruri, am decis ca este timpul sa creez un website, o comunitate unde toate intrebarile tale au un raspuns
 							bazat pe experientele reale ale oamenilor care au fost acolo; fie ca planuiesti o calatorie in Italia, Grecia, sau oriunde altundeva pe glob. <br/>
-						<a href="/sites/worldtour/ro/public/stories.php">Imparte cu noi</a> aventurile tale din calatorii si ajuta-ne sa imbunatatim experienta utilizatorilor nostri din intreaga lume !
+						<a href="/sites/worldtour/ro/public/blog.php">Imparte cu noi</a> aventurile tale din calatorii si ajuta-ne sa imbunatatim experienta utilizatorilor nostri din intreaga lume !
 					</article>
 					<h1 id="recommendations">Recomandari</h1>
 					<div id="box1">
@@ -82,7 +82,7 @@
 				</div>
 				<div id="recent_stories">
 					<h1>Articole recente</h1>
-					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/stories.php">[Mai mult...]</a></p>
+					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/blog.php">[Mai mult...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Locatia lunii</h1>

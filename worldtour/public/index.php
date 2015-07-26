@@ -16,7 +16,7 @@
 				<ul>
 					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('about');">about</a></li>
 					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('recommendations');">recommendations</a></li>
-					<li><a href="stories.php">stories</a></li>
+					<li><a href="blog.php">blog</a></li>
 					<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 					<li><a href="login.php">log in</a></li>
 					<li><a href="/sites/worldtour/ro/public/index.php">ro</a></li>
@@ -39,7 +39,7 @@
 							Whether touristic attractions, places to stay, where to eat, how much would it cost, where to go and where not to – these are questions we’re all asking ourselves when trying to plan our next trip. 
 							Having a hard time finding all the information I needed in a single place, I have decided it’s time to build a community where all your questions have an answer, 
 							based on user reviews from people who have been there themselves - be it Greece, Italy, or anywhere else on the globe.<br/>
-						<a href="/sites/worldtour/stories.php">Share your traveling stories</a> with us and help improve the experience of our users worldwide! Knowledge is power. 
+						<a href="/sites/worldtour/public/blog.php">Share your traveling stories</a> with us and help improve the experience of our users worldwide! Knowledge is power. 
 					</article>
 					<h1 id="recommendations">Recommendations</h1>
 					<div id="box1">
@@ -82,7 +82,7 @@
 				</div>
 				<div id="recent_stories">
 					<h1>Recent stories</h1>
-					<p>We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. <a href="/sites/worldtour/public/stories.php">[Read more...]</a></p>
+					<p>We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. <a href="/sites/worldtour/public/blog.php">[Read more...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Featured location</h1>

@@ -18,7 +18,6 @@
 }
 
 /********************************* =BEGIN NAV STYLES *********************************/
-
 nav {
 	width: 100%;
 	min-width: 30%;
@@ -58,79 +57,120 @@ nav ul li a:hover {
 	color: #70be12;
 }
 
+/********************************* =BEGIN PAGE CONTENT *********************************/
 
-/********************************* =BEGIN FORM STYLES *********************************/
-.loreg {
-	margin-top: 15%;
-	margin-bottom: 10px;
-	text-align: center;
+#page_wraper {
+	width:100%;
+}
+
+#page_content {
+	width:80%;
+	margin: auto;
+	padding-top: 7%;
+}
+
+#page_content p, article {
+	letter-spacing: 1px;
+	line-height: 21px;
+	font-size: 14px;
+	text-align: justify;
 	color:#05356E;
 }
 
-#login_box {float: left;width:50%;}
+.artline {
+	border-color: #70be12;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	opacity: 0.2;
+	margin-bottom: 2px;
+}
 
-#register_box {float: left;width:50%;}
+/********************************* =BEGIN MISC STYLES *********************************/
+.content_headers {
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
 
-#username {margin-bottom: 5px;}
+#page_content p, .content_headers {
+	color:#05356E;
+	text-align: center;
+}
 
-#email, #password, #password2, #country, #squestion, #sanswer, #username {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+.postedby {
+	font-size: 13px;
+	color: #235fa5;
+	opacity: 0.7;
+}
 
-#password, #email, #password2, #country, #squestion, #sanswer, #username {border:none; padding:10px;color:#d2e3ff;}
+.postedby a {
+	color: #70be12;
+	font-style: italic;
+	text-decoration: none;
+}
 
-#password {margin-top: 5px;margin-bottom: 5px;}
+.postedby a:hover {
+	color: #235fa5;
+	text-decoration: underline;
+}
 
-#password2, #squestion {margin-top: -1px;margin-bottom: 5px;}
+.time {font-style: italic;}
 
-#email, #password, #password2, #country, #squestion, #sanswer, #username {margin-left: 3.5%;}
+span #postedby {margin-bottom: 50%;}
 
-#login, #register  {
+/********************************* =BEGIN FORM STYLES *********************************/
+#name, #email {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+
+#name, #email, #textarea {border:none; padding:10px;color:#d2e3ff;margin-top: 25px;}
+
+#name {margin-left: 3.5%;}
+
+#textarea {
+	resize: none;
+	width:92.3%;
+	background:url(/sites/worldtour/public/img/above-content.png) repeat;
+	margin-left: 3.5%;
+	height:200px;
+	font-size: 14px;
+}
+
+#submit {
 	border: none;
 	float: left;
 	padding:10px;
 	position: absolute;
-	margin-top: 0px;
-	margin-left: 24px;
+	margin-top: 20px;
+	margin-left: 38px;
 	background: url(/sites/worldtour/public/img/above-content.png) no-repeat;
 	color: #d2e3ff;
 	font-size: 14px;
 }
 
-#cancel, #clear {
+#clear {
 	border: none;
 	float: left;
 	padding:10px;
 	position: absolute;
-	margin-top: 0px;
-	margin-left: 90px;
+	margin-top: 20px;
+	margin-left: 145px;
 	background: url(/sites/worldtour/public/img/above-content.png) no-repeat;
 	color: #d2e3ff;
 	font-size: 14px;
 }
 
-#login:hover, #cancel:hover, #register:hover, #clear:hover {
+#submit:hover, #clear:hover {
 	background: url(/sites/worldtour/public/img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
 	font-weight: bold;
 }
 
-select option {
-    margin:40px;
-    background: #3a6597;
-}
+/********************************* =BEGIN FOOTER STYLE *********************************/
 
-#country {width:93%;margin-bottom: 5px;}
-
-#register, #clear {margin-top: 5px;}
-
-#clear {margin-left: 122px;}
-
-/********************************* =BEGIN FOOTER *********************************/
 #footer_wrap {
-	position: absolute;
 	border-top: 2px solid #70be12;
+	margin-top: 7%;
 	background: url(/sites/worldtour/public/img/above-content.png) repeat;
-	margin-top: 35.5%;
+	height: 270px;
 }
 
 #footer {
@@ -142,6 +182,12 @@ select option {
 	text-align: center;
 	font-size: 18px;
 	margin-bottom: 10px;
+	color: #b5c8df;
+}
+
+#footer p {
+	text-align: center;
+	color:#b6c9df;
 }
 
 #footer a {
@@ -151,31 +197,23 @@ select option {
 
 #footer a:hover {text-decoration: underline;}
 
-#footer p {color:#b5c8df;}
+#recent_stories {margin-left: 4.5%;}
 
-#footer ul li {
-	list-style-type: none;
-	text-align: center;
-}
-
-#recom {margin-left: 0px;margin-right: -55px;}
-
-#recom, #featured_location, #recent_stories {
+#featured_location, #recent_stories {
 	width:30%;
 	float: left;
-	padding-left: 45px;
-	padding-top: 10px;
+	padding: 10px;
 	margin-top: 10px;
-	color: #b5c8df;
 	font-size: 14px;
 	letter-spacing: 1px;
-	text-align: center;
+	line-height: 18px;
 }
 
 .social {
 	text-align: center;
 	float: left;
-	width:100%;
+	margin-top: 20px;
+	margin-left: 2%;
 }
 
 .social img {
@@ -192,4 +230,3 @@ select option {
 	-webkit-transform: rotateY(360deg);
 	transform: rotateY(360deg);
 }
-

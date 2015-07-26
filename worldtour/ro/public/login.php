@@ -10,7 +10,7 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="/sites/worldtour/ro/public/recom.php">recomandari</a></li>
-				<li><a href="/sites/worldtour/ro/public/stories.php">articole</a></li>
+				<li><a href="/sites/worldtour/ro/public/blog.php">blog</a></li>
 				<li><a href="/sites/worldtour/ro/public/index.php#contact">contact</a></li>
 				<li><a href="/sites/worldtour/ro/public/login.php">logare</a></li>
 				<li><a href="/sites/worldtour/ro/public/index.php">pagina principala</a></li>
@@ -30,6 +30,7 @@
 		<div id="register_box">
 			<h1 class="loreg">Inregistrare</h1>
 			<form action="register.php" method="get" id="contact_form">
+				<input type="text" name="nume utilizator" placeholder="nume utilizator... *" id="username" maxlength="60"><br>
 				<input type="text" name="email" placeholder="adresa email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="parola... *" id="password" maxlength="30"><br>
 				<input type="password" name="password2" placeholder="verificare parola... *" id="password2" maxlength="30"><br>
@@ -307,7 +308,7 @@
 				</div>
 				<div id="recent_stories">
 					<h1>Articole recente</h1>
-					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/stories.php">[Citeste mai mult...]</a></p>
+					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/blog.php">[Citeste mai mult...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Locatia lunii</h1>

@@ -61,6 +61,7 @@ nav ul li a:hover {
 
 /********************************* =BEGIN FORM STYLES *********************************/
 .loreg {
+	margin-bottom: 10px;
 	margin-top: 15%;
 	text-align: center;
 	color:#05356E;
@@ -70,17 +71,17 @@ nav ul li a:hover {
 
 #register_box {float: left;width:50%;}
 
-#email {margin-top: 20px;}
+#username {margin-bottom: 5px;}
 
-#email, #password, #password2, #country, #squestion, #sanswer {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+#email, #password, #password2, #country, #squestion, #sanswer, #username {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
-#password, #email, #password2, #country, #squestion, #sanswer {border:none; padding:10px;color:#d2e3ff;}
+#password, #email, #password2, #country, #squestion, #sanswer, #username {border:none; padding:10px;color:#d2e3ff;}
 
 #password {margin-top: 5px;margin-bottom: 5px;}
 
 #password2, #squestion {margin-top: -1px;margin-bottom: 5px;}
 
-#email, #password, #password2, #country, #squestion, #sanswer {margin-left: 3.5%;}
+#email, #password, #password2, #country, #squestion, #sanswer, #username {margin-left: 3.5%;}
 
 #login, #register  {
 	border: none;
@@ -129,7 +130,7 @@ select option {
 	position: absolute;
 	border-top: 2px solid #70be12;
 	background: url(/sites/worldtour/public/img/above-content.png) repeat;
-	margin-top: 33.5%;
+	margin-top: 35.5%;
 }
 
 #footer {
@@ -192,3 +193,14 @@ select option {
 	transform: rotateY(360deg);
 }
 
+/********************************* =BEGIN PHP STYLES *********************************/
+
+.denied {
+	color: #f00;
+	font-size: 14px;
+	letter-spacing: 1px;
+	opacity: 0.5;
+	position: absolute;
+	margin-top: 17.8%;
+	margin-left: 15%;
+}

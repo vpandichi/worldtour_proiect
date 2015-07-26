@@ -9,7 +9,7 @@
 	<div id="body_wrap">
 		<nav id="nav">
 			<ul>
-				<li><a href="/sites/worldtour/ro/public/stories.php">articole</a></li>
+				<li><a href="/sites/worldtour/ro/public/blog.php">blog</a></li>
 				<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 				<li><a href="login.php">logare</a></li>
 				<li><a href="/sites/worldtour/ro/public/index.php">pagina principala</a></li>
@@ -115,7 +115,7 @@
 			<footer id="footer">
 				<div id="recent_stories">
 					<h1>Articole recente</h1>
-					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/stories.php">[Citeste mai mult...]</a></p>
+					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/blog.php">[Citeste mai mult...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Locatia lunii</h1>
