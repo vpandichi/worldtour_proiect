@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>worldtour | login</title>
+	<title>worldtour | logare</title>
 	<link rel="stylesheet" href="/sites/worldtour/ro/public/styles/login.css">
 </head>
 <body>
@@ -311,7 +311,7 @@
 				</div>
 				<div id="featured_location">
 					<h1>Locatia lunii</h1>
-					<p>Ce au in comun Goethe, Alexander Dumas, Johannes Brahms, Gustav Klimt, D.H. Lawrence, Richard Wagner, Oscar Wilde, Truman Capote, John Steinbeck, Ingmar Bergmann, Francis Ford Coppola, Leonard Bergman, Marlene Dietrich, Greta Garbo, Federico Fellini, Cary Grant, Gregory Peck, Elisabeth Taylor and Woody Allen?<a href="recom.php">[Citeste mai mult...]</a></p>
+					<p>Ce au in comun Goethe, Alexander Dumas, Johannes Brahms, Gustav Klimt, D.H. Lawrence, Richard Wagner, Oscar Wilde, Truman Capote, John Steinbeck, Ingmar Bergmann, Francis Ford Coppola, Leonard Bergman, Marlene Dietrich, Greta Garbo, Federico Fellini, Cary Grant, Gregory Peck, Elisabeth Taylor si Woody Allen? <a href="recom.php">[Citeste mai mult...]</a></p>
 				</div>
 				<div class="social">
 					<a href="https://www.facebook.com/vlad.pandichi"><img src="/sites/worldtour/ro/public/img/facebook.png" alt="facebook"></a>

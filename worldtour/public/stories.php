@@ -19,6 +19,7 @@
 		</nav>
 		<div id="page_wrapper">
 			<div id="page_content">
+				<div id="google_translate_element"></div>
 				<h1 class="content_headers">Bella Taormina!</h1>
 				<span class="postedby" id="postedby">
 					Posted by <a href="">admin</a> on <span class="time">time</span>
@@ -53,15 +54,7 @@
 			<footer id="footer">
 				<div id="recent_stories">
 					<h1>Recent stories</h1>
-					<ul>
-						<li><a href="/sites/worldtour/public/stories.php">We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets.</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-						<li><a href="/sites/worldtour/public/stories.php">Recent stories</a></li>
-					</ul>
+					<p>We decided to visit Italy in September and because the best place to describe the culture of this country is Sicily, we started to look for a place to stay and for plane tickets. <a href="/sites/worldtour/public/stories.php">[Read more...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Featured location</h1>
@@ -77,5 +70,11 @@
 			</footer>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+  			new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'af,ar,az,be,bg,bn,bs,ca,ceb,cs,cy,da,de,el,en,eo,es,et,eu,fa,fi,fr,ga,gl,gu,ha,hi,hmn,hr,ht,hu,hy,id,ig,is,it,iw,ja,jv,ka,kk,km,kn,ko,la,lo,lt,lv,mg,mi,mk,ml,mn,mr,ms,mt,my,nl,no,ny,pa,pl,pt,ru,si,sk,sl,so,sq,sr,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,vi,yi,yo,zh-CN,zh-TW,zu', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

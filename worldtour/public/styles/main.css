@@ -278,17 +278,17 @@ span#last {margin-left: 243px;}
 
 #footer p {color:#b5c8df;}
 
-#footer ul li {
-	list-style-type: none;
-	text-align: center;
-}
-
 #footer a {
 	text-decoration: none; 
 	color: #70be12;
 }
 
 #footer a:hover {text-decoration: underline;}
+
+#footer ul li {
+	list-style-type: none;
+	text-align: center;
+}
 
 .social {text-align: center;}
 

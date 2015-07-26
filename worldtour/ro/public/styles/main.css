@@ -121,9 +121,7 @@ nav {
 	font-weight: bolder;
 }
 
-#about_content article a:hover {
-	text-decoration: underline;
-}
+#about_content article a:hover {text-decoration: underline;}
 
 #about_content img {
 	border-radius: 50px;

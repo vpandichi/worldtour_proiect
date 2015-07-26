@@ -49,7 +49,7 @@
 				</article>
 				<hr class="artline">
 				<h1 class="content_headers">Iasi, Romania</h1>
-				<article  id="article1">
+				<article id="article1">
 					<img src="/sites/worldtour/public/img/iasi.jpg" alt="Iasi" id="iasi"> 
 					Iasi is the most important political, economic and cultural centre of the province of Moldavia as well as one of the oldest cities in Romania. Located in the northeastern part of the country, Iasi was for many centuries the crossing point of the most important commercial routes linking Poland, Hungary, Russia and Constantinople. <span class="rmore">[Read more...]</span><br/><br/>
 					<div class="article_more1">

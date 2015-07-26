@@ -58,6 +58,23 @@ nav ul li a:hover {
 	color: #70be12;
 }
 
+/********************************* =BEGIN TRANSLATION STYLES *********************************/
+
+.goog-te-gadget-simple img {display: none;}
+
+div#google_translate_element {margin-top: 1%;}
+
+div#google_translate_element span {
+	background-color: #2b578c;
+	padding: 2px;
+}
+
+div#google_translate_element span a {
+	font-style: sans-serif; 
+	font-size: 14px;
+	color: #b5c8df;
+}
+
 /********************************* =BEGIN PAGE CONTENT *********************************/
 
 #page_wraper {
@@ -77,7 +94,6 @@ nav ul li a:hover {
 	text-align: justify;
 	color:#05356E;
 }
-
 
 .artline {
 	border-color: #70be12;
@@ -121,6 +137,7 @@ nav ul li a:hover {
 span #postedby {
 	margin-bottom: 50%;
 }
+
 /********************************* =BEGIN FORM STYLES *********************************/
 
 #name, #email {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
@@ -193,11 +210,6 @@ span #postedby {
 #footer p {
 	text-align: center;
 	color:#b6c9df;
-}
-
-#footer ul li {
-	list-style-type: none;
-	text-align: center;
 }
 
 #footer a {

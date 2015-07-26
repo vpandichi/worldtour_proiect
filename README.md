@@ -14,6 +14,7 @@
 13. Finished recommendations page, created content for stories page, amended footer area for all pages.
 14. Worked on the stories page's design, 60% done, (focused on login page)  - created login page, design and content.
 15. Created the ro version of the website - 90% done.
+16. Finished the ro version of the website, added translation for every language on the stories/articles page, improved css code.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -55,10 +56,13 @@ TO DO FOR TOMORROW 24/07: - finish the design of the stories page - x
                           - create the ro version of the website - 90% done
                           - work on scroll javascript effects - x
 
-TO DO FOR TOMORROW 25/07: - finish the design of the stories page
-                          - finish the ro version of the website
-                          - work on javascript scroll effects
-                          - improve code
+TO DO FOR TOMORROW 25/07: - finish the design of the stories page - x (we'll leave it for later)
+                          - finish the ro version of the website - ok
+                          - work on javascript scroll effects - x 
+                          - improve code - ok
+                          
+TO DO FOR TOMORROW 26/07: - work on javascript scroll effects
+                          - create database
                           
                     
                           

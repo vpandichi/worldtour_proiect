@@ -137,6 +137,26 @@ select option {
 	margin:auto;
 }
 
+#footer h1 {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+#footer a {
+	text-decoration: none; 
+	color: #70be12;
+}
+
+#footer a:hover {text-decoration: underline;}
+
+#footer p {color:#b5c8df;}
+
+#footer ul li {
+	list-style-type: none;
+	text-align: center;
+}
+
 #recom {margin-left: 0px;margin-right: -55px;}
 
 #recom, #featured_location, #recent_stories {
@@ -150,26 +170,6 @@ select option {
 	letter-spacing: 1px;
 	text-align: center;
 }
-
-#footer h1 {
-	text-align: center;
-	font-size: 18px;
-	margin-bottom: 10px;
-}
-
-#footer p {color:#b5c8df;}
-
-#footer ul li {
-	list-style-type: none;
-	text-align: center;
-}
-
-#footer a {
-	text-decoration: none; 
-	color: #70be12;
-}
-
-#footer a:hover {text-decoration: underline;}
 
 .social {
 	text-align: center;

@@ -1,6 +1,6 @@
 var target = document.getElementById('article');
 var hidden_article = document.getElementById('hidden_article');
-var vless = hidden_article.childNodes[10];
+var vless = hidden_article.childNodes[1];
 var rmore = target.childNodes[3];
 
 vless.onclick = function() {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>worldtour | stories</title>
+	<title>worldtour | articole</title>
 	<link rel="stylesheet" href="/sites/worldtour/ro/public/styles/stories.css">
 </head>
 <body>
@@ -53,15 +53,7 @@
 			<footer id="footer">
 				<div id="recent_stories">
 					<h1>Articole recente</h1>
-					<ul>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion.</a></li>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Articole recente</a></li>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Articole recente</a></li>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Articole recente</a></li>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Articole recente</a></li>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Articole recente</a></li>
-						<li><a href="/sites/worldtour/ro/public/stories.php">Articole recente</a></li>
-					</ul>
+					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/stories.php">[Citeste mai mult...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Locatia lunii</h1>

@@ -15,7 +15,7 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="#about">despre mine</a></li>
-					<li><a href="#recommendations">recomandari</a></li>
+					<li><a href="/sites/worldtour/ro/public/recom.php">recomandari</a></li>
 					<li><a href="/sites/worldtour/ro/public/stories.php">articole</a></li>
 					<li><a href="#contact">contact</a></li>
 					<li><a href="/sites/worldtour/ro/public/login.php">logare</a></li>
