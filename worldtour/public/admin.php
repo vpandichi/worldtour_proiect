@@ -39,6 +39,7 @@
 		<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
 		<div id="crcontent">
 			<h1 class="headers">Welcome, <?php echo $username; ?>!</h1>
+			<h3 class="subheaders">Post Article</h1>
 			<form action="admin.php" method="post">
 				<input type="text" name="title" id="title" placeholder="title... *"><br>
 				<textarea name="content" id="content" cols="30" rows="10" placeholder="content... *"></textarea><br>

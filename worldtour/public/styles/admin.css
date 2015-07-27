@@ -10,6 +10,13 @@
 	font-size: 14px;
 }
 
+.subheaders {
+	color: #05356E;
+	text-align: left;
+	margin-left: 18.2%;
+	margin-bottom: -18px;
+}
+
 /********************************* =BEGIN SCROLLBAR STYLES *********************************/
 
 ::-webkit-scrollbar {

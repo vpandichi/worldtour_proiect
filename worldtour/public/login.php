@@ -1,23 +1,63 @@
 <?php 
-	error_reporting(E_ALL & ~E_NOTICE); 
+	error_reporting(E_ALL & ~E_NOTICE);
+	include_once("db_connection.php"); // ne conectam la baza de date
 	session_start();
 	
 	if($_POST['submit']) {
 		$dbUserName = "admin";
-		$dbPassword = "password";
+		$dbPassword = "passw0rd";
 
 		$username = strip_tags($_POST['username']);
 		$username = strtolower($username);
 		$password = strip_tags($_POST['password']);
 
-		if ($username == $dbUserName && $password == $dbPassword) {
+		if ($username === $dbUserName && $password === $dbPassword) {
 			$_SESSION['username'] = $username;
 			header('Location: admin.php');
 		} else {
 			echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
 		}
+	} // contul de administrator
+
+	if($_POST['register']) { // daca butonul de register este apasat -->
+		if($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['country'] && $_POST['squestion'] && $_POST['sanswer']) {
+			$username = mysqli_real_escape_string($dbCon, $_POST['username']); //folosim real escape string pentru a elimina vulnerabilitatea la caractere speciale (ex /)
+			$email = mysqli_real_escape_string($dbCon, $_POST['email']);
+			$salt = hash('sha512', rand() . rand() . rand()); // adaugam 'sare' criptarii
+			$password = mysqli_real_escape_string($dbCon, $_POST['password'].$salt); // adaugam criptarea la parola introdusa de user
+			$password = sha1($password); // criptam parola obtinuta cu SHA1 dupa ce am adaugat sare
+			$country = $_POST['country']; // nu e nevoie de real escape string deoarece userul are o lista predefinita de optiuni
+			$password2 = mysqli_real_escape_string($dbCon, $_POST['password2']);
+			$squestion = mysqli_real_escape_string($dbCon, $_POST['squestion']);
+			$sanswer = mysqli_real_escape_string($dbCon, $_POST['sanswer']);
+			$sqlcheck = "SELECT * FROM users WHERE username = '$username'"; // dorim sa verificam daca userul exista in baza noastra de date pentru a evita duplicatele
+			$sqlinsert = "INSERT INTO users (username, email, password, country, squestion, sanswer, salt) 
+			              VALUES ('$username', '$email', '$password', '$country', '$squestion', '$sanswer', '$salt')"; // adaugam userul in baza de date
+			$query = mysqli_query($dbCon, $sqlcheck); // stocam interogarea intr-o variabila pentru a o putea folosi in mysqli_fetch_array deoarece aceasta metoda accepta doar 1 singur parametru
+			$check = mysqli_fetch_array($query);
+
+			if ($check != 0) {
+				die("Username already exists! Try $username" . rand(0, 99) . "instead");
+			} // daca userul exista, nu il vom crea.
+
+			if (!ctype_alnum($username)) {
+				die("Username contains special characters... Nice try.");
+			} // daca numele de utilizator contine simboluri sau caractere interzise nu-i vom permite inregistrarea in baza de date din motive de securitate
+
+			if(strlen($username) > 20) {
+				die("username must be less than 20 characters!");
+			} // daca numele de utilizator are mai mult de 20 de caracter vom refuza inregistrarea in baza de date din motive de securitate si pentru a evita spam-ul
+
+			mysqli_query($dbCon, $sqlinsert); // adaugam userul in baza de date daca a trecut de verificarile anterioare
+
+			setcookie("c_user", hash('sha512', $username), time() + 24 * 60 * 60 , "/");
+			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
+
+			die("Your account has been created");
+		}
 	}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +89,7 @@
 		</div>
 		<div id="register_box">
 			<h1 class="loreg">Register</h1>
-			<form action="register.php" method="get" id="contact_form">
+			<form action="" method="post" id="contact_form">
 				<input type="text" name="username" placeholder="username... *" id="username" maxlength="60"><br>
 				<input type="text" name="email" placeholder="email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="password... *" id="password" maxlength="30"><br>
@@ -306,9 +346,9 @@
 					<option value="ZM">Zambia</option>
 					<option value="ZW">Zimbabwe</option>
 				</select>
-				<input type="text" id="squestion" placeholder="secret question... *">
-				<input type="text" id="sanswer" placeholder="secret answer... *"><br>
-				<input type="submit" class="button" value="register" id="register">
+				<input type="text" name="squestion" id="squestion" placeholder="secret question... *">
+				<input type="text" name="sanswer" id="sanswer" placeholder="secret answer... *"><br>
+				<input type="submit" name="register" class="button" value="register" id="register">
 				<input type="reset" class="button" value="clear all" id="clear">
 			</form>
 		</div>
