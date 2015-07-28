@@ -3,33 +3,17 @@
 	include_once("db_connection.php"); // ne conectam la baza de date
 	session_start();
 	
-	if($_POST['submit']) {
-		$dbUserName = "admin";
-		$dbPassword = "passw0rd";
-
-		$username = strip_tags($_POST['username']);
-		$username = strtolower($username);
-		$password = strip_tags($_POST['password']);
-
-		if ($username === $dbUserName && $password === $dbPassword) {
-			$_SESSION['username'] = $username;
-			header('Location: admin.php');
-		} else {
-			echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
-		}
-	} // contul de administrator
-
 	if($_POST['register']) { // daca butonul de register este apasat -->
 		if($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['country'] && $_POST['squestion'] && $_POST['sanswer']) {
 			$username = mysqli_real_escape_string($dbCon, $_POST['username']); //folosim real escape string pentru a elimina vulnerabilitatea la caractere speciale (ex /)
 			$email = mysqli_real_escape_string($dbCon, $_POST['email']);
-			$salt = hash('sha512', rand() . rand() . rand()); // adaugam 'sare' criptarii
-			$password = mysqli_real_escape_string($dbCon, $_POST['password'].$salt); // adaugam criptarea la parola introdusa de user
+			$password = mysqli_real_escape_string($dbCon, hash('sha512', $_POST['password'])); // adaugam criptarea la parola introdusa de user
 			$password = sha1($password); // criptam parola obtinuta cu SHA1 dupa ce am adaugat sare
 			$country = $_POST['country']; // nu e nevoie de real escape string deoarece userul are o lista predefinita de optiuni
 			$password2 = mysqli_real_escape_string($dbCon, $_POST['password2']);
 			$squestion = mysqli_real_escape_string($dbCon, $_POST['squestion']);
 			$sanswer = mysqli_real_escape_string($dbCon, $_POST['sanswer']);
+			$salt = hash('sha512', rand() . rand() . rand()); 
 			$sqlcheck = "SELECT * FROM users WHERE username = '$username'"; // dorim sa verificam daca userul exista in baza noastra de date pentru a evita duplicatele
 			$sqlinsert = "INSERT INTO users (username, email, password, country, squestion, sanswer, salt) 
 			              VALUES ('$username', '$email', '$password', '$country', '$squestion', '$sanswer', '$salt')"; // adaugam userul in baza de date
@@ -37,7 +21,7 @@
 			$check = mysqli_fetch_array($query);
 
 			if ($check != 0) {
-				die("Username already exists! Try $username" . rand(0, 99) . "instead");
+				die("Username already exists! Try $username" . rand(0, 99) . " instead");
 			} // daca userul exista, nu il vom crea.
 
 			if (!ctype_alnum($username)) {
@@ -56,6 +40,88 @@
 			die("Your account has been created");
 		}
 	}
+
+	// begin login script
+
+	if($_POST['submit']) {
+		if($_POST['username'] && $_POST['password']) {
+			
+			$username = mysqli_real_escape_string($dbCon, $_POST['username']);
+			$password = mysqli_real_escape_string($dbCon, hash('sha512', $_POST['password']));
+			$sqluser = "SELECT * FROM users WHERE username = '$username'";
+			$query = mysqli_query($dbCon, $sqluser);
+			$user = mysqli_fetch_array($query);
+
+			if($user == 0) {
+				die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>[nu exista userul]");
+			}
+
+			if($user['password'] != $password) {
+				die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>[pswd]");
+			}
+
+			$salt = hash('sha512', rand() . rand() . rand());
+			setcookie("c_user", hash('sha512', $username), time() + 24 * 60 * 60 , "/");
+			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
+
+			$userID = $user['id'];
+			$sqluid = "UPDATE users SET salt='$salt' WHERE id='$userID'";
+			mysqli_query($dbCon, $sqluid); // schimba'sarea' dupa ce userul se logheaza
+
+			header('Location: admin.php');
+		}
+	}
+
+	// if ($logged == true) {
+	// 	die("<h1 class='denied'>You are already logged");
+	// }
+
+	// if($_POST['submit']) {
+	// 	$username = $_POST['username'];
+	// 	$password = $_POST['password'];
+
+	// 	if($username && $password) {
+	// 		$sqluser = "SELECT * FROM users WHERE username='$username'";
+	// 		$query = mysqli_query($dbCon, $sqluser);
+	// 		$numrows = mysqli_num_rows($query);
+
+	// 		if($numrows != 0) {
+	// 			while ($row = mysqli_fetch_assoc($query)) {
+	// 				$dbuser = $row['username'];
+	// 				$dbpass = $row['password'];
+	// 			}
+
+	// 			if ($username == $dbuser && $password == $dbpass) {
+	// 				header('Location: admin.php');
+	// 			} else {
+	// 				die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>");
+	// 			}
+	// 		} else {
+	// 			die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>");
+	// 		}
+	// 	} else {
+	// 		echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
+	// 	}
+	// } ---- this cannot read hashed passwords therefore cannot log in without hashing the password first ----
+	
+
+	// contul de administrator
+
+	// if($_POST['submit']) {
+	// 	$dbUserName = "admin";
+	// 	$dbPassword = "passw0rd";
+
+	// 	$username = strip_tags($_POST['username']);
+	// 	$username = strtolower($username);
+	// 	$password = strip_tags($_POST['password']);
+
+	// 	if ($username === $dbUserName && $password === $dbPassword) {
+	// 		$_SESSION['username'] = $username;
+	// 		header('Location: admin.php');
+	// 	} else {
+	// 		echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
+	// 	}
+	// } 
 ?>
 
 <!DOCTYPE html>

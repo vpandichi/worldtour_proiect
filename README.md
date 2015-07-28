@@ -18,6 +18,7 @@
 17. Added scroll effects
 18. Created admin page, added blog posts database
 19. Fixed admin page bug, created registration page.
+20. Created login page for db users. Stuck on password encryption. Cannot read encrypted passwords after the user has registered. Cannot log in user as the hash/salt changes at every attempt and it will never match the one on the database. Need to work out a solution tomorrow.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -70,9 +71,13 @@ TO DO FOR TOMORROW 26/07: - work on javascript scroll effects - ok
 TO DO FOR TOMORROW 27/07: - create registration page - ok
                           - fix admin page bug - ok
                           
-TO DO FOR TOMORROW 28/07: - improve login page, allow users to log in (not only admin log in)
-                          - improve registration page 
-                          - add user management to the admin page
+TO DO FOR TOMORROW 28/07: - improve login page, allow users to log in (not only admin log in) -x
+                          - improve registration page - x
+                          - add user management to the admin page -x 
+
+TO DO FOR TOMORROW 29/07: - fix password encryption and login bug
+
+
                           
                           
                     

@@ -10,8 +10,8 @@
 			$submit = $_POST['subtitle'];
 			$content = $_POST['content'];
 			include_once("db_connection.php");
-			$sql = "INSERT INTO blog (title, subtitle, content)
-					VALUE ('$title', '$subtitle', '$content')";
+			$sql = "INSERT INTO blog (title, content)
+					VALUE ('$title', '$content')";
 			mysqli_query($dbCon, $sql);
 			echo "<h1 class='beposted'>Blog entry posted</h1>";
 		} 
