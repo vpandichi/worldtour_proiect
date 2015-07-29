@@ -5,9 +5,8 @@
 	if (isset($_SESSION['username'])) {
 		$username = ucfirst($_SESSION['username']);
 		
-		if ($_POST['submit']) {
+		if ($_POST['login']) {
 			$title = $_POST['title'];
-			$submit = $_POST['subtitle'];
 			$content = $_POST['content'];
 			include_once("db_connection.php");
 			$sql = "INSERT INTO blog (title, content)
@@ -17,7 +16,7 @@
 		} 
 	} else {
 		header('Location: login.php');
-		die();
+		die('something nasty has happened');
 	}
 ?>
 <!DOCTYPE html>

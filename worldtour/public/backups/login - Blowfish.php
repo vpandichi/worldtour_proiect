@@ -1,29 +1,30 @@
 <?php 
 	error_reporting(E_ALL & ~E_NOTICE);
+	include("functions.php");
 	include_once("db_connection.php"); // ne conectam la baza de date
 	session_start();
 	
 	if($_POST['register']) { // daca butonul de register este apasat -->
-
 		if($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['country'] && $_POST['squestion'] && $_POST['sanswer']) {
-
 			$username = mysqli_real_escape_string($dbCon, $_POST['username']); //folosim real escape string pentru a elimina vulnerabilitatea la caractere speciale (ex /)
 			$email = mysqli_real_escape_string($dbCon, $_POST['email']);
+			$password = mysqli_real_escape_string($dbCon, cryptPass($_POST['password'])); 
+			
 			$country = $_POST['country']; // nu e nevoie de real escape string deoarece userul are o lista predefinita de optiuni
+			
 			$squestion = mysqli_real_escape_string($dbCon, $_POST['squestion']);
 			$sanswer = mysqli_real_escape_string($dbCon, $_POST['sanswer']);
 
-			$inputPassword = mysqli_real_escape_string($dbCon, $_POST['password']);
-			$options = ['cost' => 9,]; //a higher cost will result in more computing power needed
-			$hashedPassword = password_hash($inputPassword, PASSWORD_BCRYPT, $options);
-		
+			$cookiesalt = hash('sha512', rand() . rand() . rand()); 
 			$sqlcheck = "SELECT * FROM users WHERE username = '$username'"; // dorim sa verificam daca userul exista in baza noastra de date pentru a evita duplicatele
+			$sqlinsert = "INSERT INTO users (username, email, password, country, squestion, sanswer, salt) 
+			              VALUES ('$username', '$email', '$password', '$country', '$squestion', '$sanswer', '$cookiesalt')"; // adaugam userul in baza de date
 			$query = mysqli_query($dbCon, $sqlcheck); // stocam interogarea intr-o variabila pentru a o putea folosi in mysqli_fetch_array deoarece aceasta metoda accepta doar 1 singur parametru
 			$check = mysqli_fetch_array($query);
 
 			if ($check != 0) {
 				die("Username already exists! Try $username" . rand(0, 99) . " instead");
-			} // daca userul exista, nu il vom crea. evitam duplicatele
+			} // daca userul exista, nu il vom crea.
 
 			if (!ctype_alnum($username)) {
 				die("Username contains special characters... Nice try.");
@@ -33,17 +34,10 @@
 				die("username must be less than 20 characters!");
 			} // daca numele de utilizator are mai mult de 20 de caracter vom refuza inregistrarea in baza de date din motive de securitate si pentru a evita spam-ul
 
-			if(strlen($inputPassword) < 5) {
-				die("Password must be more than 5 characters");
-			}
+			mysqli_query($dbCon, $sqlinsert); // adaugam userul in baza de date daca a trecut de verificarile anterioare
 
-			$cookiesalt = hash('sha512', rand() . rand() . rand());
 			setcookie("c_user", hash('sha512', $username), time() + 24 * 60 * 60 , "/");
 			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
-
-			$sqlinsert = "INSERT INTO users (username, email, password, country, squestion, sanswer) 
-			              VALUES ('$username', '$email', '$hashedPassword', '$country', '$squestion', '$sanswer')"; // adaugam userul in baza de date
-			mysqli_query($dbCon, $sqlinsert); // adaugam userul in baza de date daca a trecut de verificarile anterioare
 
 			die("Your account has been created");
 		}
@@ -51,22 +45,27 @@
 
 	// begin login script
 
-	if($_POST['login']) {
+	if($_POST['submit']) {
 		if($_POST['username'] && $_POST['password']) {
 			
 			$username = mysqli_real_escape_string($dbCon, $_POST['username']);
 			$inputPassword = mysqli_real_escape_string($dbCon, $_POST['password']);
-			$sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
-			$result = mysqli_query($dbCon, $sql);
-			$row = $result->fetch_array(MYSQLI_BOTH);
+			$password = "SELECT * FROM users WHERE password = '$inputPassword'";
+			$hashedPass = cryptPass($password);
 
-			if(password_verify($inputPassword, $row['password'])) {
-				session_start();
-				$_SESSION['id'] = $row['id'];
-				header("Location: recom.php");
+			if(crypt($inputPassword, $hashedPass) == $hashedPass) {
+				die("<br>Password is a match. Log in");
+			} else {
+				echo "<br>Passwords do not match!!! Do NOT log user in <br>";
+				echo $inputPassword . "<br>";
+				echo $password . "<br>";
+				echo $hashedPass . "</br>";
+				echo crypt($inputPassword, $hashedPass);
 			}
 
-			$query = mysqli_query($dbCon, $sql);
+			$sqluser = "SELECT * FROM users WHERE username = '$username'";
+
+			$query = mysqli_query($dbCon, $sqluser);
 			$user = mysqli_fetch_array($query);
 
 			if($user == 0) {
@@ -88,6 +87,39 @@
 			header('Location: admin.php');
 		}
 	}
+
+	// if ($logged == true) {
+	// 	die("<h1 class='denied'>You are already logged");
+	// }
+
+	// if($_POST['submit']) {
+	// 	$username = $_POST['username'];
+	// 	$password = $_POST['password'];
+
+	// 	if($username && $password) {
+	// 		$sqluser = "SELECT * FROM users WHERE username='$username'";
+	// 		$query = mysqli_query($dbCon, $sqluser);
+	// 		$numrows = mysqli_num_rows($query);
+
+	// 		if($numrows != 0) {
+	// 			while ($row = mysqli_fetch_assoc($query)) {
+	// 				$dbuser = $row['username'];
+	// 				$dbpass = $row['password'];
+	// 			}
+
+	// 			if ($username == $dbuser && $password == $dbpass) {
+	// 				header('Location: admin.php');
+	// 			} else {
+	// 				die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>");
+	// 			}
+	// 		} else {
+	// 			die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>");
+	// 		}
+	// 	} else {
+	// 		echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
+	// 	}
+	// } ---- this cannot read hashed passwords therefore cannot log in without hashing the password first ----
+	
 
 	// contul de administrator
 
@@ -133,7 +165,7 @@
 				<form action='login.php' method='post' id='contact_form'>
 					<input type='text' name='username' placeholder='username... *' id='email' maxlength='60'><br>
 					<input type='password' name='password' placeholder='password... *' id='password' maxlength='30'><br>
-					<input type='submit' name='login' class='button' value='log in' id='login' >
+					<input type='submit' name='submit' class='button' value='log in' id='login' >
 					<input type='reset' name='reset' class='button' value='cancel' id='cancel'>
 				</form>
 		</div>
