@@ -1,28 +1,28 @@
 <?php 
 	error_reporting(E_ALL & ~E_NOTICE);
-	include_once("db_connection.php"); // ne conectam la baza de date
+	include_once("db_connection.php"); 
 	session_start();
 	
-	if($_POST['register']) { // daca butonul de register este apasat -->
+	if($_POST['register']) {
 
-		if($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['country'] && $_POST['squestion'] && $_POST['sanswer']) {
+		if($_POST['username'] && $_POST['email'] && $_POST['password'] && $_POST['country'] && $_POST['squestion'] && $_POST['sanswer']) { // pentru a rula comenzile de mai jos, toate acesta campuri sunt necesare si nu pot fi lasate necompletate
 
-			$username = mysqli_real_escape_string($dbCon, $_POST['username']); //folosim real escape string pentru a elimina vulnerabilitatea la caractere speciale (ex /)
+			$username = mysqli_real_escape_string($dbCon, $_POST['username']); // folosim real escape string pentru a elimina vulnerabilitatea la caractere speciale (ex /)
 			$email = mysqli_real_escape_string($dbCon, $_POST['email']);
-			$country = $_POST['country']; // nu e nevoie de real escape string deoarece userul are o lista predefinita de optiuni
+			$country = $_POST['country']; // nu e nevoie de real escape string deoarece utilizatorul are o lista predefinita de optiuni
 			$squestion = mysqli_real_escape_string($dbCon, $_POST['squestion']);
 			$sanswer = mysqli_real_escape_string($dbCon, $_POST['sanswer']);
-
+			
 			$inputPassword = mysqli_real_escape_string($dbCon, $_POST['password']);
-			$options = ['cost' => 9,]; //a higher cost will result in more computing power needed
-			$hashedPassword = password_hash($inputPassword, PASSWORD_BCRYPT, $options);
+			$options = ['cost' => 9,]; // comanda folosita pentru a codifica parola, un cost mai mare va necesita o putere de calcul mai mare a calculatorului care incearca sa descifreze codificarea
+			$hashedPassword = password_hash($inputPassword, PASSWORD_BCRYPT, $options); //PASSWORD_BCRYPT foloseste algoritmul blowfish
 		
 			$sqlcheck = "SELECT * FROM users WHERE username = '$username'"; // dorim sa verificam daca userul exista in baza noastra de date pentru a evita duplicatele
 			$query = mysqli_query($dbCon, $sqlcheck); // stocam interogarea intr-o variabila pentru a o putea folosi in mysqli_fetch_array deoarece aceasta metoda accepta doar 1 singur parametru
 			$check = mysqli_fetch_array($query);
 
 			if ($check != 0) {
-				die("Username already exists! Try $username" . rand(0, 99) . " instead");
+				die("Username already exists! Try $username" . rand(0, 99) . " instead.");
 			} // daca userul exista, nu il vom crea. evitam duplicatele
 
 			if (!ctype_alnum($username)) {
@@ -31,13 +31,13 @@
 
 			if(strlen($username) > 20) {
 				die("username must be less than 20 characters!");
-			} // daca numele de utilizator are mai mult de 20 de caracter vom refuza inregistrarea in baza de date din motive de securitate si pentru a evita spam-ul
+			} // daca numele de utilizator are mai mult de 20 de caracter vom refuza inregistrarea 
 
 			if(strlen($inputPassword) < 5) {
 				die("Password must be more than 5 characters");
 			}
 
-			$cookiesalt = hash('sha512', rand() . rand() . rand());
+			$cookiesalt = hash('sha512', rand() . rand() . rand()); // dorim crearea unui algoritm sha512 la care adaugam 3 functii care creaza numere random pentru a codifica cookie-urile
 			setcookie("c_user", hash('sha512', $username), time() + 24 * 60 * 60 , "/");
 			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
 
@@ -45,7 +45,7 @@
 			              VALUES ('$username', '$email', '$hashedPassword', '$country', '$squestion', '$sanswer')"; // adaugam userul in baza de date
 			mysqli_query($dbCon, $sqlinsert); // adaugam userul in baza de date daca a trecut de verificarile anterioare
 
-			die("Your account has been created");
+			die("<h3 class='loregheaders'>Your account has been created. <br><a href='/sites/worldtour/public/users.php'>Go to the users area to create a blog post</a> or <a href='/sites/worldtour/public/index.php'>go back to the main page</a></h3>");
 		}
 	}
 
@@ -56,25 +56,22 @@
 			
 			$username = mysqli_real_escape_string($dbCon, $_POST['username']);
 			$inputPassword = mysqli_real_escape_string($dbCon, $_POST['password']);
-			$sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
+			$sql = "SELECT * FROM users WHERE username = '$username'";
 			$result = mysqli_query($dbCon, $sql);
 			$row = $result->fetch_array(MYSQLI_BOTH);
 
 			if(password_verify($inputPassword, $row['password'])) {
 				session_start();
 				$_SESSION['id'] = $row['id'];
-				header("Location: recom.php");
+				$_SESSION['username'] = $username;
+				header('Location: admin.php');
 			}
 
 			$query = mysqli_query($dbCon, $sql);
 			$user = mysqli_fetch_array($query);
 
-			if($user == 0) {
-				die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>[nu exista userul]");
-			}
-
-			if($user['password'] != $password) {
-				die("<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>[pswd]");
+			if($user == 0 || $user['password'] != $password) {
+				die("<h3 class='denied'>username and/or password incorrect. <br><a href='/sites/worldtour/public/login.php'>go back to the login page.</a></h3>");
 			}
 
 			$cookiesalt = hash('sha512', rand() . rand() . rand());
@@ -82,14 +79,12 @@
 			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
 
 			$userID = $user['id'];
-			$sqluid = "UPDATE users SET salt='$cookiesalt' WHERE id='$userID'";
+			$sqluid = "UPDATE users SET 'salt' = '$cookiesalt' WHERE 'id' = '$userID'";
 			mysqli_query($dbCon, $sqluid); // schimba'sarea' dupa ce userul se logheaza
-
-			header('Location: admin.php');
 		}
 	}
-
-	// contul de administrator
+?>
+	<!-- // contul de administrator
 
 	// if($_POST['submit']) {
 	// 	$dbUserName = "admin";
@@ -105,8 +100,8 @@
 	// 	} else {
 	// 		echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
 	// 	}
-	// } 
-?>
+	// }  -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,7 +138,7 @@
 				<input type="text" name="username" placeholder="username... *" id="username" maxlength="60"><br>
 				<input type="text" name="email" placeholder="email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="password... *" id="password" maxlength="30"><br>
-				<input type="password" name="password2" placeholder="password check... *" id="password2" maxlength="30"><br>
+				<input type="password" name="verify_password" placeholder="password check... *" id="password2" maxlength="30"><br>
 				<select name="country" id="country">
 					<option value="DEF">select country... * </option>
 					<option value="AF">Afghanistan</option>

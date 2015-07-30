@@ -2,27 +2,21 @@
 	error_reporting(E_ALL & ~E_NOTICE); 
 	session_start();
 
-	if ($_SESSION['username']) {
+	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 		$username = ucfirst($_SESSION['username']);
 	
-		if ($_POST['post']) {
+		if ($_POST['login']) {
 			$title = $_POST['title'];
 			$content = $_POST['content'];
-
-			if ($title != null && $content != null) {
-				include_once("db_connection.php");
-				$sql = "INSERT INTO blog (title, content)
-						VALUE ('$title', '$content')";
-				mysqli_query($dbCon, $sql);
-				echo "<h1 class='beposted'>Blog entry posted</h1>";
-				session_destroy();
-			} else {
-				echo "<h1 class='beposted'>Please fill in the title and content fields!</h1>";
-			}
+			include_once("db_connection.php");
+			$sql = "INSERT INTO blog (title, content)
+					VALUE ('$title', '$content')";
+			mysqli_query($dbCon, $sql);
+			echo "<h1 class='beposted'>Blog entry posted</h1>";
 		} 
 	} else {
-		header("Location: login.php");
-		exit;
+		header('Location: .php');
+		die();
 	}
 ?>
 <!DOCTYPE html>
@@ -48,7 +42,7 @@
 			<form action="admin.php" method="post">
 				<input type="text" name="title" id="title" placeholder="title... *"><br>
 				<textarea name="content" id="content" cols="30" rows="10" placeholder="content... *"></textarea><br>
-				<input type="submit" name="post" value="post entry" id="submit">
+				<input type="submit" name="submit" value="post entry" id="submit">
 			</form>
 			<br>
 			<a href="/sites/worldtour/public/blog.php" id="view">view blog</a>

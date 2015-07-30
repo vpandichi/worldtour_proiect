@@ -197,10 +197,18 @@ select option {
 
 .denied {
 	color: #f00;
-	font-size: 14px;
+	font-size: 50px;
 	letter-spacing: 1px;
 	opacity: 0.5;
 	position: absolute;
 	margin-top: 17.8%;
 	margin-left: 15%;
 }
+
+.loregheaders {
+	font-size: 50px;
+	font-style: verdana;
+	position: absolute;
+	margin-top: 50%;
+}
+
