@@ -1,4 +1,6 @@
-<?php error_reporting(E_ALL & ~E_NOTICE); ?>
+<?php 
+	error_reporting(E_ALL & ~E_NOTICE); 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,16 +26,16 @@
 				<div id="google_translate_element"></div>
 				<?php 
 					include_once("db_connection.php");
-
 					$sql = "SELECT * FROM blog ORDER BY id DESC";
 					$result = mysqli_query($dbCon, $sql);
 
 					while($row = mysqli_fetch_array($result)) {
+						// session_start();
 						$title = $row['title'];
-						$subtitle = $row['subtitle'];
+						// $postedby = $_SESSION['username'];
 						$content = $row['content'];
 				?>
-					<h1 class="headers"><?php echo $title; ?> <br> <small><?php echo $subtitle; ?></small></h1>
+					<h1 class="headers"><?php echo $title; ?> <br><?php echo "<h4 class='postedby'>Posted by $postedby</h4>"; ?></h1>
 					<article><?php echo $content; ?></article>
 					<hr class="artline">
 				<?php  

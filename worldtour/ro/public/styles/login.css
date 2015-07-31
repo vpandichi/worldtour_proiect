@@ -123,14 +123,14 @@ select option {
 
 #register, #clear {margin-top: 5px;}
 
-#clear {margin-left: 122px;}
+#clear {margin-left: 149px;}
 
 /********************************* =BEGIN FOOTER *********************************/
 #footer_wrap {
 	position: absolute;
 	border-top: 2px solid #70be12;
 	background: url(/sites/worldtour/public/img/above-content.png) repeat;
-	margin-top: 35.5%;
+	margin-top: 38.5%;
 }
 
 #footer {

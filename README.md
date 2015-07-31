@@ -21,6 +21,7 @@
 20. Created login page for db users. Stuck on password encryption. Cannot read encrypted passwords after the user has registered. Cannot log in user as the hash/salt changes at every attempt and it will never match the one on the database. Need to work out a solution tomorrow.
 21. Managed to find a provisory solution which seems to work - password_hash and password_verify seem to solve the issue, further testing required.
 22. Fixed admin page bug where unauthorised access was allowed to unauthenticated users. Created various validation rules
+23. Admin page broke again... managed to find a temporary fix, though very sloppy code. Separated admin area from user area, added various rules and minor improvements.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -83,10 +84,16 @@ TO DO FOR TOMORROW 30/07: - improve the login system - ok
                           - fix admin page bug .. again.. - ok - needed to destroy the session to avoid allowing access to unauthorised users (if they directly entered the file path in the url, skipping the log in)
                           - create a separate user area - x
                           
-TO DO FOR TOMORROW 31/07: - create a separate user area
-                          - create an admin area
+TO DO FOR TOMORROW 31/07: - create a separate user area - ok
+                          - create an admin area - ok
+                          - create user management for admin area - x
+                          - recode everything for the ro version of the site - created the login page
+                          
+TO DO FOR TOMORROW 01/08: - recode everything for the ro version
                           - create user management for admin area
-                          - recode everything for the ro version of the site
+                          - improve ro/user area - fix post bug
+                          - style everything that's being dynamically generated on the page with PHP
+                          - think of a way to add the a "posted by" feature on the blog page
 
                           
                           

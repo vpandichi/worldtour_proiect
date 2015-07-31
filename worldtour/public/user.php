@@ -34,8 +34,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Admin page</title>
-	<link rel="stylesheet" href="/sites/worldtour/public/styles/admin.css">
+	<title>User page</title>
+	<link rel="stylesheet" href="/sites/worldtour/public/styles/users.css">
 </head>
 <body>
 	<div id="wraper">

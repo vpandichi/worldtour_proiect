@@ -1,7 +1,7 @@
 <?php 
-	error_reporting(E_ALL & ~E_NOTICE);
-	include_once("../ro/public/db_connection.php"); 
 	session_start();
+	error_reporting(E_ALL & ~E_NOTICE);
+	include_once("db_connection.php"); 
 	
 	if($_POST['register']) {
 
@@ -22,30 +22,26 @@
 			$check = mysqli_fetch_array($query);
 
 			if ($check != 0) {
-				die("Username already exists! Try $username" . rand(0, 99) . " instead.");
+				die("<h3>Username already exists! Try $username" . rand(0, 99) . " instead. <a href='login.php'>go back to registration page</a></h3>");
 			} // daca userul exista, nu il vom crea. evitam duplicatele
 
 			if (!ctype_alnum($username)) {
-				die("Username contains special characters... Nice try.");
+				die("<h3>Special characters such as spaces, #, @, ! etc. are not allowed. <a href='login.php'>go back to registration page</a></h3>");
 			} // daca numele de utilizator contine simboluri sau caractere interzise nu-i vom permite inregistrarea in baza de date din motive de securitate
 
-			if(strlen($username) > 20) {
-				die("username must be less than 20 characters!");
-			} // daca numele de utilizator are mai mult de 20 de caracter vom refuza inregistrarea 
+			if(strlen($username) > 32) {
+				die("<h3>username must be less than 32 characters! <a href='login.php'>go back to registration page</a></h3>");
+			} // daca numele de utilizator are mai mult de 32 de caracter vom refuza inregistrarea 
 
 			if(strlen($inputPassword) < 5) {
-				die("Password must be more than 5 characters");
+				die("<h3>Password must be more than 5 characters! <a href='login.php'>go back to registration page</a></h3>");
 			}
-
-			$cookiesalt = hash('sha512', rand() . rand() . rand()); // dorim crearea unui algoritm sha512 la care adaugam 3 functii care creaza numere random pentru a codifica cookie-urile
-			setcookie("c_user", hash('sha512', $username), time() + 24 * 60 * 60 , "/");
-			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
 
 			$sqlinsert = "INSERT INTO users (username, email, password, country, squestion, sanswer) 
 			              VALUES ('$username', '$email', '$hashedPassword', '$country', '$squestion', '$sanswer')"; // adaugam userul in baza de date
 			mysqli_query($dbCon, $sqlinsert); // adaugam userul in baza de date daca a trecut de verificarile anterioare
 
-			die("<h3 class='loregheaders'>Your account has been created. <br><a href='/sites/worldtour/public/users.php'>Go to the users area to create a blog post</a> or <a href='/sites/worldtour/public/index.php'>go back to the main page</a></h3>");
+			die("<h3 class='loregheaders'>Your account has been created. <br><a href='/sites/worldtour/ro/public/users.php'>Go to the users area to create a blog post</a> or <a href='/sites/worldtour/ro/public/index.php'>go back to the main page</a></h3>");
 		}
 	}
 
@@ -61,52 +57,34 @@
 			$row = $result->fetch_array(MYSQLI_BOTH);
 
 			if(password_verify($inputPassword, $row['password'])) {
-				session_start();
-				$_SESSION['id'] = $row['id'];
-				$_SESSION['username'] = $username;
-				header('Location: admin.php');
+				if(password_verify($inputPassword, $row['password']) && $username == "superuser") {
+					session_start();
+					$_SESSION['id'] = $row['id'];
+					$_SESSION['username'] = $username;
+					header('Location: admin.php');
+				} else {
+					session_start();
+					$_SESSION['id'] = $row['id'];
+					$_SESSION['username'] = $username;
+					header('Location: user.php');
+				}
 			}
 
 			$query = mysqli_query($dbCon, $sql);
 			$user = mysqli_fetch_array($query);
 
 			if($user == 0 || $user['password'] != $password) {
-				die("<h3 class='denied'>username and/or password incorrect. <br><a href='/sites/worldtour/public/login.php'>go back to the login page.</a></h3>");
+				die("<h3 class='denied'>username and/or password incorrect. <br><a href='/sites/worldtour/ro/public/login.php'>go back to the login page.</a></h3>");
 			}
-
-			$cookiesalt = hash('sha512', rand() . rand() . rand());
-			setcookie("c_user", hash('sha512', $username), time() + 24 * 60 * 60 , "/");
-			setcookie("c_salt", $salt, time() + 24 * 60 * 60 , "/");
-
-			$userID = $user['id'];
-			$sqluid = "UPDATE users SET 'salt' = '$cookiesalt' WHERE 'id' = '$userID'";
-			mysqli_query($dbCon, $sqluid); // schimba'sarea' dupa ce userul se logheaza
 		}
 	}
 ?>
-	<!-- // contul de administrator
-
-	// if($_POST['submit']) {
-	// 	$dbUserName = "admin";
-	// 	$dbPassword = "passw0rd";
-
-	// 	$username = strip_tags($_POST['username']);
-	// 	$username = strtolower($username);
-	// 	$password = strip_tags($_POST['password']);
-
-	// 	if ($username === $dbUserName && $password === $dbPassword) {
-	// 		$_SESSION['username'] = $username;
-	// 		header('Location: admin.php');
-	// 	} else {
-	// 		echo "<h1 class='denied'>Access denied ! Username/Password incorrect. </h1>";
-	// 	}
-	// }  -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>worldtour | logare</title>
+	<title>worldtour | login</title>
 	<link rel="stylesheet" href="/sites/worldtour/ro/public/styles/login.css">
 </head>
 <body>
@@ -124,22 +102,22 @@
 		</nav>
 		<div id="login_box">
 			<h1 class="loreg">Logare</h1>
-			<form action="submit.php" method="post" id="contact_form">
-				<input type="text" name="email" placeholder="adresa email... *" id="email" maxlength="60"><br>
-				<input type="password" name="password" placeholder="parola... *" id="password" maxlength="30"><br>
-				<input type="submit" class="button" value="logare" id="login">
-				<input type="reset" class="button" value="anulare" id="cancel">
-			</form>
+				<form action='login.php' method='post' id='contact_form'>
+					<input type='text' name='username' placeholder='nume utilizator... *' id='email' maxlength='60'><br>
+					<input type='password' name='password' placeholder='parola... *' id='password' maxlength='30'><br>
+					<input type='submit' name='login' class='button' value='logare' id='login' >
+					<input type='reset' name='reset' class='button' value='anuleaza' id='cancel'>
+				</form>
 		</div>
 		<div id="register_box">
-			<h1 class="loreg">Inregistrare</h1>
+			<h1 class="loreg">Inregistreaza-te pentru a putea publica articole</h1>
 			<form action="" method="post" id="contact_form">
 				<input type="text" name="username" placeholder="nume utilizator... *" id="username" maxlength="60"><br>
 				<input type="text" name="email" placeholder="adresa email... *" id="email" maxlength="60"><br>
 				<input type="password" name="password" placeholder="parola... *" id="password" maxlength="30"><br>
-				<input type="password" name="password2" placeholder="verificare parola... *" id="password2" maxlength="30"><br>
+				<input type="password" name="verify_password" placeholder="verificare parola... *" id="password2" maxlength="30"><br>
 				<select name="country" id="country">
-					<option value="DEF">alegere tara... * </option>
+					<option value="DEF">selecteaza tara... * </option>
 					<option value="AF">Afghanistan</option>
 					<option value="AX">Åland Islands</option>
 					<option value="AL">Albania</option>
@@ -390,10 +368,10 @@
 					<option value="ZM">Zambia</option>
 					<option value="ZW">Zimbabwe</option>
 				</select>
-				<input type="text" id="squestion" placeholder="intrebare secreta... *">
-				<input type="text" id="sanswer" placeholder="raspuns secret... *"><br>
-				<input type="submit" name="register" class="button" value="inregistrare" id="register">
-				<input type="reset" name="reset" class="button" value="sterge tot" id="clear">
+				<input type="text" name="squestion" id="squestion" placeholder="intrebare de verificare... *">
+				<input type="text" name="sanswer" id="sanswer" placeholder="raspuns de verificare... *"><br>
+				<input type="submit" name="register" class="button" value="inregistreaza-te" id="register">
+				<input type="reset" class="button" value="anuleaza" id="clear">
 			</form>
 		</div>
 		<div id="footer_wrap">
