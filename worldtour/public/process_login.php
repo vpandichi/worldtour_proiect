@@ -13,17 +13,31 @@ if (empty($_POST) === false) {
 	} else if (user_active($username) === false) {
 		$errors[] = 'You haven\'t activated your account yet';
 	} else {
+
+		if (strlen($password) > 32) {
+			$errors[] = 'Password too long';
+		}
+
 		$login = login($username, $password);
 		if ($login === false) {
 			$errors[] = 'Username/password incorrect';
 		} else {
-			echo 'ok';
-			//set user session
-			//redirect user
+			$_SESSION['user_id'] = $login;
+			header("Location: includes/loggedin.php");
+			exit;
 		}
 	}
-
-	print_r($errors);
+} else {
+	$errors[] = 'No data received';
 }
 
+include('includes/header.php');
+
+if (empty($errors) === false) {
+?>
+	<h2 class="wetried">We tried to log you in, but...</h2>
+<?php  
+	echo output_errors($errors);
+}
+	include('includes/footer.php');
 ?>

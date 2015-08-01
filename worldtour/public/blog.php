@@ -1,5 +1,6 @@
 <?php 
-	error_reporting(E_ALL & ~E_NOTICE); 
+	error_reporting(E_ALL & ~E_NOTICE);
+	include('core/init.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +16,16 @@
 			<ul>
 				<li><a href="recom.php">recommendations</a></li>
 				<li><a href="index.php#contact">contact</a></li>
-				<li><a href="login.php">log in</a></li>
-				<li><a href="index.php">back to main page</a></li>
+				<li>
+					<?php 
+						if (logged_in() === true) {
+							echo "<a href='includes/logout.php'>log out</a>";
+						} else {
+							echo "<a href='login2.php'>log in</a>";
+						}
+					?>	
+				</li>
+				<li><a href="register.php">register</a></li>
 				<li><a href="/sites/worldtour/ro/public/blog.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
@@ -30,9 +39,7 @@
 					$result = mysqli_query($dbCon, $sql);
 
 					while($row = mysqli_fetch_array($result)) {
-						// session_start();
 						$title = $row['title'];
-						// $postedby = $_SESSION['username'];
 						$content = $row['content'];
 				?>
 						<h1 class="headers"><?php echo $title; ?></h1>

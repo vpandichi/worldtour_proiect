@@ -212,3 +212,18 @@ select option {
 	margin-top: 50%;
 }
 
+.wetried, .error_list {
+	margin-top: 8%;
+	margin-left: 37%;
+	position: absolute;
+	color: #05356E;
+}
+
+.error_list {
+	margin-top: 11%;
+	margin-left: 40.5%;
+}
+
+.login_aside {
+	background-color: #f00;
+}
