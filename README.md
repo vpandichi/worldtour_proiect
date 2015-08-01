@@ -22,6 +22,7 @@
 21. Managed to find a provisory solution which seems to work - password_hash and password_verify seem to solve the issue, further testing required.
 22. Fixed admin page bug where unauthorised access was allowed to unauthenticated users. Created various validation rules
 23. Admin page broke again... managed to find a temporary fix, though very sloppy code. Separated admin area from user area, added various rules and minor improvements.
+24. AFTER HAVING MANY ISSUES WITH THE LOGIN/REGISTER PAGE WHICH WILL TAKE TOO MUCH TIME TO FIGURE OUT (ALREADY SPENT 3 DAYS ON IT) I HAVE DECIDED TO REORGANIZE THE WHOLE STRUCTURE OF THE WEBSITE AND SEPARATE THE LOGIN PAGE FROM THE REGISTRATION PAGE. ALSO, HAVING A VERY MESSY SYNTAX I HAVE DECIDED TO REWRITE EVERYTHING THAT IS PHP RELATED, FROM SCRATCH.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x

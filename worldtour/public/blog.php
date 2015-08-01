@@ -35,9 +35,9 @@
 						// $postedby = $_SESSION['username'];
 						$content = $row['content'];
 				?>
-					<h1 class="headers"><?php echo $title; ?> <br><?php echo "<h4 class='postedby'>Posted by $postedby</h4>"; ?></h1>
-					<article><?php echo $content; ?></article>
-					<hr class="artline">
+						<h1 class="headers"><?php echo $title; ?></h1>
+						<article><?php echo $content; ?></article>
+						<hr class="artline">
 				<?php  
 					}
 				?>
