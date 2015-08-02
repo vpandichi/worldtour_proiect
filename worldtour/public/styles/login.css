@@ -71,6 +71,13 @@ nav ul li a:hover {
 
 #register_box {float: left;width:50%;}
 
+#changepwform {
+	margin-top: 10%;
+	position: absolute;
+	margin-left: 29.5%;
+	width:40%;
+}
+
 #username {margin-bottom: 0px;}
 
 #email, #password, #password2, #country, #fname, #lname, #username {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
@@ -214,14 +221,37 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list {
+.wetried, .error_list, .reg_errors, .log_success, .changepw {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
 	color: #05356E;
 }
 
+.log_success {margin-top: 10%;}
+
 .error_list {
 	margin-top: 11%;
-	margin-left: 40.5%;
+	margin-left: 37%;
 }
+
+.error_list:nth-child(1) {
+	margin-left: 50%;
+}
+
+.changepw {
+	margin-left: 43%;
+}
+
+#reglogin {
+	font-size:14px;
+	text-align: center;
+	text-decoration: none;
+	color: #05356E;
+	margin-left: -5px;
+}
+
+#reglogin:hover {
+	color: #70be12;
+}
+

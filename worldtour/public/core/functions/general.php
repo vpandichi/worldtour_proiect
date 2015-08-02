@@ -1,4 +1,10 @@
 <?php  
+
+function array_sanitize(&$item) {
+    include('core/db/db_connection.php');
+    $item = mysqli_real_escape_string($dbCon, $item);
+}
+
 function sanitize($data) {
 	include('core/db/db_connection.php');
 	return mysqli_real_escape_string($dbCon, $data);
@@ -21,7 +27,7 @@ function output_errors($errors) {
     foreach($errors as $error) {
         $output[] = '<li>' . $error . '</li>';
     } // luam fiecare eroare, o plasam intr-o lista dupa care returnam output-ul
-    return '<ul class="error_list">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
+    return '<ul class="error_list reg_errors">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
 }
 
 function user_count() {

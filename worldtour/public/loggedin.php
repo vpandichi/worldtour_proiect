@@ -1,4 +1,7 @@
-<?php error_reporting(E_ALL & ~E_NOTICE); ?>
+<?php 
+error_reporting(0);
+not_logged_in_redirect();
+?>
 <h2 class="loggedin">Hello, <?php echo $user_data['first_name']; ?> !</h2>
 <h4 class="cando">Here are some things you can do...</h4>
 <div class="inner">

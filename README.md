@@ -23,7 +23,7 @@
 22. Fixed admin page bug where unauthorised access was allowed to unauthenticated users. Created various validation rules
 23. Admin page broke again... managed to find a temporary fix, though very sloppy code. Separated admin area from user area, added various rules and minor improvements.
 24. AFTER HAVING MANY ISSUES WITH THE LOGIN/REGISTER PAGE WHICH WILL TAKE TOO MUCH TIME TO FIGURE OUT (ALREADY SPENT 3 DAYS ON IT) I HAVE DECIDED TO REORGANIZE THE WHOLE STRUCTURE OF THE WEBSITE AND SEPARATE THE LOGIN PAGE FROM THE REGISTRATION PAGE. ALSO, HAVING A VERY MESSY SYNTAX I HAVE DECIDED TO REWRITE EVERYTHING THAT IS PHP RELATED, FROM SCRATCH.
-25. Rewrote login system.
+25. Rewrote login system and registration page, now adding features for logged in users such as change password.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -98,7 +98,7 @@ TO DO FOR TOMORROW 01/08: - recode everything for the ro version - x
                           - think of a way to add the a "posted by" feature on the blog page - x
 
 TO DO FOR TOMORROW 02/08: - finish recoding the login page - ok
-                          - recode the registration page
+                          - recode the registration page - ok
                           - fix loggedin page pug - ok
 
                           
