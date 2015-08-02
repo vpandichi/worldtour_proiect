@@ -19,12 +19,12 @@ function not_logged_in_redirect() {
 	}
 }
 
-function register_user($register_data) { // inregistram userul in baza de date
+function register_user($register_data) { // adaugam userul in baza de date
 	include('core/db/db_connection.php');
 	array_walk($register_data, 'array_sanitize');
 	$register_data['password'] = md5($register_data['password']);
-	$fields = '`' . implode('`, `', array_keys($register_data)) . '`';
-	$data = '\'' . implode('\', \'', $register_data) . '\'';
+	$fields = '`' . implode('`, `', array_keys($register_data)) . '`'; // pregatim interogarea adaugand `` fiecarui cap de tabel
+	$data = '\'' . implode('\', \'', $register_data) . '\''; // pregatim interogarea adaugand '' variabilelor care contin informatii precum numele de utilizator, parola, email, etc.
 	$sql = "INSERT INTO `_users` ($fields) VALUES ($data)";
 	// echo $sql; testing the query
 	// die();
