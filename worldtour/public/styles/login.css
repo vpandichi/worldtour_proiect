@@ -71,17 +71,17 @@ nav ul li a:hover {
 
 #register_box {float: left;width:50%;}
 
-#username {margin-bottom: 5px;}
+#username {margin-bottom: 0px;}
 
-#email, #password, #password2, #country, #squestion, #sanswer, #username {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+#email, #password, #password2, #country, #fname, #lname, #username {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
-#password, #email, #password2, #country, #squestion, #sanswer, #username {border:none; padding:10px;color:#d2e3ff;}
+#password, #email, #password2, #country, #fname, #lname, #username {border:none; padding:10px;color:#d2e3ff;}
 
 #password {margin-top: 5px;margin-bottom: 5px;}
 
-#password2, #squestion {margin-top: -1px;margin-bottom: 5px;}
+#password2, #fname {margin-top: -1px;margin-bottom: 5px;}
 
-#email, #password, #password2, #country, #squestion, #sanswer, #username {margin-left: 3.5%;}
+#email, #password, #password2, #country, #fname, #lname, #username {margin-left: 3.5%;}
 
 #login, #register  {
 	border: none;
@@ -118,6 +118,8 @@ select option {
     margin:40px;
     background: #3a6597;
 }
+
+#lname {margin-top: 0px;margin-bottom: 5px;}
 
 #country {width:93%;margin-bottom: 5px;}
 
@@ -222,11 +224,4 @@ select option {
 .error_list {
 	margin-top: 11%;
 	margin-left: 40.5%;
-}
-
-.login_aside {
-	margin-top: 8%;
-	position: absolute;
-	margin-left: 45%;
-	color: #05356E;
 }

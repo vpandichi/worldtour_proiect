@@ -24,4 +24,11 @@ function output_errors($errors) {
     return '<ul class="error_list">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
 }
 
+function user_count() {
+    include('core/db/db_connection.php');
+    $sql = "SELECT COUNT(user_id) FROM `_users` WHERE active = 1";
+    $data = mysqli_query($dbCon, $sql);
+    return mysqli_result($data, 0);
+}
+
 ?>

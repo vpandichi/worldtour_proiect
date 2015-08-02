@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Welcome to worldtour! Your free touristic guide based on real experiences.</title>
 	<link rel="stylesheet" href="/sites/worldtour/public/styles/login.css">
-	<title></title>
 </head>
 <body>
 	<div id="body_wrap">

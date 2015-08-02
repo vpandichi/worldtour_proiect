@@ -2,9 +2,25 @@
 
 #contact_form, .loreg {display: none;}
 
-.loggedin {
-	margin-top: 8%;
+.loggedin, .inner, .cando, .ausers, .usercount{
 	position: absolute;
-	margin-left: 45%;
 	color: #05356E;
 }
+
+.loggedin {margin-top: 8%;margin-left: 45%;}
+
+.cando {margin-top: 11%;margin-left: 40.3%;}
+
+.inner {margin-top: 13.6%;margin-left: 45.5%;}
+
+.ausers {margin-top: 20.5%;margin-left: 46.5%;}
+
+.usercount {margin-top: 22.5%; margin-left: 41%;}
+
+.inner a {
+	text-decoration: none;
+	color: #05356E;
+}
+
+.inner a:hover, .inner ul li:hover {color: #70be12;}
+

@@ -23,10 +23,10 @@
 							echo "<a href='includes/logout.php'>log out</a>";
 						} else {
 							echo "<a href='login.php'>log in</a>";
+							echo "</li><li><a href='register.php'>register</a>";
 						}
 					?>	
 				</li>
-				<li><a href="register.php">register</a></li>
 				<li><a href="/sites/worldtour/ro/public/login.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>

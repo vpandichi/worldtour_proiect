@@ -97,9 +97,9 @@ TO DO FOR TOMORROW 01/08: - recode everything for the ro version - x
                           - style everything that's being dynamically generated on the page with PHP - x
                           - think of a way to add the a "posted by" feature on the blog page - x
 
-TO DO FOR TOMORROW 02/08: - finish recoding the login page
+TO DO FOR TOMORROW 02/08: - finish recoding the login page - ok
                           - recode the registration page
-                          - fix loggedin page pug
+                          - fix loggedin page pug - ok
 
                           
                           
