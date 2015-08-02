@@ -90,7 +90,7 @@ nav ul li a:hover {
 
 #email, #password, #password2, #country, #fname, #lname, #username {margin-left: 3.5%;}
 
-#login, #register  {
+#login, #register, #submit {
 	border: none;
 	float: left;
 	padding:10px;
@@ -100,6 +100,11 @@ nav ul li a:hover {
 	background: url(/sites/worldtour/public/img/above-content.png) no-repeat;
 	color: #d2e3ff;
 	font-size: 14px;
+}
+
+#submit {
+	margin-top: 9%;
+	margin-left: -93.8%;
 }
 
 #cancel, #clear {
@@ -114,7 +119,7 @@ nav ul li a:hover {
 	font-size: 14px;
 }
 
-#login:hover, #cancel:hover, #register:hover, #clear:hover {
+#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover{
 	background: url(/sites/worldtour/public/img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
@@ -221,7 +226,7 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .log_success, .changepw {
+.wetried, .error_list, .reg_errors, .log_success, .changepw, .reset_success {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
@@ -237,6 +242,11 @@ select option {
 
 .error_list:nth-child(1) {
 	margin-left: 50%;
+}
+
+.error_list:nth-child(4) {
+	margin-top: 25%;
+	margin-left: 35%;
 }
 
 .changepw {

@@ -1,11 +1,19 @@
 <?php  
 
+function change_password($user_id, $password) { // 
+	include('core/db/db_connection.php');
+	$user_id = (int)$user_id; // chiar daca nu este direct input, vom lua o masura de precautie asigurandu-ne ca variabila user_id poate contine doar numere intregi
+	$password = md5($password); 
+	$sql = "UPDATE `_users` SET `password` = '$password' WHERE `user_id` = $user_id";
+	$query = mysqli_query($dbCon, $sql); // interogam baza de date
+}
+
 function logged_in_redirect() { // daca userul incearca sa acceseze o pagina irelevanta dupa ce s-a logat (ex: pagina de inregistrare) - il vom redirectiona 
 	if (logged_in() === true)
 	header('Location: index.php');
 } 
 
-function not_logged_in_redirect() {
+function not_logged_in_redirect() { 
 	if (logged_in() !== true) {
 		header('Location: index.php');
 	}
@@ -78,7 +86,7 @@ function get_user_id($username) { //
 	return (mysqli_result($query, 0, 'user_id'));
 }
 
-function login($username, $password) {
+function login($username, $password) { 
 	include('core/db/db_connection.php');
 	$user_id = get_user_id($username);
 	$username = sanitize($username);

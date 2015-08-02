@@ -81,7 +81,6 @@ if (empty($_POST) === false) {
 		} else if (empty($errors) === false) {
 			echo output_errors($errors);
 		}
-	
 ?>
 		<body>
 			<div id="body_wrap">
