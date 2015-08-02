@@ -225,5 +225,8 @@ select option {
 }
 
 .login_aside {
-	background-color: #f00;
+	margin-top: 8%;
+	position: absolute;
+	margin-left: 45%;
+	color: #05356E;
 }

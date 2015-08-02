@@ -13,7 +13,7 @@
 				<li><a href="recom.php">recommendations</a></li>
 				<li><a href="blog.php">blog</a></li>
 				<li><a href="index.php#contact">contact</a></li>
-				<li><a href="login2.php">log in</a></li>
+				<li><a href="login.php">log in</a></li>
 				<li><a href="register.php">register</a></li>
 				<li><a href="/sites/worldtour/ro/public/login.php">ro</a></li>
 			</ul>

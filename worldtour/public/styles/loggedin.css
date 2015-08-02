@@ -1,0 +1,10 @@
+* {margin: 0;padding: 0;font-family: sans-serif;}
+
+#contact_form, .loreg {display: none;}
+
+.loggedin {
+	margin-top: 8%;
+	position: absolute;
+	margin-left: 45%;
+	color: #05356E;
+}

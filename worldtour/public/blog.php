@@ -21,7 +21,7 @@
 						if (logged_in() === true) {
 							echo "<a href='includes/logout.php'>log out</a>";
 						} else {
-							echo "<a href='login2.php'>log in</a>";
+							echo "<a href='login.php'>log in</a>";
 						}
 					?>	
 				</li>
@@ -34,7 +34,6 @@
 			<div id="page_content">
 				<div id="google_translate_element"></div>
 				<?php 
-					include_once("db_connection.php");
 					$sql = "SELECT * FROM blog ORDER BY id DESC";
 					$result = mysqli_query($dbCon, $sql);
 

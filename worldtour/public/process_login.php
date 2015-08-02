@@ -23,7 +23,7 @@ if (empty($_POST) === false) {
 			$errors[] = 'Username/password incorrect';
 		} else {
 			$_SESSION['user_id'] = $login;
-			header("Location: includes/loggedin.php");
+			header("Location: login.php");
 			exit;
 		}
 	}
