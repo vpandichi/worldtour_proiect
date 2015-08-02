@@ -244,7 +244,7 @@ select option {
 	margin-left: 50%;
 }
 
-.error_list:nth-child(4) {
+.error_list:nth-child(2) {
 	margin-top: 25%;
 	margin-left: 35%;
 }

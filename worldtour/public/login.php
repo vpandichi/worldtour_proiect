@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Welcome to worldtour! Your free touristic guide based on real experiences.</title>
 	<link rel="stylesheet" href="/sites/worldtour/public/styles/login.css">
-	<?php if (logged_in() === true) { ?>
+	<?php if (logged_in() === true) { ?> <!-- daca userul este logat se doreste schimbarea css-ului -->
 		<link rel="stylesheet" href="/sites/worldtour/public/styles/loggedin.css">
 	<?php include('loggedin.php'); ?>
 	<?php } ?>
