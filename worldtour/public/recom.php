@@ -1,3 +1,5 @@
+<?php include('core/init.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
 				<li><a href="blog.php">blog</a></li>
 				<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
 				<li><a href="login.php">log in</a></li>
-				<li><a href="index.php">back to main page</a></li>
+				<li><a href="register.php">register</a></li>
 				<li><a href="/sites/worldtour/ro/public/recom.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>

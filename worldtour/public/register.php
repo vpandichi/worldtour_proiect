@@ -17,6 +17,9 @@ if (empty($_POST) === false) {
 		if (preg_match("/\\s/", $_POST['username']) == true) { // regexp checking for any amount of spaces within the username 
 			$errors[] = 'No spaces allowed.';
 		}
+		if (!ctype_alnum($_POST['username'])) {
+			$errors[] = 'No special characters allowed';
+		}
 		if (strlen($_POST['password']) < 7) {
 			$errors[] = 'Your password must be at least 7 characters long.';
 		}
@@ -63,7 +66,7 @@ if (empty($_POST) === false) {
 						</ul>
 						<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
 					</nav>';
-		echo '<h3 class="log_success">You\'ve been registered successfully!<br/><a href="login.php" id="reglogin">Log in to be able to post articles, and much more!</a></h3>';
+		echo '<h3 class="reg_success">You\'ve been registered successfully!</h3><br/><h4 class="activate_account">Please check your email to activate your account, or &nbsp <a href="login.php" id="reglogin"> click here to log in. </a></h4>';
 	} else {
 		if (empty($_POST) === false && empty($errors) === true) {
 			$register_data = array(
@@ -72,6 +75,7 @@ if (empty($_POST) === false) {
 				'first_name' 	=> $_POST['first_name'],
 				'last_name' 	=> $_POST['last_name'],
 				'email' 		=> $_POST['email'],
+				'email_code'	=> md5($_POST['username'] + microtime()) // dorim sa generam un hash random pentru a-l introduce in linkul din email-ul de activare. folosim numele de utilizator la care adaugam microsecundele din 01/01/1970 pana in prezent
 				);
 
 			register_user($register_data);

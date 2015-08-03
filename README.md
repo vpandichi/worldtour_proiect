@@ -25,6 +25,7 @@
 24. AFTER HAVING MANY ISSUES WITH THE LOGIN/REGISTER PAGE WHICH WILL TAKE TOO MUCH TIME TO FIGURE OUT (ALREADY SPENT 3 DAYS ON IT) I HAVE DECIDED TO REORGANIZE THE WHOLE STRUCTURE OF THE WEBSITE AND SEPARATE THE LOGIN PAGE FROM THE REGISTRATION PAGE. ALSO, HAVING A VERY MESSY SYNTAX I HAVE DECIDED TO REWRITE EVERYTHING THAT IS PHP RELATED, FROM SCRATCH.
 25. Rewrote login system and registration page, now adding features for logged in users such as change password.
 25. Created login system and registration page, adding change password feature. Code is getting big, need to start commenting it out 
+26. Created mailing system from localhost using PHPMailer. Now users can activate their account after registering if they follow the email containing the activation link.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -101,7 +102,9 @@ TO DO FOR TOMORROW 01/08: - recode everything for the ro version - x
 TO DO FOR TOMORROW 02/08: - finish recoding the login page - ok
                           - recode the registration page - ok
                           - fix loggedin page pug - ok
-
+                          
+TO DO FOR TOMORROW 03/-8: - create the possibility to email users - ok
+                          - create the possibility to activate accounts by email - ok
                           
                           
                     

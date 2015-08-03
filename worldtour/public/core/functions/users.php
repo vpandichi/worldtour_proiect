@@ -1,5 +1,21 @@
 <?php  
 
+function activate($email, $email_code) {
+	include('core/db/db_connection.php');
+	$email = mysqli_real_escape_string($dbCon, $email);
+	$email_code = mysqli_real_escape_string($dbCon, $email_code);
+	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE email = '$email' AND email_code = '$email_code'";
+	$query = mysqli_query($dbCon, $sql);
+
+	if (mysqli_result($query, 0) == 1) {
+		$update_sql = "UPDATE `_users` SET active = 1 WHERE email = '$email'";
+		mysqli_query($dbCon, $update_sql);
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function change_password($user_id, $password) { // 
 	include('core/db/db_connection.php');
 	$user_id = (int)$user_id; // chiar daca nu este direct input, vom lua o masura de precautie asigurandu-ne ca variabila user_id poate contine doar numere intregi
@@ -29,6 +45,16 @@ function register_user($register_data) { // adaugam userul in baza de date
 	// echo $sql; testing the query
 	// die();
 	$query = mysqli_query($dbCon, $sql);
+	email($register_data['email'], 'Activate your account', "
+		Hello " . $register_data['first_name'] . ",<br><br>
+
+		Please follow the below link to activate your account and be allowed access to post articles, and much more: <br><br>". 
+
+		"http://localhost/sites/worldtour/public/activate.php?email=" . $register_data['email'] . "&email_code=".$register_data['email_code']." <br><br>
+
+		-worldtour team
+	
+		");
 }
 
 function user_data($user_id) {

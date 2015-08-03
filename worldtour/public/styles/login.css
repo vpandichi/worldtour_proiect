@@ -226,15 +226,21 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .log_success, .changepw, .reset_success {
+.wetried, .error_list, .reg_errors, .reg_success, .changepw, .reset_success, .activate_account {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
 	color: #05356E;
 }
 
-.log_success {margin-top: 10%;}
+.reg_success {margin-top: 10%;}
 
+.activate_account {
+	margin-top: 11%;
+	font-size: 14px;
+	text-align: center;
+	margin-left: 32%;
+}
 .error_list {
 	margin-top: 11%;
 	margin-left: 37%;

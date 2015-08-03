@@ -27,7 +27,7 @@ function output_errors($errors) { // aceasta functie returneaza erorile pe care 
     foreach($errors as $error) {
         $output[] = '<li>' . $error . '</li>';
     } // luam fiecare eroare, o plasam intr-o lista dupa care returnam rezultatul
-    return '<ul class="error_list reg_errors chpw_errors">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
+    return '<ul class="error_list reg_errors chpw_errors actv_errors">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
 }
 
 function user_count() { // pentru a arata cati utilizatori inregistrati avem pe site
@@ -35,6 +35,45 @@ function user_count() { // pentru a arata cati utilizatori inregistrati avem pe 
     $sql = "SELECT COUNT(user_id) FROM `_users` WHERE active = 1";
     $data = mysqli_query($dbCon, $sql);
     return mysqli_result($data, 0);
+}
+
+function email($user, $subject, $body) {
+    require 'phpmailer/PHPMailerAutoload.php';
+
+    $mail = new PHPMailer;
+
+    //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.mail.yahoo.com';                  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = '';               // SMTP username
+    $mail->Password = '#%!';                           // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 587;                                    // TCP port to connect to
+
+    $mail->From = '';
+    $mail->FromName = 'noreply@worldtour.com';
+    $mail->addAddress($user);                                // Add a recipient
+    $mail->addAddress('');                                // Name is optional
+    $mail->addReplyTo('', '');
+    $mail->addCC('');
+    $mail->addBCC('');
+
+    $mail->addAttachment('');                             // Add attachments
+    $mail->addAttachment('');                             // Optional name
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = $subject;
+    $mail->Body    = $body;
+    $mail->AltBody = $body;
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
 }
 
 ?>
