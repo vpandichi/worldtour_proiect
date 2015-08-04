@@ -27,7 +27,7 @@ function output_errors($errors) { // aceasta functie returneaza erorile pe care 
     foreach($errors as $error) {
         $output[] = '<li>' . $error . '</li>';
     } // luam fiecare eroare, o plasam intr-o lista dupa care returnam rezultatul
-    return '<ul class="error_list reg_errors chpw_errors actv_errors">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
+    return '<ul class="error_list reg_errors chpw_errors actv_errors profile_errors">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
 }
 
 function user_count() { // pentru a arata cati utilizatori inregistrati avem pe site
@@ -47,12 +47,12 @@ function email($user, $subject, $body) {
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.mail.yahoo.com';                  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = '';               // SMTP username
+    $mail->Username = '@yahoo.com';               // SMTP username
     $mail->Password = '#%!';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->From = '';
+    $mail->From = '@yahoo.com';
     $mail->FromName = 'noreply@worldtour.com';
     $mail->addAddress($user);                                // Add a recipient
     $mail->addAddress('');                                // Name is optional

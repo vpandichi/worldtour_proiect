@@ -71,7 +71,7 @@ nav ul li a:hover {
 
 #register_box {float: left;width:50%;}
 
-#changepwform {
+#changepwform, #updateacc {
 	margin-top: 10%;
 	position: absolute;
 	margin-left: 29.5%;
@@ -226,7 +226,7 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .reg_success, .changepw, .reset_success, .activate_account {
+.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, .updateacc {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
@@ -255,7 +255,12 @@ select option {
 	margin-left: 35%;
 }
 
-.changepw {
+/*.error_list:nth-child(4) {
+	margin-top: 20.2%;
+	margin-left: 40%;
+}*/
+
+.changepw, .updateacc {
 	margin-left: 43%;
 }
 

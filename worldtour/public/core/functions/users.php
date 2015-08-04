@@ -57,6 +57,19 @@ function register_user($register_data) { // adaugam userul in baza de date
 		");
 }
 
+function update_user($update_data) { 
+	include('core/db/db_connection.php');
+	array_walk($update_data, 'array_sanitize');
+	$update = array();
+	foreach ($update_data as $field => $data) {
+		$update[] = '`' . $field . '` = \'' . $data . '\'';
+	}
+	$sql = "UPDATE `_users` SET " . implode(', ', $update) . " WHERE `user_id` = " . $_SESSION['user_id'];
+	// print_r($sql);
+	// die();
+	$query = mysqli_query($dbCon, $sql);
+}
+
 function user_data($user_id) {
 	$data = array();
 	$user_id = (int)$user_id;

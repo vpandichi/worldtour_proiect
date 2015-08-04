@@ -26,6 +26,7 @@
 25. Rewrote login system and registration page, now adding features for logged in users such as change password.
 25. Created login system and registration page, adding change password feature. Code is getting big, need to start commenting it out 
 26. Created mailing system from localhost using PHPMailer. Now users can activate their account after registering if they follow the email containing the activation link.
+27. Created htaccess file, profile settings page and provisory user profile page
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -103,9 +104,17 @@ TO DO FOR TOMORROW 02/08: - finish recoding the login page - ok
                           - recode the registration page - ok
                           - fix loggedin page pug - ok
                           
-TO DO FOR TOMORROW 03/-8: - create the possibility to email users - ok
+TO DO FOR TOMORROW 03/08: - create the possibility to email users - ok
                           - create the possibility to activate accounts by email - ok
                           
+TO DO FOR TOMORROW 04/08: - create profile settings page - ok
+                          - create users profile page - 50%
+
+TO DO FOR TOMORROW 05/08: - fix vanity bug
+                          - finish the users profile page
+                          - create the posibility to recover forgotten usernames
+                          - create the posibility to recover forgotten passwords
+                          - create the admin account
                           
                     
                           

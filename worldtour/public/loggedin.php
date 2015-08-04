@@ -5,7 +5,11 @@ not_logged_in_redirect();
 <h2 class="loggedin">Hello, <?php echo $user_data['first_name']; ?> !</h2>
 <h4 class="cando">Here are some things you can do...</h4>
 <div class="inner">
-	<ul><li><a href="changepw.php">change password</a></li></ul>
+	<ul>
+		<li><a href="changepw.php">change password</a></li>
+		<li><a href="<?php echo $user_data['username']; ?>">view profile</a></li>
+		<li><a href="profile.php">update profile</a></li>
+	</ul>
 </div>
 <h4 class="ausers">Active users...</h4>
 <div class="usercount">
