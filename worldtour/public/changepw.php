@@ -13,8 +13,8 @@
 		if (md5($_POST['current_password']) === $user_data['password']) { // codificam parola pe care userul o introduce si verificam daca aceasta exista in baza de date
 			if (trim($_POST['password']) !== trim($_POST['password_again'])) { // folosim functia trim pentru a sterge orice spatiu pe care userul il poate insera din greseala
 				$errors[] = 'Your new passwords do not match.';
-			} else if (strlen($_POST['password']) < 6) {
-				$errors[] = 'Your password must be at least 6 characters.';
+			} else if (strlen($_POST['password']) < 7) {
+				$errors[] = 'Your password must be at least 7 characters long.';
 			}
 		} else {
 			$errors[] = 'Whoops... you misspelled your current password, try again.';
@@ -43,7 +43,7 @@
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
 		</nav>
 		<?php 
-			if (isset($_GET['success']) && empty($_GET['success'])) { // empty($_get['success']) previne introducerea de caractere in url dupa cuvantul 'success'. ex: change_pw.php?success=jasljd
+			if (isset($_GET['success']) === true && empty($_GET['success']) === true) { // empty($_get['success']) previne introducerea de caractere in url dupa cuvantul 'success'. ex: change_pw.php?success=jasljd
 				echo '<h3 class="reset_success">Your have successfully reseted your password.</h3>';
 			} else {
 				if (empty($_POST) === false && empty($errors) === true) {

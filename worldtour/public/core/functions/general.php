@@ -2,12 +2,12 @@
 
 function array_sanitize(&$item) {
     include('core/db/db_connection.php');
-    $item = mysqli_real_escape_string($dbCon, $item);
+    $item = htmlentities(strip_tags(mysqli_real_escape_string($dbCon, $item))); // folosim htmlentities pentru a opri executarea nedorita a oricarui tip de cod pe care vizitatorul il poate introduce (ex la schimbare date profil <bold>Nume</bold>). Strip tags folosim pentru a sterge tagurile inserate
 }
 
 function sanitize($data) { // din motive de securitate dorim sa extragem si izolam caracterele speciale precum / - functia mysqli_real_escape_string adauga automat \ fiecarui caracter special
 	include('core/db/db_connection.php');
-	return mysqli_real_escape_string($dbCon, $data);
+	return htmlentities(strip_tags(mysqli_real_escape_string($dbCon, $data)));
 }
 
 function mysqli_result($res,$row=0,$col=0) { // aceasta functie face acelasi lucru ca mysql_result, dorim folosirea acestei functii deoarece mysql_result nu va mai fi folosit in versiunile viitoare 
@@ -47,12 +47,12 @@ function email($user, $subject, $body) {
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.mail.yahoo.com';                  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = '@yahoo.com';               // SMTP username
-    $mail->Password = '#%!';                           // SMTP password
+    $mail->Username = 'vladz0r9@yahoo.com';               // SMTP username
+    $mail->Password = 'cKZFp7Kw2B2wu9zu#%!';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->From = '@yahoo.com';
+    $mail->From = 'vladz0r9@yahoo.com';
     $mail->FromName = 'noreply@worldtour.com';
     $mail->addAddress($user);                                // Add a recipient
     $mail->addAddress('');                                // Name is optional

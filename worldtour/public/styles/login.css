@@ -78,11 +78,18 @@ nav ul li a:hover {
 	width:40%;
 }
 
+#recovery_form {
+	position: absolute;
+	margin-top: 12%;
+	margin-left: 30%;
+	width:46%;
+}
+
 #username {margin-bottom: 0px;}
 
-#email, #password, #password2, #country, #fname, #lname, #username {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+#email, #password, #password2, #country, #fname, #lname, #username, #rec_email {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
-#password, #email, #password2, #country, #fname, #lname, #username {border:none; padding:10px;color:#d2e3ff;}
+#password, #email, #password2, #country, #fname, #lname, #username, #rec_email {border:none; padding:10px;color:#d2e3ff;}
 
 #password {margin-top: 5px;margin-bottom: 5px;}
 
@@ -90,7 +97,7 @@ nav ul li a:hover {
 
 #email, #password, #password2, #country, #fname, #lname, #username {margin-left: 3.5%;}
 
-#login, #register, #submit {
+#login, #register, #submit, #recover {
 	border: none;
 	float: left;
 	padding:10px;
@@ -107,6 +114,11 @@ nav ul li a:hover {
 	margin-left: -93.8%;
 }
 
+#recover {
+	margin-top: 7%;
+	margin-left: -93.3%;
+}
+
 #cancel, #clear {
 	border: none;
 	float: left;
@@ -119,7 +131,7 @@ nav ul li a:hover {
 	font-size: 14px;
 }
 
-#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover{
+#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover, #recover:hover {
 	background: url(/sites/worldtour/public/img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
@@ -226,7 +238,7 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, .updateacc {
+.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, .updateacc, .recover_info {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
@@ -276,3 +288,24 @@ select option {
 	color: #70be12;
 }
 
+.forgotten {
+	position: absolute;
+	margin-top: 17.7%;
+	color: #05356E;
+	margin-left: 38.2%;
+}
+
+.forgotten_u, .forgotten_p {
+	color: #05356E;
+}
+.forgotten_u:hover, .forgotten_p:hover {
+	color: #70be12;
+	text-decoration: none;
+}
+
+#recovery_p_error {
+	margin-top: 16%;
+	position: absolute;
+	color: #05356E;
+	margin-left: 40%;
+}

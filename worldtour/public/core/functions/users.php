@@ -1,5 +1,31 @@
 <?php  
 
+function recover($mode, $email) {
+	include('core/db/db_connection.php');
+	$mode = sanitize($mode);
+	$email = sanitize($email);
+
+	$user_data = user_data(get_user_id_from_email($email), 'user_id', 'first_name', 'username');
+
+	if ($mode == 'username') {
+		email($email, 'Your username', "
+				Hello " . $user_data['first_name'] . ", <br><br>
+				Your username is " . $user_data['username'] ." <br><br>
+				-worldtour team
+			");
+	} else if ($mode == 'password') {
+		$generated_password = substr(md5(rand(777, 7777)), 0, 7); 
+		change_password($user_data['user_id'], $generated_password);
+		update_user($user_data['user_id'], array('pwd_recovery' => '1'));
+		email($email, 'Password recovery', "
+				Hello " . $user_data['first_name'] . ", <br><br>
+				Your new password is " . $generated_password."<br><br>
+				Kindly note that this is a temporary password and you are required to change it on your first log in. <br><br>
+				-worldtour team
+			");
+	}
+}
+
 function activate($email, $email_code) {
 	include('core/db/db_connection.php');
 	$email = mysqli_real_escape_string($dbCon, $email);
@@ -20,7 +46,7 @@ function change_password($user_id, $password) { //
 	include('core/db/db_connection.php');
 	$user_id = (int)$user_id; // chiar daca nu este direct input, vom lua o masura de precautie asigurandu-ne ca variabila user_id poate contine doar numere intregi
 	$password = md5($password); 
-	$sql = "UPDATE `_users` SET `password` = '$password' WHERE `user_id` = $user_id";
+	$sql = "UPDATE `_users` SET `password` = '$password', `pwd_recovery` = 0 WHERE `user_id` = $user_id";
 	$query = mysqli_query($dbCon, $sql); // interogam baza de date
 }
 
@@ -57,14 +83,14 @@ function register_user($register_data) { // adaugam userul in baza de date
 		");
 }
 
-function update_user($update_data) { 
+function update_user($user_id, $update_data) { 
 	include('core/db/db_connection.php');
 	array_walk($update_data, 'array_sanitize');
 	$update = array();
 	foreach ($update_data as $field => $data) {
 		$update[] = '`' . $field . '` = \'' . $data . '\'';
 	}
-	$sql = "UPDATE `_users` SET " . implode(', ', $update) . " WHERE `user_id` = " . $_SESSION['user_id'];
+	$sql = "UPDATE `_users` SET " . implode(', ', $update) . " WHERE `user_id` = " . $user_id;
 	// print_r($sql);
 	// die();
 	$query = mysqli_query($dbCon, $sql);
@@ -121,6 +147,14 @@ function get_user_id($username) { //
 	include('core/db/db_connection.php');
 	$username = sanitize($username);
 	$sql = "SELECT user_id FROM `_users` WHERE username = '$username'";
+	$query = mysqli_query($dbCon, $sql);
+	return (mysqli_result($query, 0, 'user_id'));
+}
+
+function get_user_id_from_email($email) { //
+	include('core/db/db_connection.php');
+	$email = sanitize($email);
+	$sql = "SELECT user_id FROM `_users` WHERE email = '$email'";
 	$query = mysqli_query($dbCon, $sql);
 	return (mysqli_result($query, 0, 'user_id'));
 }

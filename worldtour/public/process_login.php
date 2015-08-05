@@ -12,7 +12,7 @@ if (empty($_POST) === false) { // daca form-ul este trimis, ne asiguram ca acest
 	} else if (user_exists($username) === false) { // daca numele de utilizator nu exista, redam eroarea de mai jos
 		$errors[] = 'Username does not exist! Please register before logging in.';
 	} else if (user_active($username) === false) { // daca utilizatorul nu a confirmat contul prin email, nu il vom lasa sa se logheze
-		$errors[] = 'You haven\'t activated your account yet';
+		$errors[] = 'You haven\'t activated your account yet. <br> Please check your email for the activation link.';
 	} else {
 		if (strlen($password) > 32) {
 			$errors[] = 'Password too long'; 
@@ -35,6 +35,7 @@ include('includes/header.php');
 if (empty($errors) === false) {
 ?>
 	<h2 class="wetried">We tried to log you in, but...</h2>
+	<h4 class="forgotten">Forgotten <a href="recover.php?mode=username" class="forgotten_u"> username</a> or <a href="recover.php?mode=password" class="forgotten_p">password</a> ?</h4>
 <?php  
 	echo output_errors($errors);
 }
