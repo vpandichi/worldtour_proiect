@@ -47,10 +47,12 @@
 				echo '<h3 class="update_success">Your profile has been updated successfully!</h3>';
 			} else {
 				if (empty($_POST) === false && empty($errors) === true) {
+					$allow_email = ($_POST['allow_email'] == 'on') ? 1 : 0;
 					$update_data = array(
-						'first_name' => $_POST['first_name'],
-						'last_name'  => $_POST['last_name'],
-						'email' 	 => $_POST['email'],
+						'first_name' 	=> $_POST['first_name'],
+						'last_name'  	=> $_POST['last_name'],
+						'email' 	 	=> $_POST['email'],
+						'allow_email'	=> $allow_email,
 					);
 					update_user($session_user_id, $update_data);
 					header('Location: profile.php?success');
@@ -77,6 +79,8 @@
 				<input type="text" id="lname" name="last_name" placeholder="last name... " value="<?php echo $user_data['last_name']; ?>">
 				<input type="text" id="email" name="email" placeholder="email address... *" value="<?php echo $user_data['email']; ?>">
 				<input type="submit" id="submit" name="submit" value="update">
+				<input type="checkbox" class="email_checkbox" name="allow_email" <?php if ($user_data['allow_email'] == 1) { echo 'checked = "checked"';} ?>> <p class="email_checkbox_p">Subscribe to our newsfeed?</p>
+
 			</form>
 	<?php 
 		}

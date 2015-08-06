@@ -309,3 +309,22 @@ select option {
 	color: #05356E;
 	margin-left: 40%;
 }
+
+.admin {
+	position: absolute;
+	margin-top: 10%;
+	margin-left: 40%;
+	color: #05356E;
+}
+
+.email_checkbox  {
+	position: absolute;
+	margin-top: 11%;
+	margin-left: -38%;
+}
+
+.email_checkbox_p {
+	margin-top: 4.3%;
+	margin-left: 20%;
+	color: #05356E;
+}

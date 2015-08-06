@@ -96,6 +96,13 @@ function update_user($user_id, $update_data) {
 	$query = mysqli_query($dbCon, $sql);
 }
 
+function delete_user($user_id) {
+	include('core/db/db_connection.php');
+	$user_id = (int)$user_id;
+	$sql = "DELETE FROM `_users` WHERE user_id = '$user_id'";
+	$query = mysql_query($dbCon, $sql);
+}
+
 function user_data($user_id) {
 	$data = array();
 	$user_id = (int)$user_id;
@@ -107,7 +114,7 @@ function user_data($user_id) {
 		include('core/db/db_connection.php');
 		unset($func_get_args[0]);
 		$fields = '`' . implode('`, `', $func_get_args) . '`';
-		$sql = "SELECT $fields FROM `_users` where user_id = $user_id";
+		$sql = "SELECT $fields FROM `_users` WHERE user_id = $user_id";
 		$data = mysqli_query($dbCon, $sql);
 		$fetch_data = mysqli_fetch_assoc($data);
 		// print_r($fetch_data);
@@ -167,6 +174,15 @@ function login($username, $password) {
 	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE username = '$username' AND password = '$password'";
 	$query = mysqli_query($dbCon, $sql);
 	return (mysqli_result($query, 0) == 1) ? $user_id : false;
+}
+
+function superuser($user_id, $type) {
+	include('core/db/db_connection.php');
+	$user_id = (int)$user_id;
+	$type = (int)$type;
+	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE user_id = '$user_id' AND type = '$type'";
+	$query = mysqli_query($dbCon, $sql);
+	return (mysqli_result($query, 0) == 1) ? true : false;
 }
 
 ?>

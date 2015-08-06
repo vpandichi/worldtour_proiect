@@ -1,7 +1,7 @@
 <?php  
 	include('core/init.php');
 	logged_in_redirect();
-	include('includes/header.php')
+	include('includes/header.php');
 ?>
 
 <h1 class="recover_info">Recover your information...</h1>

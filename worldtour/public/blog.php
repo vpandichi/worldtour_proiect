@@ -25,7 +25,7 @@
 						}
 					?>	
 				</li>
-				<li><a href="register.php">register</a></li>
+				<li><a href="profile.php">profile settings</a></li>
 				<li><a href="/sites/worldtour/ro/public/blog.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>

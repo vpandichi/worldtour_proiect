@@ -47,12 +47,12 @@ function email($user, $subject, $body) {
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.mail.yahoo.com';                  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'vladz0r9@yahoo.com';               // SMTP username
-    $mail->Password = 'cKZFp7Kw2B2wu9zu#%!';                           // SMTP password
+    $mail->Username = '@yahoo.com';               // SMTP username
+    $mail->Password = '#%!';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->From = 'vladz0r9@yahoo.com';
+    $mail->From = '@yahoo.com';
     $mail->FromName = 'noreply@worldtour.com';
     $mail->addAddress($user);                                // Add a recipient
     $mail->addAddress('');                                // Name is optional
@@ -73,6 +73,13 @@ function email($user, $subject, $body) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         echo 'Message has been sent';
+    }
+}
+
+function admin_protect() {
+    global $user_data;
+    if (superuser($user_data['user_id'], 1) === false) {
+        header('Location: index.php');
     }
 }
 
