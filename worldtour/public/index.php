@@ -56,7 +56,7 @@
 					</div>
 					<h1 id="contact">Contact me</h1>
 					<p>Got any suggestions for improving the website? Have you spotted a bug that you want to report? Do you have a business inquiry?<br/> Great! Fill in the below form and I'll contact you as soon as I can !</p>
-					<form action="submit.php" id="contact_form">
+					<form action="" id="contact_form">
 							<input type="text" name="name" placeholder="name... *" id="name" maxlength="30">
 							<input type="text" name="email" placeholder="email... *" id="email" maxlength="30">
 							<textarea name="comments" placeholder="your message... *" id="textarea" maxlength="3220"></textarea><br/>

@@ -38,7 +38,7 @@ function user_count() { // pentru a arata cati utilizatori inregistrati avem pe 
 }
 
 function email($user, $subject, $body) {
-    require 'phpmailer/PHPMailerAutoload.php';
+    require_once 'phpmailer/PHPMailerAutoload.php';
 
     $mail = new PHPMailer;
 

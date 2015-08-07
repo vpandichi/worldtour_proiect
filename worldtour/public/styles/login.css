@@ -71,7 +71,7 @@ nav ul li a:hover {
 
 #register_box {float: left;width:50%;}
 
-#changepwform, #updateacc {
+#changepwform, #updateacc, #email_users {
 	margin-top: 10%;
 	position: absolute;
 	margin-left: 29.5%;
@@ -87,9 +87,14 @@ nav ul li a:hover {
 
 #username {margin-bottom: 0px;}
 
-#email, #password, #password2, #country, #fname, #lname, #username, #rec_email {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+#email, #password, #password2, #country, #fname, #lname, #username, #rec_email, #email_users_subject, #email_users_body {width:90%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
-#password, #email, #password2, #country, #fname, #lname, #username, #rec_email {border:none; padding:10px;color:#d2e3ff;}
+#password, #email, #password2, #country, #fname, #lname, #username, #rec_email, #email_users_subject, #email_users_body {border:none; padding:10px;color:#d2e3ff;}
+
+#email_users_body {
+	resize: none;
+	margin-top: 10px;
+}
 
 #password {margin-top: 5px;margin-bottom: 5px;}
 
@@ -97,7 +102,7 @@ nav ul li a:hover {
 
 #email, #password, #password2, #country, #fname, #lname, #username {margin-left: 3.5%;}
 
-#login, #register, #submit, #recover {
+#login, #register, #submit, #recover, #send_email {
 	border: none;
 	float: left;
 	padding:10px;
@@ -119,7 +124,7 @@ nav ul li a:hover {
 	margin-left: -93.3%;
 }
 
-#cancel, #clear {
+#cancel, #clear, #clear_email_form {
 	border: none;
 	float: left;
 	padding:10px;
@@ -131,11 +136,24 @@ nav ul li a:hover {
 	font-size: 14px;
 }
 
-#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover, #recover:hover {
+#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover, #recover:hover, #send_email:hover, #clear_email_form:hover {
 	background: url(/sites/worldtour/public/img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
 	font-weight: bold;
+}
+
+#send_email {
+	margin-top: 21%;
+	position: absolute;
+	margin-left: -93.8%
+}
+
+#clear_email_form {
+	margin-top: 21%;
+	position: absolute;
+	margin-left: -82.8%;
+	width: 15%;
 }
 
 select option {
@@ -238,7 +256,7 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, .updateacc, .recover_info {
+.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, #updateacc, .updateacc_headers, .recover_info, .email_success, .email_success_a {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
@@ -246,6 +264,19 @@ select option {
 }
 
 .reg_success {margin-top: 10%;}
+
+.email_success {margin-left: 43%;}
+
+.email_success_a {
+	margin-top: 11%;
+	margin-left: 43.3%;
+	text-decoration: none;
+}
+
+.email_success_a:hover {
+	text-decoration: underline;
+	color: #70be12;
+}
 
 .activate_account {
 	margin-top: 11%;
@@ -272,8 +303,17 @@ select option {
 	margin-left: 40%;
 }*/
 
-.changepw, .updateacc {
+.changepw, #updateacc, .updateacc_headers {
 	margin-left: 43%;
+}
+
+#updateacc {
+	margin-left: 30%;
+	margin-top: 10%;
+}
+
+.updateacc_headers {
+	margin-top: 7.5%;
 }
 
 #reglogin {
@@ -310,11 +350,16 @@ select option {
 	margin-left: 40%;
 }
 
-.admin {
+.admin, .email_users_headers {
 	position: absolute;
-	margin-top: 10%;
+	margin-top: 8%;
 	margin-left: 40%;
 	color: #05356E;
+}
+
+.email_users_headers {
+	margin-top: 7.3%;
+	margin-left: 41%;
 }
 
 .email_checkbox  {
@@ -328,3 +373,17 @@ select option {
 	margin-left: 20%;
 	color: #05356E;
 }
+
+.inner {
+	margin-top: 10.6%;
+	margin-left: 45.5%;
+	position: absolute;
+}
+
+.inner a {
+	text-decoration: none;
+	color: #05356E;
+}
+
+.inner a:hover, .inner ul li:hover {color: #70be12;}
+

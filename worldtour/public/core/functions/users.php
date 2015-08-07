@@ -1,5 +1,15 @@
 <?php  
 
+function email_users($subject, $body) {
+    include('core/db/db_connection.php');
+    $sql = "SELECT email, first_name FROM `_users` WHERE allow_email = 1";
+    $query = mysqli_query($dbCon, $sql);
+    while (($row = mysqli_fetch_assoc($query)) !== false) {
+        email($row['email'], $subject, "Hello ". $row['first_name'] . ", <br><br>" . $body);
+        header('Location: email_users.php?success');
+    }
+}
+
 function recover($mode, $email) {
 	include('core/db/db_connection.php');
 	$mode = sanitize($mode);
@@ -94,13 +104,6 @@ function update_user($user_id, $update_data) {
 	// print_r($sql);
 	// die();
 	$query = mysqli_query($dbCon, $sql);
-}
-
-function delete_user($user_id) {
-	include('core/db/db_connection.php');
-	$user_id = (int)$user_id;
-	$sql = "DELETE FROM `_users` WHERE user_id = '$user_id'";
-	$query = mysql_query($dbCon, $sql);
 }
 
 function user_data($user_id) {
