@@ -78,6 +78,14 @@ nav ul li a:hover {
 	width:40%;
 }
 
+#upload_img_form {
+	margin-top: 20%;
+	margin-left: 30%;
+	float: left;
+	overflow: hidden;
+	clear: top;
+}
+
 #recovery_form {
 	position: absolute;
 	margin-top: 12%;
@@ -124,7 +132,7 @@ nav ul li a:hover {
 	margin-left: -93.3%;
 }
 
-#cancel, #clear, #clear_email_form {
+#cancel, #clear, #clear_email_form, #upload_pic {
 	border: none;
 	float: left;
 	padding:10px;
@@ -136,7 +144,7 @@ nav ul li a:hover {
 	font-size: 14px;
 }
 
-#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover, #recover:hover, #send_email:hover, #clear_email_form:hover {
+#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover, #recover:hover, #send_email:hover, #clear_email_form:hover, #upload_pic:hover {
 	background: url(/sites/worldtour/public/img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
@@ -168,6 +176,40 @@ select option {
 #register, #clear {margin-top: 5px;}
 
 #clear {margin-left: 105px;}
+
+#profile_pic_select {
+	margin-top: 50%;
+	margin-left: 8.5%;
+}
+
+#upload_pic {
+	position: absolute;
+	margin-left: 1.4%;
+	margin-top: 0.7%;
+	width:5%;
+}
+
+.user_d_form {
+	margin-top: 0.4%;
+	margin-left: -30%;
+	float: left;
+}
+
+.active_users {
+	margin-top: 10%;
+	float: left;
+	margin-left: 7%;
+	text-align: center;
+	color: #05356E;
+	max-width: 45%;
+	width: 45%;
+	padding: 3px;
+	border-spacing: 10px;
+}
+
+.odd {background-color: #A7C5EA;}
+.even {background-color: #E2F1D0;}
+
 
 /********************************* =BEGIN FOOTER *********************************/
 #footer_wrap {
@@ -256,12 +298,19 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, #updateacc, .updateacc_headers, .recover_info, .email_success, .email_success_a {
+.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, #updateacc, .updateacc_headers, .recover_info, .email_success, .email_success_a, .updateacc_profile_pic, .delete_success {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;
 	color: #05356E;
 }
+
+.updateacc_profile_pic {
+	margin-top: 27%;
+	margin-left: 41.4%;
+}
+
+.delete_success {margin-left: 41.7%;}
 
 .reg_success {margin-top: 10%;}
 
@@ -350,7 +399,7 @@ select option {
 	margin-left: 40%;
 }
 
-.admin, .email_users_headers {
+.admin, .email_users_headers, .active_users_headers {
 	position: absolute;
 	margin-top: 8%;
 	margin-left: 40%;
@@ -359,7 +408,11 @@ select option {
 
 .email_users_headers {
 	margin-top: 7.3%;
-	margin-left: 41%;
+	margin-left: 42%;
+}
+
+.active_users_headers {
+	margin-left: 25%;
 }
 
 .email_checkbox  {
