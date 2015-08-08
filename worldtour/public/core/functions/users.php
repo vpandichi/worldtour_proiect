@@ -10,14 +10,6 @@ function email_users($subject, $body) {
     }
 }
 
-// function change_profile_image($user_id, $file_temp, $file_ext) {
-//     include('core/db/db_connection.php');
-// 	$file_path = 'img/profiles/' . substr(md5(time()), 0, 10) . '.' . $file_ext; // take current time, encrypt it then change it to a 10 character figure
-// 	move_uploaded_file($file_temp, $file_path);
-// 	$sql = "UPDATE `_users` SET profile = '" . $file_path . "' WHERE user_id = " . (int)$user_id;
-// 	mysqli_query($dbCon, $sql);
-// }
-
 function display_users() {
     include('core/db/db_connection.php');
 	$sql = "SELECT user_id, username, first_name, email FROM `_users` WHERE active = 1";
@@ -244,9 +236,10 @@ function superuser($user_id, $type) {
 
 function post_article($title, $content) {
 	include('core/db/db_connection.php');
-	$title = mysqli_real_escape_string($dbCon, $subject);
+	$title = mysqli_real_escape_string($dbCon, $title);
 	$content = mysqli_real_escape_string($dbCon, $content);
-	$sql = "INSERT INTO `blog` (title, content) VALUE ('$title', '$content')";
+	$sql = "INSERT INTO `blog` (`title`, `content`) VALUES ('$title', '$content')";
+	mysqli_query($dbCon, $sql);
 }
 
 function list_articles() {
@@ -260,5 +253,31 @@ function list_articles() {
 			"<hr class='artline'>";
 	}
 }
+
+function generate_captcha($num1, $num2) { // genereaza un numar la intamplare
+	$num1 = (int)$num1;
+	$num2 = (int)$num2;
+	$rand_num_1 = mt_rand($num1, $num2);
+	$rand_num_2 = mt_rand($num1, $num2);
+	$result = $rand_num_1 + $rand_num_2;
+	return $result;
+} 
+
+function create_captcha() { 
+	$num1 = generate_captcha(1, 9);
+	$num2 = generate_captcha(1, 20);
+	echo $num1 . ' + ' . $num2 . ' = ';
+	echo '<input type="text" name="captcha_results" size="2">';
+	echo '<input type="hidden" name=\'num1\' value=' . $num1 . '; ?>';
+	echo '<input type="hidden" name=\'num2\' value=' . $num2 . '; ?>';
+}
+
+// function change_profile_image($user_id, $file_temp, $file_ext) {
+//     include('core/db/db_connection.php');
+// 	$file_path = 'img/profiles/' . substr(md5(time()), 0, 10) . '.' . $file_ext; // take current time, encrypt it then change it to a 10 character figure
+// 	move_uploaded_file($file_temp, $file_path);
+// 	$sql = "UPDATE `_users` SET profile = '" . $file_path . "' WHERE user_id = " . (int)$user_id;
+// 	mysqli_query($dbCon, $sql);
+// }
 
 ?>
