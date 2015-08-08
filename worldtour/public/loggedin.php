@@ -9,6 +9,7 @@ not_logged_in_redirect();
 		<li><a href="changepw.php">change password</a></li>
 		<li><a href="<?php echo $user_data['username']; ?>">view profile</a></li>
 		<li><a href="profile.php">update profile</a></li>
+		<li><a href="post_article.php">post article</a></li>
 		<?php 
 			if (superuser($user_data['user_id'], 1) === true) {
         		echo '<li><a href="admin.php">admin page</a></li>';

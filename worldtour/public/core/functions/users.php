@@ -10,6 +10,52 @@ function email_users($subject, $body) {
     }
 }
 
+// function change_profile_image($user_id, $file_temp, $file_ext) {
+//     include('core/db/db_connection.php');
+// 	$file_path = 'img/profiles/' . substr(md5(time()), 0, 10) . '.' . $file_ext; // take current time, encrypt it then change it to a 10 character figure
+// 	move_uploaded_file($file_temp, $file_path);
+// 	$sql = "UPDATE `_users` SET profile = '" . $file_path . "' WHERE user_id = " . (int)$user_id;
+// 	mysqli_query($dbCon, $sql);
+// }
+
+function display_users() {
+    include('core/db/db_connection.php');
+	$sql = "SELECT user_id, username, first_name, email FROM `_users` WHERE active = 1";
+	$query = mysqli_query($dbCon, $sql);
+	while($user = mysqli_fetch_assoc($query)) {
+    	echo "<tr class='even'>";
+    	echo "<td>" . $user['username'] . "</td>";
+    	echo "<td>" . $user['first_name'] . "</td>";
+    	echo "<td>" . $user['email'] . "</td>";
+    	echo "</tr>";
+	}
+}
+
+function display_inactive_users() {
+    include('core/db/db_connection.php');
+	$sql = "SELECT user_id, username, first_name, email FROM `_users` WHERE active = 0";
+	$query = mysqli_query($dbCon, $sql);
+	while($user = mysqli_fetch_assoc($query)) {
+    	echo "<tr class='even'>";
+    	echo "<td>" . $user['username'] . "</td>";
+    	echo "<td>" . $user['first_name'] . "</td>";
+    	echo "<td>" . $user['email'] . "</td>";
+    	echo "</tr>";
+	}
+}
+
+function delete_user($username) { 
+	include('core/db/db_connection.php');
+	$sql = "DELETE FROM `_users` WHERE `username` = '$username' AND active = 1";
+	mysqli_query($dbCon, $sql);
+}
+
+function delete_inactive_user($username) { 
+	include('core/db/db_connection.php');
+	$sql = "DELETE FROM `_users` WHERE `username` = '$username' AND active = 0";
+	mysqli_query($dbCon, $sql);
+}
+
 function recover($mode, $email) {
 	include('core/db/db_connection.php');
 	$mode = sanitize($mode);
@@ -145,6 +191,14 @@ function email_exists($email) {
 	return (mysqli_result($query, 0) == 1) ? true : false;
 }
 
+function id_exists($user_id) {
+	include('core/db/db_connection.php');
+	$user_id = (int)$user_id;
+	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE user_id = '$user_id'";
+	$query = mysqli_query($dbCon, $sql);
+	return (mysqli_result($query, 0) == 1) ? true : false;
+}
+
 function user_active($username) {
 	include('core/db/db_connection.php');
 	$username = sanitize($username);
@@ -186,6 +240,25 @@ function superuser($user_id, $type) {
 	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE user_id = '$user_id' AND type = '$type'";
 	$query = mysqli_query($dbCon, $sql);
 	return (mysqli_result($query, 0) == 1) ? true : false;
+}
+
+function post_article($title, $content) {
+	include('core/db/db_connection.php');
+	$title = mysqli_real_escape_string($dbCon, $subject);
+	$content = mysqli_real_escape_string($dbCon, $content);
+	$sql = "INSERT INTO `blog` (title, content) VALUE ('$title', '$content')";
+}
+
+function list_articles() {
+	include('core/db/db_connection.php');
+	$sql = "SELECT * FROM blog ORDER BY id DESC";
+	$result = mysqli_query($dbCon, $sql);
+	while ($row = mysqli_fetch_array($result)) {
+		echo 
+			"<h1 class='content_headers'>" . $title = $row['title'] . "</h1>" . 
+			"<article>" . $content = $row['content'] . "</article>" .
+			"<hr class='artline'>";
+	}
 }
 
 ?>

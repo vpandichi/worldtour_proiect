@@ -1,5 +1,4 @@
 <?php 
-	error_reporting(E_ALL & ~E_NOTICE);
 	include('core/init.php');
 ?>
 
@@ -15,17 +14,14 @@
 		<nav id="nav">
 			<ul>
 				<li><a href="recom.php">recommendations</a></li>
-				<li><a href="index.php#contact">contact</a></li>
-				<li>
-					<?php 
-						if (logged_in() === true) {
-							echo "<a href='includes/logout.php'>log out</a>";
-						} else {
-							echo "<a href='login.php'>log in</a>";
-						}
-					?>	
-				</li>
-				<li><a href="profile.php">profile settings</a></li>
+				<?php 
+					if (logged_in() === true) {
+						echo "<li><a href='includes/logout.php'>log out</a></li>";
+						echo "<li><a href='login.php'>profile settings</a></li>";
+					} else {
+						echo "<li><a href='login.php'>log in</a></li>";
+					}
+				?>	
 				<li><a href="/sites/worldtour/ro/public/blog.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
@@ -33,20 +29,7 @@
 		<div id="page_wrapper">
 			<div id="page_content">
 				<div id="google_translate_element"></div>
-				<?php 
-					$sql = "SELECT * FROM blog ORDER BY id DESC";
-					$result = mysqli_query($dbCon, $sql);
-
-					while($row = mysqli_fetch_array($result)) {
-						$title = $row['title'];
-						$content = $row['content'];
-				?>
-						<h1 class="headers"><?php echo $title; ?></h1>
-						<article><?php echo $content; ?></article>
-						<hr class="artline">
-				<?php  
-					}
-				?>
+				<?php echo list_articles(); ?>
 			</div>
 		</div>
 		<div id="footer_wrap">
