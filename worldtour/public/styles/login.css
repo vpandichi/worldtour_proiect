@@ -166,7 +166,7 @@ nav ul li a:hover {
 
 #publish {
 	width: 16%;
-	margin-left: 0%;
+	margin-left: 56%;
 	margin-top: 0.8%
 }
 
@@ -311,7 +311,7 @@ select option {
 	margin-top: 50%;
 }
 
-.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, #updateacc, .updateacc_headers, .recover_info, .email_success, .email_success_a, .updateacc_profile_pic, .delete_success {
+.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, #updateacc, .updateacc_headers, .recover_info, .email_success, .email_success_a, .updateacc_profile_pic, .delete_success, .post_success {
 	margin-top: 8%;
 	margin-left: 37%;
 	position: absolute;

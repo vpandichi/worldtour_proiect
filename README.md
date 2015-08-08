@@ -31,6 +31,7 @@
 29. Created admin account page and database. Added user flags against accounts so we can change privileges. Started working on a mass email feature
 30. Finished the mass email feature for admins
 31. Added more admin page functionality (delete active/inactive users), recoded blog page which is now fetching data from the database more efficiently
+32. Created the possibility to post blog articles for registered users. Created simple math captcha functions to implement with forms.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -127,7 +128,11 @@ TO DO FOR TOMORROW 07/08: - finish mass email feature - ok
                         
 TO DO FOR TOMORROW 08/08: - work on user profile page - added upload picture functionality but there are a lot of bugs, will put it on hold for now
                           - work on admin account features - ok
-                          - make everything work with the /ro version of the website
+                          - make everything work with the /ro version of the website - x
                           
+TO DO FOR TOMORROW 09/08: - see if I can add a picture option for user-posted articles - not a priority
+                          - implement captcha on admin page for the form used to email users
+                          - implement article comments
+                          - recode everything for the ro page
                     
                           

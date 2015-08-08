@@ -58,7 +58,7 @@
 			echo output_errors($errors);
 		}
 	?>	
-		<h2 class="email_users_headers">Inactive users...</h2>
+		<h2 class="active_users_headers">Inactive users...</h2>
 		<div class="active_users">
 			<table id="usertable" width="600">
 				<tr class="odd">
