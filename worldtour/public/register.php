@@ -32,6 +32,11 @@ if (empty($_POST) === false) {
 		if (email_exists($_POST['email']) === true) {
 			$errors[] = 'Sorry, the email \'' . $_POST['email'] . '\' is already in use.';
 		}
+		if (empty($_POST['captcha_results']) === true) {
+			$errors[] = 'Please enter captcha.';
+		} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
+			$errors[] = "Incorrect captcha.";
+		}
 	}
 }
 // print_r($errors);
@@ -58,7 +63,7 @@ if (empty($_POST) === false) {
 										echo "<a href='includes/logout.php'>log out</a>";
 									} else {
 										echo "<a href='login.php'>log in</a>";
-										echo "</li><li><a href=\'register.php\'>register</a>";
+										echo "</li><li><a href='register.php'>register</a>";
 									}
 								?>	
 							<?php echo '</li>
@@ -81,8 +86,8 @@ if (empty($_POST) === false) {
 			register_user($register_data);
 			header('Location: register.php?success');
 			exit();
-
-		} else if (empty($errors) === false) {
+		} 
+		else if (empty($errors) === false) {
 			echo output_errors($errors);
 		}
 ?>
@@ -93,16 +98,14 @@ if (empty($_POST) === false) {
 						<li><a href="recom.php">recommendations</a></li>
 						<li><a href="blog.php">blog</a></li>
 						<li><a href="index.php#contact">contact</a></li>
-						<li>
-							<?php 
-								if (logged_in() === true) {
-									echo "<a href='includes/logout.php'>log out</a>";
-								} else {
-									echo "<a href='login.php'>log in</a>";
-									echo "</li><li><a href='register.php'>register</a>";
-								}
-							?>	
-						</li>
+						<?php 
+							if (logged_in() === true) {
+								echo "<li><a href='includes/logout.php'>log out</a></li>";
+							} else {
+								echo "<li><a href='login.php'>log in</a></li>";
+								echo "<li><a href='register.php'>register</a></li>";
+							}
+						?>	
 						<li><a href="/sites/worldtour/ro/public/login.php">ro</a></li>
 					</ul>
 					<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
@@ -118,6 +121,7 @@ if (empty($_POST) === false) {
 						<input type="text" name="last_name" placeholder="Last name... " id="lname">
 						<input type="text" name="email" placeholder="email... *" id="email"><br>
 						<input type="submit" name="register" class="button" value="register" id="register">
+						<div id='register_captcha'><?php create_captcha(); ?></div>
 						<input type="reset" class="button" value="clear all" id="clear">
 					</form>
 				</div>

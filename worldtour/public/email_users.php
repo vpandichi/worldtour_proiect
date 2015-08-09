@@ -38,6 +38,11 @@
 				if (empty($_POST['body']) === true) {
 					$errors[] = 'A body message is required.';
 				}
+				if (empty($_POST['captcha_results']) === true) {
+					$errors[] = 'Please enter captcha.';
+				} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
+					$errors[] = "Incorrect captcha.";
+				}
 				if (empty($errors) === false) {
 					echo output_errors($errors);
 				} else {
@@ -50,6 +55,7 @@
 			<form action="" method="post" id="email_users">
 				<input type="text" name="subject" id="email_users_subject" placeholder="subject... *">
 				<textarea name="body" id="email_users_body" placeholder="enter your message... *" cols="30" rows="5" maxlength="3220"></textarea>
+				<div id='email_captcha'><?php create_captcha(); ?></div>
 				<input type="submit" value="send" id="send_email">
 			</form>
 <?php

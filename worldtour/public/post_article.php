@@ -17,7 +17,6 @@
 				<li><a href="blog.php">blog</a></li>
 				<li><a href='includes/logout.php'>log out</a></li>
 				<li><a href="login.php">profile settings</a></li>
-				<li><a href="profile.php">view profile</a></li>	
 				<li><a href="/sites/worldtour/ro/public/login.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
@@ -66,7 +65,7 @@
 	<form action="" method="post" id="post_blog_entry">
 		<input type="text" name="title" id="title" placeholder="title... *"><br>
 		<textarea name="content" id="content" cols="30" rows="5" placeholder="content... *"></textarea><br>
-		<?php create_captcha(); ?>
+		<div id='post_captcha'><?php create_captcha(); ?></div>
 		<input type="submit" name="publish" value="post entry" id="publish">
 	</form>
 		

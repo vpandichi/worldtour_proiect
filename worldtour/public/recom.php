@@ -13,8 +13,14 @@
 			<ul>
 				<li><a href="blog.php">blog</a></li>
 				<li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">contact</a></li>
-				<li><a href="login.php">log in</a></li>
-				<li><a href="register.php">register</a></li>
+				<?php 
+					if (logged_in() === true) {
+						echo "<li><a href='includes/logout.php'>log out</a></li>";
+						echo "<li><a href='login.php'>profile settings</a></li>";
+					} else {
+						echo "<li><a href='login.php'>log in</a></li>";
+					}
+				?>	
 				<li><a href="/sites/worldtour/ro/public/recom.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>

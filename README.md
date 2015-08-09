@@ -131,7 +131,7 @@ TO DO FOR TOMORROW 08/08: - work on user profile page - added upload picture fun
                           - make everything work with the /ro version of the website - x
                           
 TO DO FOR TOMORROW 09/08: - see if I can add a picture option for user-posted articles - not a priority
-                          - implement captcha on admin page for the form used to email users
+                          - implement captcha on admin page for the form used to email users 
                           - implement article comments
                           - recode everything for the ro page
                     

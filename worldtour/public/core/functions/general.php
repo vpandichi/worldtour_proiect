@@ -1,6 +1,6 @@
 <?php  
 
-function array_sanitize(&$item) {
+function array_sanitize(&$item) { 
     include('core/db/db_connection.php');
     $item = htmlentities(strip_tags(mysqli_real_escape_string($dbCon, $item))); // folosim htmlentities pentru a opri executarea nedorita a oricarui tip de cod pe care vizitatorul il poate introduce (ex la schimbare date profil <bold>Nume</bold>). Strip tags folosim pentru a sterge tagurile inserate
 }
@@ -76,7 +76,7 @@ function email($user, $subject, $body) {
     }
 }
 
-function admin_protect() {
+function admin_protect() { // face ca pagina de administrator sa nu fie accesibila altor tipuri de utilizatori
     global $user_data;
     if (superuser($user_data['user_id'], 1) === false) {
         header('Location: index.php');
