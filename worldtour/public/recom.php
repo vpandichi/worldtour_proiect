@@ -1,5 +1,6 @@
-<?php include('core/init.php'); ?>
-
+<?php
+include('core/init.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,17 +108,55 @@
 					</div>
 				</article>
 				<hr class="artline">
-				<h1 id="contact">Contact me</h1>
-				<p>Got any suggestions for improving the website? Have you spotted a bug that you want to report? Do you have a business inquiry?<br/> Great! Fill in the below form and I'll contact you as soon as I can !</p>
-				<form action="submit.php" id="contact_form">
-					<input type="text" name="name" placeholder="name... *" id="name" maxlength="30">
-					<input type="text" name="email" placeholder="email... *" id="email" maxlength="30">
-					<textarea name="comments" placeholder="your message... *" id="textarea" maxlength="3220"></textarea><br/>
-					<input type="submit" class="button" value="send!" id="submit">
-					<input type="reset" class="button" value="clear form" id="clear">
-				</form>
+				<?php
+				if (isset($_GET['success']) === true && empty($_GET['success']) === true) { // empty($_get['success']) previne introducerea de caractere in url dupa cuvantul 'success'. ex: change_pw.php?success=jasljd
+					echo '<h3 class="contact_success">Your message has been successfully sent.</h3>';
+				} else {
+					if (empty($_POST) === false) {
+						$required_fields = array('contact_name', 'email', 'contact_subject', 'body');
+						foreach ($_POST as $key => $value) {
+							if (empty($value) && in_array($key, $required_fields) === true) {	
+								$errors[] = 'Fields marked with an asterisk are required';
+								break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+							} 
+						}
+						if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+							$errors[] = 'The email address entered is not valid.';
+						} else if (strlen($_POST['email']) < 14) {
+							$errors[] = 'Email address must be more than 14 characters long';
+						}
+						if (strlen($_POST['contact_subject']) > 40) {
+							$errors[] = 'Subject must be less than 40 characters long';
+						}
+						if (empty($_POST['captcha_results']) === true) {
+							$errors[] = 'Please enter captcha.';
+						} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
+							$errors[] = "Incorrect captcha.";
+						}
+					} 
+					if (empty($_POST) === false && empty($errors) === true) {
+						contact_me($_POST['contact_subject'], $_POST['body']);
+						// header('Location: recom.php?success');
+						// exit();
+						echo "<div id='contact_errors'>Your message has been successfully sent.</div>";
+					} else if (empty($errors) === false) {
+						echo "<div id='contact_errors'>". output_errors($errors) ."</div>";
+					}
+				?>
+					<h1 id="contact">Contact me</h1>
+					<p>Got any suggestions for improving the website? Have you spotted a bug that you want to report? Do you have a business inquiry?<br/> Great! Fill in the below form and I'll contact you as soon as I can !</p>
+					<form action="" method="post" id="contact_form">
+						<input type="text" name="contact_name" placeholder="name... *" id="name" maxlength="30">
+						<input type="text" name="email" placeholder="email... *" id="email" maxlength="30">
+						<input type="text" name="contact_subject" placeholder="subject... *" id="contact_subject">
+						<textarea name="body" placeholder="your message... *" id="textarea" maxlength="3220"></textarea><br/>
+						<div id="contact_captcha"><?php create_captcha(); ?></div>
+						<input type="submit" class="button" value="send!" id="submit">
+						<input type="reset" class="button" value="clear form" id="clear">
+					</form>
+		<?php   } ?>
+				</div>
 			</div>
-		</div>
 		<div id="footer_wrap">
 			<footer id="footer">
 				<div id="recent_stories">

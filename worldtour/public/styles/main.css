@@ -200,11 +200,17 @@ span#last {margin-left: 243px;}
 }
 
 /********************************* =BEGIN FORM STYLES *********************************/
-#name, #email {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+#name, #email, #contact_subject {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
-#name, #email, #textarea {border:none; padding:10px;color:#d2e3ff;margin-top: 25px;}
+#name, #email, #textarea, #contact_subject {border:none; padding:10px;color:#d2e3ff;margin-top: 25px;}
 
 #name {margin-left: 3.5%;}
+
+#contact_subject {
+	margin-top: 0.5%;
+	margin-left: 3.5%;
+	width: 92.3%;
+}
 
 #textarea {
 	resize: none;
@@ -213,6 +219,7 @@ span#last {margin-left: 243px;}
 	margin-left: 3.5%;
 	height:200px;
 	font-size: 14px;
+	margin-top: 0.5%;
 }
 
 #submit {
@@ -308,3 +315,23 @@ span#last {margin-left: 243px;}
 }
 
 
+/********************************* =BEGIN PHP STYLES *********************************/
+
+#contact_errors {
+	margin-top: 54%;
+	margin-left: 32%;
+	position: absolute;
+	color: #05356E;
+}
+
+#contact_captcha {
+	position: absolute;
+	margin-top: 2%;
+	margin-left: 17%;
+}
+
+.contact_success {
+	color: #05356E;
+	text-align: center;
+	margin-top: 35%;
+}

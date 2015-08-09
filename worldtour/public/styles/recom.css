@@ -118,11 +118,17 @@ article {text-align: justify;color:#05356E;}
 
 /********************************* =BEGIN FORM STYLE *********************************/
 
-#name, #email {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
+#name, #email, #contact_subject {width:45%;background:url(/sites/worldtour/public/img/above-content.png) no-repeat;}
 
-#name, #email, #textarea {border:none; padding:10px;color:#d2e3ff;margin-top: 25px;}
+#name, #email, #textarea, #contact_subject {border:none; padding:10px;color:#d2e3ff;margin-top: 25px;}
 
 #name {margin-left: 3.5%;}
+
+#contact_subject {
+	margin-top: 0.5%;
+	margin-left: 3.5%;
+	width: 92.3%;
+}
 
 #textarea {
 	resize: none;
@@ -130,6 +136,7 @@ article {text-align: justify;color:#05356E;}
 	background:url(/sites/worldtour/public/img/above-content.png) repeat;
 	margin-left: 3.5%;
 	height:200px;
+	margin-top: 0.5%;
 	font-size: 14px;
 }
 
@@ -229,4 +236,24 @@ article {text-align: justify;color:#05356E;}
 	-moz-transform: rotateY(360deg); /*Mozilla*/
 	-webkit-transform: rotateY(360deg);
 	transform: rotateY(360deg);
+}
+
+#contact_errors {
+	margin-top: 33.5%;
+	margin-left: 32%;
+	position: absolute;
+	color: #05356E;
+}
+
+#contact_captcha {
+	position: absolute;
+	margin-top: 2%;
+	margin-left: 17%;
+}
+
+.contact_success {
+	color: #05356E;
+	text-align: center;
+	margin-top: 5%;
+	margin-bottom: -4%;
 }

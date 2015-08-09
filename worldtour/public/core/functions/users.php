@@ -10,6 +10,14 @@ function email_users($subject, $body) {
     }
 }
 
+function contact_me($subject, $body) {
+	$send_to = 'vladz0r9@yahoo.com'; 
+	$username = htmlentities($_POST['contact_name']);
+	$email = htmlentities($_POST['email']);
+	$body = 'From: ' . $username . '<br>Email: ' . $email . '<br><br>' . $body;
+	email($send_to, $subject, $body);
+}
+
 function display_users() { // reda un tabel cu utilizatorii activi din baza de date
     include('core/db/db_connection.php');
 	$sql = "SELECT user_id, username, first_name, email FROM `_users` WHERE active = 1";

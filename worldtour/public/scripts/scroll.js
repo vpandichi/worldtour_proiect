@@ -34,7 +34,8 @@ function yScroll() {
 			navNode1.childNodes[5].firstChild.style.color = "#235fa5";
 			navNode1.childNodes[7].firstChild.style.color = "#235fa5";
 			navNode1.childNodes[9].firstChild.style.color = "#235fa5";
-			navNode1.childNodes[11].firstChild.style.color = "#235fa5";
+			navNode1.childNodes[10].firstChild.style.color = "#235fa5";
+			navNode1.childNodes[12].firstChild.style.color = "#235fa5";
 
 		    navNode1.childNodes[1].firstChild.onmouseover = function() {
 		    	navNode1.childNodes[1].firstChild.style.transition = "0.5s";
@@ -66,10 +67,16 @@ function yScroll() {
 				navNode1.childNodes[9].firstChild.style.borderTop = "3.5px solid #70be12";
 			}
 			
-			navNode1.childNodes[11].firstChild.onmouseover = function() {
-				navNode1.childNodes[11].firstChild.style.transition = "0.5s";
-				navNode1.childNodes[11].firstChild.style.color = "#70be12";
-				navNode1.childNodes[11].firstChild.style.borderTop = "3.5px solid #70be12";
+			navNode1.childNodes[10].firstChild.onmouseover = function() {
+				navNode1.childNodes[10].firstChild.style.transition = "0.5s";
+				navNode1.childNodes[10].firstChild.style.color = "#70be12";
+				navNode1.childNodes[10].firstChild.style.borderTop = "3.5px solid #70be12";
+			}
+
+			navNode1.childNodes[12].firstChild.onmouseover = function() {
+				navNode1.childNodes[12].firstChild.style.transition = "0.5s";
+				navNode1.childNodes[12].firstChild.style.color = "#70be12";
+				navNode1.childNodes[12].firstChild.style.borderTop = "3.5px solid #70be12";
 			}
 			
 			navNode1.childNodes[1].firstChild.onmouseleave = function() {
@@ -97,11 +104,16 @@ function yScroll() {
 				navNode1.childNodes[9].firstChild.style.borderTop = "none";
 			}
 			
-			navNode1.childNodes[11].firstChild.onmouseleave = function() {
-				navNode1.childNodes[11].firstChild.style.color = "#235fa5";
-				navNode1.childNodes[11].firstChild.style.borderTop = "none";
+			navNode1.childNodes[10].firstChild.onmouseleave = function() {
+				navNode1.childNodes[10].firstChild.style.color = "#235fa5";
+				navNode1.childNodes[10].firstChild.style.borderTop = "none";
 			} // the onmouseover and onmouse leave functions are responsible for the navigation effects after layout transition (dynamically generated)
 		  
+			navNode1.childNodes[12].firstChild.onmouseleave = function() {
+				navNode1.childNodes[12].firstChild.style.color = "#235fa5";
+				navNode1.childNodes[12].firstChild.style.borderTop = "none";
+			}
+
 			video.style.display = "none"; 
 		    // page_wrapper.style.opacity = "0.5"; - implement a fade-in effect later
 		    break;
