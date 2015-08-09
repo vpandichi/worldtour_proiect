@@ -72,7 +72,7 @@ function email($user, $subject, $body) {
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        echo 'Message has been sent';
+        // echo 'Message has been sent';
     }
 }
 

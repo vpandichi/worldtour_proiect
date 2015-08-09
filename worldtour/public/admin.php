@@ -28,6 +28,7 @@
 	<div class="inner">
 		<ul>
 			<li><a href="email_users.php">mass email users</a></li>
+			<li><a href="add_user.php">add user</a></li>
 			<li><a href="delete_users.php">delete active users</a></li>
 			<li><a href="delete_inactive_users.php">delete inactive users</a></li>
 		</ul>

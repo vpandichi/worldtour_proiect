@@ -139,6 +139,16 @@ function register_user($register_data) { // adaugam userul in baza de date
 		");
 }
 
+function admin_add_user($register_data) { // adaugam userul in baza de date
+	include('core/db/db_connection.php');
+	array_walk($register_data, 'array_sanitize'); // aplica functia array_sanitize() fiecarui element din multime
+	$register_data['password'] = md5($register_data['password']);
+	$fields = '`' . implode('`, `', array_keys($register_data)) . '`'; // pregatim interogarea adaugand `` fiecarui cap de tabel
+	$data = '\'' . implode('\', \'', $register_data) . '\''; // pregatim interogarea adaugand '' variabilelor care contin informatii precum numele de utilizator, parola, email, etc.
+	$sql = "INSERT INTO `_users` ($fields) VALUES ($data)";
+	$query = mysqli_query($dbCon, $sql);
+}
+
 function update_user($user_id, $update_data) { 
 	include('core/db/db_connection.php');
 	array_walk($update_data, 'array_sanitize');
