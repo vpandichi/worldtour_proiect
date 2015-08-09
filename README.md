@@ -33,6 +33,7 @@
 31. Added more admin page functionality (delete active/inactive users), recoded blog page which is now fetching data from the database more efficiently
 32. Created the possibility to post blog articles for registered users. Created simple math captcha functions to implement with forms.
 33. Implemented captcha where necessary, coded contact form.
+34. Implemented add_user feature for administrators.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -134,6 +135,17 @@ TO DO FOR TOMORROW 08/08: - work on user profile page - added upload picture fun
 TO DO FOR TOMORROW 09/08: - see if I can add a picture option for user-posted articles - not a priority
                           - implement captcha on admin page for the form used to email users  - ok
                           - implement article comments - x
+                          - recode everything for the ro page - x
+                    
+TO DO FOR TOMORROW 10/08: - implement article comments + auto user message
                           - recode everything for the ro page
+
+
+
+
+
+THINGS LEFT TO DO: - create official logo
+                   - responsive design
+                   - (maybe) implement article picture upload
                     
                           
