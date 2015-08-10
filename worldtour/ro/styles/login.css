@@ -1,0 +1,466 @@
+* {margin: 0;padding: 0;font-family: sans-serif;}
+
+/********************************* =BEGIN SCROLLBAR STYLES *********************************/
+
+::-webkit-scrollbar {
+	height:9px;
+	width:9px;
+	background: #ccdff6;
+}
+
+::-webkit-scrollbar-thumb {
+	/*chrome 10*/
+	background-image: -webkit-gradient(radial, center center, 0, center center, 500, color-stop(0, #A3C3EA), color-stop(1, #031A37));
+	/*chrome 11*/
+	background-image: -webkit-radial-gradient(center, circle cover, #A3C3EA 0% #031A37 100%);
+	-webkit-border-raduis: 1ex;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/********************************* =BEGIN NAV STYLES *********************************/
+
+nav {
+	width: 100%;
+	min-width: 30%;
+	position: fixed;
+	border-bottom: 2px solid #67b700;
+	padding: 32px;
+	background-color: #fff;
+	text-align: right;
+	z-index: 100;
+}
+
+#logo {
+	position: absolute;
+	margin-top: -4.6%;
+	margin-left: 5.1%;
+}
+
+nav ul {
+	margin-right: 4%;
+}
+
+nav ul li {
+	display: inline;
+	padding-left: 45px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #235fa5;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+nav ul li a:hover {
+	transition: all 0.4s;
+	border-top: 3.5px solid #70be12;
+	color: #70be12;
+}
+
+
+/********************************* =BEGIN FORM STYLES *********************************/
+.loreg {
+	margin-bottom: 10px;
+	margin-top: 15%;
+	text-align: center;
+	color:#05356E;
+}
+
+#login_box {float: left;width:50%;}
+
+#register_box {float: left;width:50%;}
+
+#changepwform, #updateacc, #email_users, #post_blog_entry {
+	margin-top: 10%;
+	position: absolute;
+	margin-left: 29.5%;
+	width:40%;
+}
+
+#upload_img_form {
+	margin-top: 20%;
+	margin-left: 30%;
+	float: left;
+	overflow: hidden;
+	clear: top;
+}
+
+#recovery_form {
+	position: absolute;
+	margin-top: 12%;
+	margin-left: 30%;
+	width:46%;
+}
+
+#username {margin-bottom: 0px;}
+
+#email, #password, #password2, #country, #fname, #lname, #username, #rec_email, #email_users_subject, #email_users_body, #content, #title {width:90%;background:url(../img/above-content.png) no-repeat;}
+
+#password, #email, #password2, #country, #fname, #lname, #username, #rec_email, #email_users_subject, #email_users_body, #content, #title {border:none; padding:10px;color:#d2e3ff;}
+
+#email_users_body {
+	resize: none;
+	margin-top: 10px;
+}
+
+#title {margin-top: 1.5%;}
+
+#content {
+	resize: none;
+	margin-top: 1.5%;
+}
+
+#password {margin-top: 5px;margin-bottom: 5px;}
+
+#password2, #fname {margin-top: -1px;margin-bottom: 5px;}
+
+#email, #password, #password2, #country, #fname, #lname, #username {margin-left: 3.5%;}
+
+#login, #register, #submit, #recover, #send_email, #publish {
+	border: none;
+	float: left;
+	padding:10px;
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 24px;
+	background: url(../img/above-content.png) no-repeat;
+	color: #d2e3ff;
+	font-size: 14px;
+}
+
+#submit {
+	margin-top: 9%;
+	margin-left: -93.8%;
+}
+
+#recover {
+	margin-top: 7%;
+	margin-left: -93.3%;
+}
+
+#cancel, #clear, #clear_email_form, #upload_pic {
+	border: none;
+	float: left;
+	padding:10px;
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 90px;
+	background: url(../img/above-content.png) no-repeat;
+	color: #d2e3ff;
+	font-size: 14px;
+}
+
+#login:hover, #cancel:hover, #register:hover, #clear:hover, #submit:hover, #recover:hover, #send_email:hover, #clear_email_form:hover, #upload_pic:hover, #publish:hover {
+	background: url(../img/green_button.png) no-repeat;
+	cursor: pointer;
+	color: #05356E;
+	font-weight: bold;
+}
+
+#send_email {
+	margin-top: -2.5%;
+	position: absolute;
+	margin-left: 78.7%;
+	width: 15%;
+}
+
+#publish {
+	width: 16%;
+	margin-left: 77.7%;
+	margin-top: -2.5%
+}
+
+#clear_email_form {
+	margin-top: 21%;
+	position: absolute;
+	margin-left: -82.8%;
+	width: 15%;
+}
+
+
+
+select option {
+    margin:40px;
+    background: #3a6597;
+}
+
+#lname {margin-top: 0px;margin-bottom: 5px;}
+
+#country {width:93%;margin-bottom: 5px;}
+
+#register, #clear {margin-top: 5px;}
+
+#register {width:5.6%;}
+
+#clear {margin-left: 105px;}
+
+#profile_pic_select {
+	margin-top: 50%;
+	margin-left: 8.5%;
+}
+
+#upload_pic {
+	position: absolute;
+	margin-left: 1.4%;
+	margin-top: 0.7%;
+	width:5%;
+}
+
+.user_d_form {
+	margin-top: 0.4%;
+	margin-left: -30%;
+	float: left;
+}
+
+.active_users {
+	margin-top: 10%;
+	float: left;
+	margin-left: 7%;
+	text-align: center;
+	color: #05356E;
+	max-width: 45%;
+	width: 45%;
+	padding: 3px;
+	border-spacing: 10px;
+}
+
+.odd {background-color: #A7C5EA;}
+.even {background-color: #E2F1D0;}
+
+
+/********************************* =BEGIN FOOTER *********************************/
+#footer_wrap {
+	position: absolute;
+	border-top: 2px solid #70be12;
+	background: url(../img/above-content.png) repeat;
+	margin-top: 35.5%;
+}
+
+#footer {
+	width: 80%;
+	margin:auto;
+}
+
+#recom {margin-left: 0px;margin-right: -55px;}
+
+#recom, #featured_location, #recent_stories {
+	width:30%;
+	float: left;
+	padding-left: 45px;
+	padding-top: 10px;
+	margin-top: 10px;
+	color: #b5c8df;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+#footer h1 {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+#footer a {
+	text-decoration: none; 
+	color: #70be12;
+}
+
+#footer a:hover {text-decoration: underline;}
+
+#footer p {color:#b5c8df;}
+
+#footer ul li {
+	list-style-type: none;
+	text-align: center;
+}
+
+.social {
+	text-align: center;
+	float: left;
+	width:100%;
+}
+
+.social img {
+	opacity: 0.5;
+	padding: 10px;
+	-moz-transform-style: preserve-3d; /*Mozilla*/
+	-webkit-transform-style: preserve-3d; /*Chrome, Safari, Opera*/
+	transform-style: preserve-3d; /* child elements will preserve its 3D position */
+	transition: all 0.7s ease;
+}
+
+.social img:hover {
+	-moz-transform: rotateY(360deg); /*Mozilla*/
+	-webkit-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+
+/********************************* =BEGIN PHP STYLES *********************************/
+
+.denied {
+	color: #f00;
+	font-size: 50px;
+	letter-spacing: 1px;
+	opacity: 0.5;
+	position: absolute;
+	margin-top: 17.8%;
+	margin-left: 15%;
+}
+
+.loregheaders {
+	font-size: 50px;
+	font-style: verdana;
+	position: absolute;
+	margin-top: 50%;
+}
+
+.wetried, .error_list, .reg_errors, .reg_success, .update_success, .changepw, .reset_success, .activate_account, #updateacc, .updateacc_headers, .recover_info, .email_success, .email_success_a, .updateacc_profile_pic, .delete_success, .post_success {
+	margin-top: 8%;
+	margin-left: 37%;
+	position: absolute;
+	color: #05356E;
+}
+
+.updateacc_profile_pic {
+	margin-top: 27%;
+	margin-left: 41.4%;
+}
+
+.delete_success {margin-left: 41.7%;}
+
+.reg_success {margin-top: 10%;}
+
+.email_success {margin-left: 43%;}
+
+.email_success_a {
+	margin-top: 11%;
+	margin-left: 43.3%;
+	text-decoration: none;
+}
+
+.email_success_a:hover {
+	text-decoration: underline;
+	color: #70be12;
+}
+
+.activate_account {
+	margin-top: 11%;
+	font-size: 14px;
+	text-align: center;
+	margin-left: 32%;
+}
+.error_list {
+	margin-top: 11%;
+	margin-left: 37%;
+}
+
+.error_list:nth-child(1) {
+	margin-left: 50%;
+}
+
+.error_list:nth-child(2) {
+	margin-top: 25%;
+	margin-left: 35%;
+}
+
+/*.error_list:nth-child(4) {
+	margin-top: 20.2%;
+	margin-left: 40%;
+}*/
+
+.changepw, #updateacc, .updateacc_headers {
+	margin-left: 43%;
+}
+
+#updateacc {
+	margin-left: 30%;
+	margin-top: 10%;
+}
+
+.updateacc_headers {
+	margin-top: 7.5%;
+}
+
+#reglogin {
+	font-size:14px;
+	text-align: center;
+	text-decoration: none;
+	color: #05356E;
+	margin-left: -5px;
+}
+
+#reglogin:hover {
+	color: #70be12;
+}
+
+.forgotten {
+	position: absolute;
+	margin-top: 17.7%;
+	color: #05356E;
+	margin-left: 38.2%;
+}
+
+.forgotten_u, .forgotten_p {
+	color: #05356E;
+}
+.forgotten_u:hover, .forgotten_p:hover {
+	color: #70be12;
+	text-decoration: none;
+}
+
+#recovery_p_error {
+	margin-top: 16%;
+	position: absolute;
+	color: #05356E;
+	margin-left: 40%;
+}
+
+.admin, .email_users_headers, .active_users_headers {
+	position: absolute;
+	margin-top: 8%;
+	margin-left: 40%;
+	color: #05356E;
+}
+
+.email_users_headers {
+	margin-top: 7.3%;
+	margin-left: 42%;
+}
+
+.active_users_headers {
+	margin-left: 25%;
+}
+
+.email_checkbox  {
+	position: absolute;
+	margin-top: 11%;
+	margin-left: -38%;
+}
+
+.email_checkbox_p {
+	margin-top: 4.3%;
+	margin-left: 24%;
+	color: #05356E;
+}
+
+.inner {
+	margin-top: 10.6%;
+	margin-left: 45.5%;
+	position: absolute;
+}
+
+.inner a {
+	text-decoration: none;
+	color: #05356E;
+}
+
+.inner a:hover, .inner ul li:hover {color: #70be12;}
+
+#register_captcha {
+	position: absolute;
+	margin-top: 1.1%;
+	margin-left: 15%;
+}
+

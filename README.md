@@ -34,6 +34,7 @@
 32. Created the possibility to post blog articles for registered users. Created simple math captcha functions to implement with forms.
 33. Implemented captcha where necessary, coded contact form.
 34. Implemented add_user feature for administrators.
+35. Created the final ro version of the website, both PHP functionality and javascript behavior
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -137,11 +138,13 @@ TO DO FOR TOMORROW 09/08: - see if I can add a picture option for user-posted ar
                           - implement article comments - x
                           - recode everything for the ro page - x
                     
-TO DO FOR TOMORROW 10/08: - implement article comments + auto user message
-                          - recode everything for the ro page
+TO DO FOR TOMORROW 10/08: - implement article comments + auto user message - x - need to think of a possible way to do that
+                          - recode everything for the ro page - ok
 
+BUGS 10/08: - Add user from admin page - active field - not accepting the value of 0, needs fix.
+            - Blog posts not pulling from the same DB, if a user is posting an article on the ro_page it will only show on the ro_page and disappear unce the eng page is loaded. Will need to either make 1 big db to incorporate both or find a way to query two tables at a time (mysqli_multi_query())
 
-
+TO DO FOR TOMORROW 11/08: - fix current bugs, implement article comments
 
 
 THINGS LEFT TO DO: - create official logo

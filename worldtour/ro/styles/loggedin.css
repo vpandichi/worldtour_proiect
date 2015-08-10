@@ -1,0 +1,26 @@
+* {margin: 0;padding: 0;font-family: sans-serif;}
+
+#contact_form, .loreg {display: none;}
+
+.loggedin, .inner, .cando, .ausers, .usercount{
+	position: absolute;
+	color: #05356E;
+}
+
+h2.loggedin {margin-top: 8%;width:100%;text-align: center;}
+
+.cando {margin-top: 11%;margin-left: 40.3%;}
+
+.inner {margin-top: 13.6%;margin-left: 45.5%;}
+
+.ausers {margin-top: 23.5%;margin-left: 47%;}
+
+.usercount {margin-top: 25.5%; margin-left: 41%;}
+
+.inner a {
+	text-decoration: none;
+	color: #05356E;
+}
+
+.inner a:hover, .inner ul li:hover {color: #70be12;}
+
