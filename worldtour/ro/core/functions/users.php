@@ -256,13 +256,13 @@ function post_article($title, $content) { // posteaza un articol pe site
 	include('core/db/db_connection.php');
 	$title = mysqli_real_escape_string($dbCon, $title);
 	$content = mysqli_real_escape_string($dbCon, $content);
-	$sql = "INSERT INTO `blog_ro` (`title`, `content`) VALUES ('$title', '$content')";
+	$sql = "INSERT INTO blog (`title`, `content`) VALUES ('$title', '$content')";
 	mysqli_query($dbCon, $sql); // deocamdata separam pagina de engleza de cea de romana
 }
 
 function list_articles() { // listeaza articolele existente pe site
 	include('core/db/db_connection.php');
-	$sql = "SELECT * FROM blog_ro ORDER BY id DESC";
+	$sql = "SELECT * FROM blog ORDER BY id DESC";
 	$result = mysqli_query($dbCon, $sql);
 	while ($row = mysqli_fetch_array($result)) {
 		echo 

@@ -3,13 +3,13 @@
 				<div id="recom">
 					<h1>Destinatii populare de vacanta</h1>
 					<ul>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Italia</a></li>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Romania</a></li>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Alta</a></li>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Alta</a></li>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Alta</a></li>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Alta</a></li>
-						<li><a href="/sites/worldtour/public/recom.php" id="#">Alta</a></li>
+						<li><a href="recom.php" id="#">Italia</a></li>
+						<li><a href="recom.php" id="#">Romania</a></li>
+						<li><a href="recom.php" id="#">Alta</a></li>
+						<li><a href="recom.php" id="#">Alta</a></li>
+						<li><a href="recom.php" id="#">Alta</a></li>
+						<li><a href="recom.php" id="#">Alta</a></li>
+						<li><a href="recom.php" id="#">Alta</a></li>
 					</ul>
 				</div>
 				<div id="recent_stories">
@@ -21,10 +21,10 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea sequi, magnam ipsa deleniti illo totam eum tempore, veniam suscipit! Eligendi, perspiciatis accusamus quisquam harum nesciunt dolor cumque, minima est ex. <a href="recom.php">[Mai mult...]</a></p>
 				</div>
 				<div class="social">
-					<a href="https://www.facebook.com/vlad.pandichi"><img src="/sites/worldtour/public/img/facebook.png" alt="facebook"></a>
-					<a href="https://www.twitter.com"><img src="/sites/worldtour/public/img/twitter.png" alt="twitter"></a>
-					<a href="https://plus.google.com/"><img src="/sites/worldtour/public/img/gplus.png" alt="google plus"></a>
-					<a href="https://youtube.com"><img src="/sites/worldtour/public/img/youtube.png" alt="youtube"></a>
+					<a href="https://www.facebook.com/vlad.pandichi"><img src="img/facebook.png" alt="facebook"></a>
+					<a href="https://www.twitter.com"><img src="img/twitter.png" alt="twitter"></a>
+					<a href="https://plus.google.com/"><img src="img/gplus.png" alt="google plus"></a>
+					<a href="https://youtube.com"><img src="img/youtube.png" alt="youtube"></a>
 				</div>
 			</footer>
 		</div>

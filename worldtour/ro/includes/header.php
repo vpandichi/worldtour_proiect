@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bine ati venit pe worldtour!</title>
-	<link rel="stylesheet" href="/sites/worldtour/public/styles/login.css">
+	<link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
 	<div id="body_wrap">
@@ -16,5 +16,5 @@
 				<li><a href="register.php">inregistrare</a></li>
 				<li><a href="../en/index.php">en</a></li>
 			</ul>
-			<div id="logo"><a href="index.php"><img src="/sites/worldtour/public/img/provisory-logo.gif"></a></div>
+			<div id="logo"><a href="index.php"><img src="img/provisory-logo.gif"></a></div>
 		</nav>

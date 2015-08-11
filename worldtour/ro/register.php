@@ -106,7 +106,7 @@ if (empty($_POST) === false) {
 								echo "<li><a href='register.php'>inregistrare</a></li>";
 							}
 						?>	
-						<li><a href="../en/login.php">en</a></li>
+						<li><a href="../en/register.php">en</a></li>
 					</ul>
 					<div id="logo"><a href="index.php"><img src="img/provisory-logo.gif"></a></div>
 				</nav>

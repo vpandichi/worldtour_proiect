@@ -34,11 +34,6 @@ if (empty($_POST) === false) {
 		if (email_exists($_POST['email']) === true) {
 			$errors[] = 'Ne pare rau, email-ul \'' . $_POST['email'] . '\' este deja in uz.';
 		}
-		if (strlen($_POST['active']) > 1) {
-			$errors[] = 'Campul \'activ\' poate lua doar valoarea 1 sau 0';
-		} else if ($_POST['active'] != '1' && $_POST['active'] != '0') {
-			$errors[] = 'Campul \'activ\' poate lua doar valoarea 1 sau 0';
-		}
 		if (empty($_POST['captcha_results']) === true) {
 			$errors[] = 'Te rugam sa rezolvi captcha.';
 		} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
@@ -76,8 +71,9 @@ if (empty($_POST) === false) {
 				'username' 		=> $_POST['username'],
 				'password' 		=> $_POST['password'],
 				'first_name' 	=> $_POST['first_name'],
+				'last_name' 	=> $_POST['last_name'],
 				'email' 		=> $_POST['email'],
-				'active'		=> $_POST['active'],
+				'active'		=> isset($_POST['active']) ? 1 : 0,
 				);
 			admin_add_user($register_data);
 			header('Location: add_user.php?success');
@@ -107,14 +103,14 @@ if (empty($_POST) === false) {
 						<input type="text" name="username" placeholder="nume utilizator... *" id="username"><br>
 						<input type="password" name="password" placeholder="parola... *" id="password"><br>
 						<input type="password" name="password_again" placeholder="verifica parola... *" id="password2"><br>
-						<input type="text" name="first_name" placeholder="nume... *" id="fname">
-						<input type="text" name="active" placeholder="activ... * (1 for yes / 0 for no)" id="lname">
+						<input type="text" name="first_name" placeholder="prenume... *" id="fname">
+						<input type="text" name="last_name" placeholder="nume... " id="lname">
 						<input type="text" name="email" placeholder="email... *" id="email"><br>
+						<div id="add_user_activ_inactiv">Utilizator activ? &nbsp; <input type="checkbox" name="active" value="1" checked></div>
 						<input type="submit" name="register" class="button" value="adaugare" id="register">
 						<div id='register_captcha'><?php create_captcha(); ?></div>
 					</form>
 				</div>
-
 <?php 
 }
 include 'includes/footer.php'; 
