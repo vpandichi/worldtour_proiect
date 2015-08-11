@@ -35,7 +35,7 @@
 33. Implemented captcha where necessary, coded contact form.
 34. Implemented add_user feature for administrators.
 35. Created the final ro version of the website, both PHP functionality and javascript behavior.
-36. Fixed a bug where admins could only add active users.
+36. Fixed a bug where admins could only add active users. Created Posted By feature on blog posts
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -146,11 +146,14 @@ BUGS 10/08: - Add user from admin page - active field - not accepting the value 
             - Blog posts not pulling from the same DB, if a user is posting an article on the ro_page it will only show on the ro_page and disappear unce the eng page is loaded. Will need to either make 1 big db to incorporate both or find a way to query two tables at a time (mysqli_multi_query())
 
 TO DO FOR TOMORROW 11/08: - fix current bugs - ok
-                          - implement article comments
+                          - implement article comments - getting closer to figuring it out, wrote some test functions 
+
+TO DO FOR TOMORROW 12/08 - implement article comments for both ro/eng pages
+                         - design user profile page
 
 
 THINGS LEFT TO DO: - create official logo
                    - responsive design
-                   - (maybe) implement article picture upload
+                   - (maybe) implement article/profile picture upload
                     
                           

@@ -162,7 +162,7 @@ span #postedby {
 	font-size: 14px;
 }
 
-#submit {
+#submit, #post {
 	border: none;
 	float: left;
 	padding:10px;
@@ -186,11 +186,17 @@ span #postedby {
 	font-size: 14px;
 }
 
-#submit:hover, #clear:hover {
+#submit:hover, #clear:hover, #post:hover {
 	background: url(../img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
 	font-weight: bold;
+}
+
+#post {
+	width: 5%;
+	margin-top: -2.65%;
+	margin-left: -35%;
 }
 
 /********************************* =BEGIN FOOTER STYLE *********************************/
@@ -258,4 +264,12 @@ span #postedby {
 	-moz-transform: rotateY(360deg); /*Mozilla*/
 	-webkit-transform: rotateY(360deg);
 	transform: rotateY(360deg);
+}
+
+h5.posted_by {
+	color: #05356E;
+	font-size: 10px;
+	font-style: italic;
+	position: absolute;
+	margin-top: 0.5%;
 }

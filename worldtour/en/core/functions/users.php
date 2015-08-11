@@ -253,12 +253,23 @@ function superuser($user_id, $type) { // pentru administratori
 }
 
 function post_article($title, $content) { // posteaza un articol pe site
+	global $user_data;
 	include('core/db/db_connection.php');
 	$title = mysqli_real_escape_string($dbCon, $title);
 	$content = mysqli_real_escape_string($dbCon, $content);
-	$sql = "INSERT INTO `blog` (`title`, `content`) VALUES ('$title', '$content')";
+	$username = $user_data['username'];
+	$date = date('l jS \of F Y h:i:s A');
+	$sql = "INSERT INTO `blog` (`title`, `content`, `posted_by`, `date`) VALUES ('$title', '$content', '$username', '$date')";
 	mysqli_query($dbCon, $sql);
 }
+
+// function generate_blog_forms() {
+// 	echo "<form method='post' action='' class='comments_form'>
+// 			<input type='text' name='username' placeholder='your name... *' id='name'>
+// 			<textarea name='comments' id='textarea' placeholder='your comment... *' cols='30' rows='6'></textarea> 
+// 			<input type='submit' name='submit' id='post' value='post'>
+// 		</form>"
+// }
 
 function list_articles() { // listeaza articolele existente pe site
 	include('core/db/db_connection.php');
@@ -266,11 +277,19 @@ function list_articles() { // listeaza articolele existente pe site
 	$result = mysqli_query($dbCon, $sql);
 	while ($row = mysqli_fetch_array($result)) {
 		echo 
+			"<h5 class='posted_by'>Posted by " . $posted_by = $row['posted_by'] . " on " . $row['date'] . "</h5>" . 
 			"<h1 class='content_headers'>" . $title = $row['title'] . "</h1>" . 
 			"<article>" . $content = $row['content'] . "</article>" .
 			"<hr class='artline'>";
 	}
 }
+
+// function insert_comments($comments) {
+// 	include('core/db/db_connection.php');
+// 	$comments = sanitize($comments);
+// 	$sql = "INSERT INTO `blog` (`comments`) VALUES ('$comments')";
+// 	mysqli_query($dbCon, $sql);
+// }
 
 function generate_captcha($num1, $num2) { // genereaza un numar la intamplare
 	$num1 = (int)$num1;

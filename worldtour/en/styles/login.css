@@ -459,3 +459,10 @@ select option {
 	margin-top: 1.1%;
 	margin-left: 15%;
 }
+
+#add_user_active_inactive {
+	margin-left: 3.4%;
+	color: #05356E;
+	margin-top: 1%;
+}
+

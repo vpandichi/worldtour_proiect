@@ -34,11 +34,6 @@ if (empty($_POST) === false) {
 		if (email_exists($_POST['email']) === true) {
 			$errors[] = 'Sorry, the email \'' . $_POST['email'] . '\' is already in use.';
 		}
-		if (strlen($_POST['active']) > 1) {
-			$errors[] = 'Active field can only take values of either 1 or 0';
-		} else if ($_POST['active'] != 1 && $_POST['active'] != 0) {
-			$errors[] = 'Active field can only take values of either 1 or 0';
-		}
 		if (empty($_POST['captcha_results']) === true) {
 			$errors[] = 'Please enter captcha.';
 		} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
@@ -77,7 +72,7 @@ if (empty($_POST) === false) {
 				'password' 		=> $_POST['password'],
 				'first_name' 	=> $_POST['first_name'],
 				'email' 		=> $_POST['email'],
-				'active'		=> $_POST['active'],
+				'active'		=> isset($_POST['active']) ? 1 : 0,
 				);
 			admin_add_user($register_data);
 			header('Location: add_user.php?success');
@@ -108,8 +103,9 @@ if (empty($_POST) === false) {
 						<input type="password" name="password" placeholder="password... *" id="password"><br>
 						<input type="password" name="password_again" placeholder="password check... *" id="password2"><br>
 						<input type="text" name="first_name" placeholder="First name... *" id="fname">
-						<input type="text" name="active" placeholder="active... * (1 for yes / 0 for no)" id="lname">
+						<input type="text" name="last_name" placeholder="nume... " id="lname">
 						<input type="text" name="email" placeholder="email... *" id="email"><br>
+						<div id="add_user_active_inactive">Active user? &nbsp; <input type="checkbox" name="active" value="1" checked></div>
 						<input type="submit" name="register" class="button" value="add user" id="register">
 						<div id='register_captcha'><?php create_captcha(); ?></div>
 						<input type="reset" class="button" value="clear all" id="clear">

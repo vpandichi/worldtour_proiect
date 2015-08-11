@@ -253,11 +253,14 @@ function superuser($user_id, $type) { // pentru administratori
 }
 
 function post_article($title, $content) { // posteaza un articol pe site
+	global $user_data;
 	include('core/db/db_connection.php');
 	$title = mysqli_real_escape_string($dbCon, $title);
 	$content = mysqli_real_escape_string($dbCon, $content);
-	$sql = "INSERT INTO blog (`title`, `content`) VALUES ('$title', '$content')";
-	mysqli_query($dbCon, $sql); // deocamdata separam pagina de engleza de cea de romana
+	$username = $user_data['username'];
+	$date = date('l jS \of F Y h:i:s A');
+	$sql = "INSERT INTO `blog` (`title`, `content`, `posted_by`, `date`) VALUES ('$title', '$content', '$username', '$date')";
+	mysqli_query($dbCon, $sql);
 }
 
 function list_articles() { // listeaza articolele existente pe site
@@ -266,6 +269,7 @@ function list_articles() { // listeaza articolele existente pe site
 	$result = mysqli_query($dbCon, $sql);
 	while ($row = mysqli_fetch_array($result)) {
 		echo 
+			"<h5 class='posted_by'>Postat de " . $posted_by = $row['posted_by'] . " | " . $row['date'] . "</h5>" . 
 			"<h1 class='content_headers'>" . $title = $row['title'] . "</h1>" . 
 			"<article>" . $content = $row['content'] . "</article>" .
 			"<hr class='artline'>";

@@ -259,3 +259,11 @@ span #postedby {
 	-webkit-transform: rotateY(360deg);
 	transform: rotateY(360deg);
 }
+
+h5.posted_by {
+	color: #05356E;
+	font-size: 10px;
+	font-style: italic;
+	position: absolute;
+	margin-top: 0.5%;
+}
