@@ -29,7 +29,16 @@
 		<div id="page_wrapper">
 			<div id="page_content">
 				<div id="google_translate_element"></div>
-				<?php echo list_articles(); ?>
+				<?php echo list_articles(); 
+					if (!empty($_POST)) {
+						// insert_comments($_POST['username'], $_POST['comments']);
+					}
+				?>
+				<form method='post' action='' class='comments_form'>
+		 			<input type='text' name='username' placeholder='your name... *' id='name'>
+		 			<textarea name='comments' id='textarea' placeholder='your comment... *' cols='30' rows='6'></textarea> 
+		 			<input type='submit' name='submit' id='post' value='post'>
+		 		</form>
 			</div>
 		</div>
 		<div id="footer_wrap">

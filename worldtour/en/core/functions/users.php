@@ -225,6 +225,23 @@ function get_user_id($username) {
 	return (mysqli_result($query, 0, 'user_id'));
 }
 
+function get_article_id($username) { 
+	include('core/db/db_connection.php');
+	$username = sanitize($username);
+	$sql = "SELECT content_id FROM `blog` WHERE content_id = '$content_id'";
+	$query = mysqli_query($dbCon, $sql);
+	return (mysqli_result($query, 0, 'content_id'));
+}
+
+function get_comment_id($comment_id) { 
+	include('core/db/db_connection.php');
+	$comment_id = sanitize($username);
+	$sql = "SELECT comment_id FROM `article_comments` WHERE comment_id = '$comment_id'";
+	$query = mysqli_query($dbCon, $sql);
+	return (mysqli_result($query, 0, 'comment_id'));
+}
+
+
 function get_user_id_from_email($email) { 
 	include('core/db/db_connection.php');
 	$email = sanitize($email);
@@ -271,23 +288,31 @@ function post_article($title, $content) { // posteaza un articol pe site
 // 		</form>"
 // }
 
-function list_articles() { // listeaza articolele existente pe site
+function list_articles() { 
 	include('core/db/db_connection.php');
-	$sql = "SELECT * FROM blog ORDER BY id DESC";
+	$sql = "SELECT blog.title, blog.content, blog.posted_by, blog.date, article_comments.comments, article_comments.comment_by
+				FROM blog LEFT OUTER JOIN article_comments
+				ON blog.content_id = article_comments.comment_id
+				WHERE blog.content != ''
+				ORDER BY blog.content_id DESC";
 	$result = mysqli_query($dbCon, $sql);
 	while ($row = mysqli_fetch_array($result)) {
 		echo 
 			"<h5 class='posted_by'>Posted by " . $posted_by = $row['posted_by'] . " on " . $row['date'] . "</h5>" . 
 			"<h1 class='content_headers'>" . $title = $row['title'] . "</h1>" . 
-			"<article>" . $content = $row['content'] . "</article>" .
+			"<article>" . $content = $row['content'] . "</article>" . 
+			"<hr class='artline'>" . 
+			"<div class='commented_by'>Posted by: " . $row['comment_by'] . "</div>" . 
+			"<div class='comments'>Comments: " . $row['comments'] . "</div>" . 
 			"<hr class='artline'>";
 	}
 }
 
-// function insert_comments($comments) {
+// function insert_comments($comment_by, $comments) {
 // 	include('core/db/db_connection.php');
-// 	$comments = sanitize($comments);
-// 	$sql = "INSERT INTO `blog` (`comments`) VALUES ('$comments')";
+// 	$sql =  "SELECT blog.content_id, article_comments.comment_id  
+// 			 FROM blog AS blog
+// 			 INNER JOIN article_comments AS article_comments ON article_comments.comment_id > blog.content_id";
 // 	mysqli_query($dbCon, $sql);
 // }
 
