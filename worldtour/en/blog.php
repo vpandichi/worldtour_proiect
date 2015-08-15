@@ -1,5 +1,7 @@
 <?php 
-	include('core/init.php');
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+include('core/init.php');
 ?>
 
 <!DOCTYPE html>
@@ -29,16 +31,14 @@
 		<div id="page_wrapper">
 			<div id="page_content">
 				<div id="google_translate_element"></div>
-				<?php echo list_articles(); 
-					if (!empty($_POST)) {
-						// insert_comments($_POST['username'], $_POST['comments']);
+				<?php 
+					echo list_articles(get_articles($dbCon));
+					if (logged_in() === true) {
+						if (!empty($_POST)) {
+							insert_comments($_POST['comments'], $_POST['username'], $_POST['blog_id']);
+						}
 					}
 				?>
-				<form method='post' action='' class='comments_form'>
-		 			<input type='text' name='username' placeholder='your name... *' id='name'>
-		 			<textarea name='comments' id='textarea' placeholder='your comment... *' cols='30' rows='6'></textarea> 
-		 			<input type='submit' name='submit' id='post' value='post'>
-		 		</form>
 			</div>
 		</div>
 		<div id="footer_wrap">

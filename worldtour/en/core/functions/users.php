@@ -241,7 +241,6 @@ function get_comment_id($comment_id) {
 	return (mysqli_result($query, 0, 'comment_id'));
 }
 
-
 function get_user_id_from_email($email) { 
 	include('core/db/db_connection.php');
 	$email = sanitize($email);
@@ -280,41 +279,78 @@ function post_article($title, $content) { // posteaza un articol pe site
 	mysqli_query($dbCon, $sql);
 }
 
-// function generate_blog_forms() {
-// 	echo "<form method='post' action='' class='comments_form'>
-// 			<input type='text' name='username' placeholder='your name... *' id='name'>
-// 			<textarea name='comments' id='textarea' placeholder='your comment... *' cols='30' rows='6'></textarea> 
-// 			<input type='submit' name='submit' id='post' value='post'>
-// 		</form>"
-// }
-
-function list_articles() { 
+function get_articles() {
 	include('core/db/db_connection.php');
-	$sql = "SELECT blog.title, blog.content, blog.posted_by, blog.date, article_comments.comments, article_comments.comment_by
-				FROM blog LEFT OUTER JOIN article_comments
-				ON blog.content_id = article_comments.comment_id
-				WHERE blog.content != ''
-				ORDER BY blog.content_id DESC";
-	$result = mysqli_query($dbCon, $sql);
-	while ($row = mysqli_fetch_array($result)) {
-		echo 
-			"<h5 class='posted_by'>Posted by " . $posted_by = $row['posted_by'] . " on " . $row['date'] . "</h5>" . 
-			"<h1 class='content_headers'>" . $title = $row['title'] . "</h1>" . 
-			"<article>" . $content = $row['content'] . "</article>" . 
-			"<hr class='artline'>" . 
-			"<div class='commented_by'>Posted by: " . $row['comment_by'] . "</div>" . 
-			"<div class='comments'>Comments: " . $row['comments'] . "</div>" . 
-			"<hr class='artline'>";
+    $sql = "SELECT blog.content_id, blog.title, blog.content, blog.posted_by, blog.date, article_comments.comments, article_comments.comment_by
+            FROM blog LEFT OUTER JOIN article_comments
+            ON blog.content_id = article_comments.blog_id
+            WHERE blog.content != ''
+            ORDER BY blog.content_id DESC";
+    $result = mysqli_query($dbCon, $sql); 
+    $rows = array(); // initialize in case the query matched no rows
+    while($row = mysqli_fetch_assoc($result)){ 
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+function comment_form($id){
+	global $user_data;
+	if (logged_in() === true) {
+		return <<<EOT
+	    <form method='post' action='' class='comments_form'>
+		    <input type='text' name='username' placeholder='your name... *' id='name' value='{$user_data['username']}'>
+		    <textarea name='comments' id='textarea' placeholder='your comment... *' cols='30' rows='6'></textarea>
+		    <input type='hidden' name='blog_id' value='$id'>
+		    <input type='submit' name='submit' id='post' value='post'>
+	    </form>
+	    <hr class='artline'>
+EOT;
 	}
 }
 
-// function insert_comments($comment_by, $comments) {
-// 	include('core/db/db_connection.php');
-// 	$sql =  "SELECT blog.content_id, article_comments.comment_id  
-// 			 FROM blog AS blog
-// 			 INNER JOIN article_comments AS article_comments ON article_comments.comment_id > blog.content_id";
-// 	mysqli_query($dbCon, $sql);
-// }
+function list_articles($rows) {
+    if(empty($rows)){
+        return "There are no Articles to display";
+    }
+    
+    $previous_blog_id = 0;
+    $content = '';
+
+    foreach($rows as $row) {
+        if ($previous_blog_id != $row['content_id']) { // the blog id changed
+            if($previous_blog_id != 0){ // not the first section, close out the previous section
+                $content .= comment_form($previous_blog_id); 
+            }
+            // start a new blog section
+            $content .= "<h5 class='posted_by'>Posted by {$row['posted_by']} on {$row['date']}</h5>
+		                <h1 class='content_headers'>{$row['title']}</h1>
+		                <article>{$row['content']}</article>
+		                <hr class='artline'>";
+            $previous_blog_id = $row['content_id'];
+        }
+        if (!empty($row['comment_by']) && !empty($row['comments'])) {
+             $content .= "<div class='commented_by'>Posted by: {$row['comment_by']} </div>
+                   <div class='comments'>Comments: {$row['comments']}</div>
+                   <hr class='artline2'>";
+        }
+    }
+    
+    if($previous_blog_id != 0){ 
+        $content .= comment_form($previous_blog_id); 
+    }
+
+    return $content;
+}
+
+function insert_comments($comments, $comment_by, $blog_id) {
+    include('core/db/db_connection.php');
+    $comment_by = sanitize($comment_by);
+    $comments = sanitize($comments);
+    $sql = "INSERT INTO article_comments (comments, comment_by, blog_id)
+            VALUES ('$comments', '$comment_by', '$blog_id')";
+    mysqli_query($dbCon, $sql);
+}
 
 function generate_captcha($num1, $num2) { // genereaza un numar la intamplare
 	$num1 = (int)$num1;
@@ -325,7 +361,7 @@ function generate_captcha($num1, $num2) { // genereaza un numar la intamplare
 	return $result;
 } 
 
-function create_captcha() { // creaza form-ul de captcha
+function create_captcha() { // creaza formularul de captcha
 	$num1 = generate_captcha(1, 20);
 	$num2 = generate_captcha(1, 20);
 	echo  $num1 . ' + ' . $num2 . ' = ';
