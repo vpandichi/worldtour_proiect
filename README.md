@@ -36,6 +36,7 @@
 34. Implemented add_user feature for administrators.
 35. Created the final ro version of the website, both PHP functionality and javascript behavior.
 36. Fixed a bug where admins could only add active users. Created Posted By feature on blog posts
+37. Added article comments feature for registered users.
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -148,8 +149,10 @@ BUGS 10/08: - Add user from admin page - active field - not accepting the value 
 TO DO FOR TOMORROW 11/08: - fix current bugs - ok
                           - implement article comments - getting closer to figuring it out, wrote some test functions 
 
-TO DO FOR TOMORROW 12/08 - implement article comments for both ro/eng pages
-                         - design user profile page
+TO DO FOR TOMORROW 12/08 - implement article comments for both ro/eng pages -x [3-4 days]
+                         - design user profile page -x
+                         
+TO DO FOR TOMORROW 16/08 - implement article comments for the ro page, add validation.
 
 
 THINGS LEFT TO DO: - create official logo
