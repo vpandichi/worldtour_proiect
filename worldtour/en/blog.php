@@ -1,6 +1,6 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
 include('core/init.php');
 ?>
 
@@ -22,6 +22,7 @@ include('core/init.php');
 						echo "<li><a href='login.php'>profile settings</a></li>";
 					} else {
 						echo "<li><a href='login.php'>log in</a></li>";
+						echo "<li><a href='register.php'>register</a></li>";
 					}
 				?>	
 				<li><a href="../ro/blog.php">ro</a></li>
@@ -34,8 +35,22 @@ include('core/init.php');
 				<?php 
 					echo list_articles(get_articles($dbCon));
 					if (logged_in() === true) {
-						if (!empty($_POST)) {
-							insert_comments($_POST['comments'], $_POST['username'], $_POST['blog_id']);
+						if (empty($_POST) === false) {
+							$required_fields = array('comments', 'username');
+							foreach ($_POST as $key => $value) {
+								if (empty($value) && in_array($key, $required_fields) === true) {	
+									$errors[] = 'Fields marked with an asterisk are required';
+									break 1;
+								}
+							} 
+							if ($_POST['username'] != $user_data['username']) {
+								$errors[] = 'You cannot post under a different username';
+							}
+						} 
+						if (empty($_POST) === false && empty($errors) === true) {
+								insert_comments($_POST['comments'], $_POST['username'], $_POST['blog_id']);
+						} else if (empty($errors) === false) {
+							echo "<div id='blog_comment_errors'>" . output_errors($errors) . "</div>";
 						}
 					}
 				?>

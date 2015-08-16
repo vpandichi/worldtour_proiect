@@ -3,7 +3,7 @@
 include('core/init.php');
 logged_in_redirect(); // daca se incearca accesarea directa a acestei pagini vom folosi functia logged_in_redirect pentru a redirectiona userul catre pagina principala
 
-if (empty($_POST) === false) { // daca form-ul este trimis, ne asiguram ca acesta este completat
+if (empty($_POST) === false) { // daca formularul este trimis, ne asiguram ca acesta este completat
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 

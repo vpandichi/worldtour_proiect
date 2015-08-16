@@ -1,14 +1,14 @@
 var target = document.getElementById('article');
 var hidden_article = document.getElementById('hidden_article');
-var vless = hidden_article.childNodes[1];
+var vless = hidden_article.childNodes[1]; 
 var rmore = target.childNodes[3];
 
-vless.onclick = function() {
+vless.onclick = function() { // aceasta functie face ca butonul de view less sa ascunda o parte din textul articolelor de pe pagina
 	hidden_article.style.display = "none";
 	rmore.style.display = "inline";
 }
 
-rmore.onclick = function() {
+rmore.onclick = function() { // aceasta functie face ca butonul de read more sa arate in totalitate textul articolelor de pe pagina
 	hidden_article.style.display = "inline";
 	rmore.style.display = "none";
 }

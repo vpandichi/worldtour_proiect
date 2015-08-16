@@ -178,7 +178,12 @@ nav ul li a:hover {
 	width: 15%;
 }
 
-
+.userprofile {
+	color: #05356E;
+	position: absolute;
+	margin-top: 10%;
+	margin-left:45%;
+}
 
 select option {
     margin:40px;
@@ -328,6 +333,23 @@ select option {
 	margin-left: 41.4%;
 }
 
+.activated_scsfly {
+	margin-top: 11%;
+	margin-left: 32%;
+	position: absolute;
+	color: #05356E;
+}
+
+.activated_scsfly a {
+	text-decoration: none;
+	color: #05356E;
+}
+
+.activated_scsfly a:hover {
+	text-decoration: underline;
+	color: #70be12;
+}
+
 .delete_success {margin-left: 41.7%;}
 
 .reg_success {margin-top: 10%;}
@@ -349,7 +371,7 @@ select option {
 	margin-top: 11%;
 	font-size: 14px;
 	text-align: center;
-	margin-left: 32%;
+	margin-left: 23%;
 }
 .error_list {
 	margin-top: 11%;

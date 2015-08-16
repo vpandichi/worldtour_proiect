@@ -8,15 +8,15 @@ if (empty($_POST) === false) {
 	foreach ($_POST as $key => $value) {
 		if (empty($value) && in_array($key, $required_fields) === true) {	
 			$errors[] = 'Fields marked with an asterisk are required';
-			break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+			break 1; 
 		} 
-	} // iterating through our post data - doing a check on each one
+	} 
 
 	if (empty($errors) === true) {
 		if (user_exists($_POST['username']) === true) {
 		$errors[] = 'Sorry, the username \'' . $_POST['username'] . '\' is already taken. Try ' . $_POST['username'] . rand(7, 77) . ' instead.';
 		}
-		if (preg_match("/\\s/", $_POST['username']) == true) { // regexp checking for any amount of spaces within the username 
+		if (preg_match("/\\s/", $_POST['username']) == true) { // verificam daca numele de utilizator contine spatii libere
 			$errors[] = 'No spaces allowed.';
 		}
 		if (!ctype_alnum($_POST['username'])) {

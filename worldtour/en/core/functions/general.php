@@ -26,11 +26,11 @@ function output_errors($errors) { // aceasta functie returneaza erorile pe care 
     $output = array();
     foreach($errors as $error) {
         $output[] = '<li>' . $error . '</li>';
-    } // luam fiecare eroare, o plasam intr-o lista dupa care returnam rezultatul
+    } // luam fiecare eroare, o inseram intr-o lista dupa care returnam rezultatul
     return '<ul class="error_list reg_errors chpw_errors actv_errors profile_errors">' . implode('', $output) . '</ul>'; // implode will take an array and transform it into a string
 }
 
-function user_count() { // pentru a arata cati utilizatori inregistrati avem pe site
+function user_count() { // pentru a arata cati utilizatori activi avem pe site
     include('core/db/db_connection.php');
     $sql = "SELECT COUNT(user_id) FROM `_users` WHERE active = 1";
     $data = mysqli_query($dbCon, $sql);

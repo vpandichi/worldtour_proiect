@@ -6,8 +6,10 @@ include('core/init.php');
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Welcome to worldtour! Your free touristic guide based on real experiences.</title>
 	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/responsive.css" media="screen and (max-width: 1250px)">
 </head>
 <body>
 	<div id="body_wrap">
@@ -76,7 +78,7 @@ include('core/init.php');
 							foreach ($_POST as $key => $value) {
 								if (empty($value) && in_array($key, $required_fields) === true) {	
 									$errors[] = 'Fields marked with an asterisk are required';
-									break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+									break 1; // daca avem o eroare, vrem sa intrerupem executarea verificarilor de mai jos 
 								} 
 							}
 							if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {

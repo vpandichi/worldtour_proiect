@@ -20,6 +20,7 @@ include('core/init.php');
 						echo "<li><a href='login.php'>setari profil</a></li>";
 					} else {
 						echo "<li><a href='login.php'>logare</a></li>";
+						echo "<li><a href='register.php'>inregistrare</a></li>";
 					}
 				?>	
 				<li><a href="../en/recom.php">en</a></li>

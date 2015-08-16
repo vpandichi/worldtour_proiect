@@ -20,6 +20,7 @@
 						echo "<li><a href='login.php'>setari profil</a></li>";
 					} else {
 						echo "<li><a href='login.php'>logare</a></li>";
+						echo "<li><a href='register.php'>inregistrare</a></li>";
 					}
 				?>	
 				<li><a href="../en/blog.php">en</a></li>
@@ -29,7 +30,28 @@
 		<div id="page_wrapper">
 			<div id="page_content">
 				<div id="google_translate_element"></div>
-				<?php echo list_articles(); ?>
+				<?php 
+					echo list_articles(get_articles($dbCon));
+					if (logged_in() === true) {
+						if (empty($_POST) === false) {
+							$required_fields = array('comments', 'username');
+							foreach ($_POST as $key => $value) {
+								if (empty($value) && in_array($key, $required_fields) === true) {	
+									$errors[] = 'Campurile marcate cu * sunt obligatorii';
+									break 1;
+								}
+							} 
+							if ($_POST['username'] != $user_data['username']) {
+								$errors[] = 'Nu poti posta sub un alt nume de utilizator';
+							}
+						} 
+						if (empty($_POST) === false && empty($errors) === true) {
+								insert_comments($_POST['comments'], $_POST['username'], $_POST['blog_id']);
+						} else if (empty($errors) === false) {
+							echo "<div id='blog_comment_errors'>" . output_errors($errors) . "</div>";
+						}
+					}
+				?>
 			</div>
 		</div>
 		<div id="footer_wrap">
@@ -54,7 +76,7 @@
 	</div>
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
-  			new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'af,ar,az,be,bg,bn,bs,ca,ceb,cs,cy,da,de,el,en,eo,es,et,eu,fa,fi,fr,ga,gl,gu,ha,hi,hmn,hr,ht,hu,hy,id,ig,is,it,iw,ja,jv,ka,kk,km,kn,ko,la,lo,lt,lv,mg,mi,mk,ml,mn,mr,ms,mt,my,nl,no,ny,pa,pl,pt,ru,si,sk,sl,so,sq,sr,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,vi,yi,yo,zh-CN,zh-TW,zu', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+  			new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'af,ar,az,be,bg,bn,bs,ca,ceb,cs,cy,da,de,el,en,eo,es,et,eu,fa,fi,fr,ga,gl,gu,ha,hi,hmn,hr,ht,hu,hy,id,ig,is,it,iw,ja,jv,ka,kk,km,kn,ko,la,lo,lt,lv,mg,mi,mk,ml,mn,mr,ms,mt,my,nl,no,ny,pa,pl,pt,ru,ro,si,sk,sl,so,sq,sr,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,vi,yi,yo,zh-CN,zh-TW,zu', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
 		}
 	</script>
 	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

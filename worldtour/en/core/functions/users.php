@@ -10,8 +10,8 @@ function email_users($subject, $body) {
     }
 }
 
-function contact_me($subject, $body) {
-	$send_to = 'vladz0r9@yahoo.com'; 
+function contact_me($subject, $body) { // folosesc aceasta functie pentru formularul de contact. 
+	$send_to = 'vladz0r9@yahoo.com'; // adresa pe care vom primi email-ul
 	$username = htmlentities($_POST['contact_name']);
 	$email = htmlentities($_POST['email']);
 	$body = 'From: ' . $username . '<br>Email: ' . $email . '<br><br>' . $body;
@@ -156,7 +156,7 @@ function update_user($user_id, $update_data) {
 	foreach ($update_data as $field => $data) {
 		$update[] = '`' . $field . '` = \'' . $data . '\''; // structuram interogarea pentru a o folosi in baza de date
 	}
-	$sql = "UPDATE `_users` SET " . implode(', ', $update) . " WHERE `user_id` = " . $user_id; // converts the $update array into a string format
+	$sql = "UPDATE `_users` SET " . implode(', ', $update) . " WHERE `user_id` = " . $user_id; // transformam variabila $update (array) intr-un sir
 	// print_r($sql);
 	// die();
 	$query = mysqli_query($dbCon, $sql);
@@ -225,23 +225,7 @@ function get_user_id($username) {
 	return (mysqli_result($query, 0, 'user_id'));
 }
 
-function get_article_id($username) { 
-	include('core/db/db_connection.php');
-	$username = sanitize($username);
-	$sql = "SELECT content_id FROM `blog` WHERE content_id = '$content_id'";
-	$query = mysqli_query($dbCon, $sql);
-	return (mysqli_result($query, 0, 'content_id'));
-}
-
-function get_comment_id($comment_id) { 
-	include('core/db/db_connection.php');
-	$comment_id = sanitize($username);
-	$sql = "SELECT comment_id FROM `article_comments` WHERE comment_id = '$comment_id'";
-	$query = mysqli_query($dbCon, $sql);
-	return (mysqli_result($query, 0, 'comment_id'));
-}
-
-function get_user_id_from_email($email) { 
+function get_user_id_from_email($email) { // selecteaza userul dupa adresa de email
 	include('core/db/db_connection.php');
 	$email = sanitize($email);
 	$sql = "SELECT user_id FROM `_users` WHERE email = '$email'";
@@ -249,14 +233,14 @@ function get_user_id_from_email($email) {
 	return (mysqli_result($query, 0, 'user_id'));
 }
 
-function login($username, $password) { 
+function login($username, $password) { // functia prin care logam utilizatorul
 	include('core/db/db_connection.php');
 	$user_id = get_user_id($username);
 	$username = sanitize($username);
-	$password = md5($password); 
+	$password = md5($password); // criptam parola introdusa pentru a o verifica in baza de date
 	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE username = '$username' AND password = '$password'";
 	$query = mysqli_query($dbCon, $sql);
-	return (mysqli_result($query, 0) == 1) ? $user_id : false;
+	return (mysqli_result($query, 0) == 1) ? $user_id : false; 
 }
 
 function superuser($user_id, $type) { // pentru administratori
@@ -265,7 +249,7 @@ function superuser($user_id, $type) { // pentru administratori
 	$type = (int)$type;
 	$sql = "SELECT COUNT(user_id) FROM `_users` WHERE user_id = '$user_id' AND type = '$type'";
 	$query = mysqli_query($dbCon, $sql);
-	return (mysqli_result($query, 0) == 1) ? true : false;
+	return (mysqli_result($query, 0) == 1) ? true : false; // daca tipul utilizatorului e 1 = admin. 
 }
 
 function post_article($title, $content) { // posteaza un articol pe site
@@ -279,22 +263,22 @@ function post_article($title, $content) { // posteaza un articol pe site
 	mysqli_query($dbCon, $sql);
 }
 
-function get_articles() {
+function get_articles() { // obtine articolele din baza de date
 	include('core/db/db_connection.php');
     $sql = "SELECT blog.content_id, blog.title, blog.content, blog.posted_by, blog.date, article_comments.comments, article_comments.comment_by
-            FROM blog LEFT OUTER JOIN article_comments
-            ON blog.content_id = article_comments.blog_id
+            FROM blog LEFT OUTER JOIN article_comments -- folosim left outer join pentru a uni cele doua tabele. Left outer join returneaza valori daca acestea sunt prezente in tabelul din stanga (blog)
+            ON blog.content_id = article_comments.blog_id 
             WHERE blog.content != ''
             ORDER BY blog.content_id DESC";
     $result = mysqli_query($dbCon, $sql); 
-    $rows = array(); // initialize in case the query matched no rows
+    $rows = array(); 
     while($row = mysqli_fetch_assoc($result)){ 
         $rows[] = $row;
     }
     return $rows;
 }
 
-function comment_form($id){
+function comment_form($id) { //generam un formular pentru a permite comentarea la articole
 	global $user_data;
 	if (logged_in() === true) {
 		return <<<EOT
@@ -309,17 +293,17 @@ EOT;
 	}
 }
 
-function list_articles($rows) {
+function list_articles($rows) { //listam articolele
     if(empty($rows)){
         return "There are no Articles to display";
     }
     
-    $previous_blog_id = 0;
+    $previous_blog_id = 0; 
     $content = '';
 
     foreach($rows as $row) {
         if ($previous_blog_id != $row['content_id']) { // the blog id changed
-            if($previous_blog_id != 0){ // not the first section, close out the previous section
+            if($previous_blog_id != 0) { // not the first section, close out the previous section
                 $content .= comment_form($previous_blog_id); 
             }
             // start a new blog section
@@ -330,8 +314,8 @@ function list_articles($rows) {
             $previous_blog_id = $row['content_id'];
         }
         if (!empty($row['comment_by']) && !empty($row['comments'])) {
-             $content .= "<div class='commented_by'>Posted by: {$row['comment_by']} </div>
-                   <div class='comments'>Comments: {$row['comments']}</div>
+             $content .= "<div class='commented_by'>User: {$row['comment_by']} </div>
+                   <div class='comments'>Comment: {$row['comments']}</div>
                    <hr class='artline2'>";
         }
     }
@@ -343,10 +327,11 @@ function list_articles($rows) {
     return $content;
 }
 
-function insert_comments($comments, $comment_by, $blog_id) {
+function insert_comments($comments, $comment_by, $blog_id) { // insereaza comentariile utilizatorilor la articole
     include('core/db/db_connection.php');
     $comment_by = sanitize($comment_by);
     $comments = sanitize($comments);
+    $blog_id = (int)$blog_id;
     $sql = "INSERT INTO article_comments (comments, comment_by, blog_id)
             VALUES ('$comments', '$comment_by', '$blog_id')";
     mysqli_query($dbCon, $sql);
@@ -366,8 +351,8 @@ function create_captcha() { // creaza formularul de captcha
 	$num2 = generate_captcha(1, 20);
 	echo  $num1 . ' + ' . $num2 . ' = ';
 	echo '<input type="text" name="captcha_results" size="2">';
-	echo '<input type="hidden" name=\'num1\' value=' . $num1 . '; ?>';
-	echo '<input type="hidden" name=\'num2\' value=' . $num2 . '; ?>';
+	echo '<input type="hidden" name=\'num1\' value=' . $num1 . '>';
+	echo '<input type="hidden" name=\'num2\' value=' . $num2 . '>';
 }
 
 // function change_profile_image($user_id, $file_temp, $file_ext) {

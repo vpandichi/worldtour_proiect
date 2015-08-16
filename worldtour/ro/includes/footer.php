@@ -14,7 +14,7 @@
 				</div>
 				<div id="recent_stories">
 					<h1>Articole recente</h1>
-					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="/sites/worldtour/ro/public/blog.php">[Mai mult...]</a></p>
+					<p>Ne-am hotarat sa vizitam Italia in luna septembrie si pentru ca cel mai bun loc care descrie cultura acestei tari e Sicilia, am inceput sa cautam cazare si bilete de avion. <a href="blog.php">[Mai mult...]</a></p>
 				</div>
 				<div id="featured_location">
 					<h1>Cea mai populara locatie de luna asta</h1>

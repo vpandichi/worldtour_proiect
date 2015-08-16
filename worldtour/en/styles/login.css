@@ -196,6 +196,13 @@ select option {
 	margin-left: 8.5%;
 }
 
+.userprofile {
+	color: #05356E;
+	position: absolute;
+	margin-top: 10%;
+	margin-left:45%;
+}
+
 #upload_pic {
 	position: absolute;
 	margin-left: 1.4%;
@@ -322,6 +329,23 @@ select option {
 .updateacc_profile_pic {
 	margin-top: 27%;
 	margin-left: 41.4%;
+}
+
+.activated_scsfly {
+	margin-top: 11%;
+	margin-left: 32%;
+	position: absolute;
+	color: #05356E;
+}
+
+.activated_scsfly a {
+	text-decoration: none;
+	color: #05356E;
+}
+
+.activated_scsfly a:hover {
+	text-decoration: underline;
+	color: #70be12;
 }
 
 .delete_success {margin-left: 41.7%;}

@@ -2,7 +2,6 @@
 	include('core/init.php');
 	not_logged_in_redirect();
 	admin_protect();
-
 ?>
 
 <!DOCTYPE html>

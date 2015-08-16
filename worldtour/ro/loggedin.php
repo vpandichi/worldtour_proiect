@@ -22,6 +22,6 @@ not_logged_in_redirect();
 	<?php  
 		$user_count =  user_count();
 		$suffix = ($user_count != 1) ? 'i' : '';
-	?> <!-- daca avem doar 1 user iregistrat vom genera cuvantul user. Daca avem mai mult de un user inregistrat pe site, vom genera cuvantul users. -->
+	?> <!-- daca avem doar 1 utilizator iregistrat vom genera cuvintele utilizator/inregistrat. Daca avem mai mult de un utilizator inregistrat, vom genera cuvintele utilizatori/inregistrati. -->
 	Momentan avem <?php echo $user_count; ?> utilizator<?php echo $suffix;?> inregistrat<?php echo $suffix;?>.
 </div>

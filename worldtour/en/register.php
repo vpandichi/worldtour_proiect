@@ -6,15 +6,15 @@ if (empty($_POST) === false) {
 	foreach ($_POST as $key => $value) {
 		if (empty($value) && in_array($key, $required_fields) === true) {	
 			$errors[] = 'Fields marked with an asterisk are required';
-			break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+			break 1; 
 		} 
-	} // iterating through our post data - doing a check on each one
+	} 
 
 	if (empty($errors) === true) {
 		if (user_exists($_POST['username']) === true) {
 		$errors[] = 'Sorry, the username \'' . $_POST['username'] . '\' is already taken. Try ' . $_POST['username'] . rand(7, 77) . ' instead.';
 		}
-		if (preg_match("/\\s/", $_POST['username']) == true) { // regexp checking for any amount of spaces within the username 
+		if (preg_match("/\\s/", $_POST['username']) == true) { // verificam daca numele de utilizator contine spatii libere
 			$errors[] = 'No spaces allowed.';
 		}
 		if (!ctype_alnum($_POST['username'])) {
@@ -57,16 +57,7 @@ if (empty($_POST) === false) {
 							<li><a href="recom.php">recommendations</a></li>
 							<li><a href="blog.php">blog</a></li>
 							<li><a href="index.php#contact">contact</a></li>
-							<li>';?> <!-- daca userul s-a inregistrat vrem sa includem header-ul pentru a nu strica felul in care se vede website-ul -->
-								<?php 
-									if (logged_in() === true) {
-										echo "<a href='includes/logout.php'>log out</a>";
-									} else {
-										echo "<a href='login.php'>log in</a>";
-										echo "</li><li><a href='register.php'>register</a>";
-									}
-								?>	
-							<?php echo '</li>
+							<li><a href="login.php">log in</a></li>
 							<li><a href="../ro/register.php">ro</a></li>
 						</ul>
 						<div id="logo"><a href="index.php"><img src="img/provisory-logo.gif"></a></div>
@@ -98,14 +89,7 @@ if (empty($_POST) === false) {
 						<li><a href="recom.php">recommendations</a></li>
 						<li><a href="blog.php">blog</a></li>
 						<li><a href="index.php#contact">contact</a></li>
-						<?php 
-							if (logged_in() === true) {
-								echo "<li><a href='includes/logout.php'>log out</a></li>";
-							} else {
-								echo "<li><a href='login.php'>log in</a></li>";
-								echo "<li><a href='register.php'>register</a></li>";
-							}
-						?>	
+						<li><a href='login.php'>log in</a></li>
 						<li><a href="../ro/register.php">ro</a></li>
 					</ul>
 					<div id="logo"><a href="index.php"><img src="img/provisory-logo.gif"></a></div>

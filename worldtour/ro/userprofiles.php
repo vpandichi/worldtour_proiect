@@ -7,10 +7,10 @@
 			$user_id = get_user_id($username);
 			$profile_data = user_data($user_id, 'first_name', 'last_name', 'email');
 		?>
-			<h3>Profilul lui <?php echo $profile_data['first_name']; ?></h3>
+			<h3 class='userprofile'>Profilul lui <?php echo $profile_data['first_name']; ?></h3>
 		<?php
 		} else {
-			echo 'Ne pare rau, acel utilizator nu exista!';
+			echo '<h3 class="userprofile">Ne pare rau, acest utilizator nu exista!</h3>';
 		}
 	} else {
 		header('Location: index.php');
@@ -22,11 +22,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>worldtour | profil</title>
-	<link rel="stylesheet" href="styles/profile.css">
+	<title>Welcome to worldtour! Your free touristic guide based on real experiences.</title>
+	<link rel="stylesheet" href="styles/login.css">
 </head>
 
-<!-- <body>
+<body>
 	<div id="body_wrap">
 		<nav id="nav">
 			<ul>
@@ -35,10 +35,10 @@
 				<li><a href="index.php#contact">contact</a></li>
 				<li><a href='includes/logout.php'>log out</a></li>
 				<li><a href='login.php'>profile settings</a></li>
-				<li><a href="/sites/worldtour/ro/public/login.php">ro</a></li>
+				<li><a href="../ro/index.php">ro</a></li>
 			</ul>
 			<div id="logo"><a href="index.php"><img src="img/provisory-logo.gif"></a></div>
-		</nav> -->
+		</nav>
 <!-- <div class="profile">
 	<?php 
 		// if (isset($_FILES['profile']) === true) {

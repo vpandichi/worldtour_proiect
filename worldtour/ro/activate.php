@@ -4,7 +4,7 @@
 
 	if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
 	?>
-		<h2 class="wetried">Contul tau a fost activat cu succes. Te rugam sa te <a href="login.php">loghezi</a></h2>
+		<h2 class="activated_scsfly">Contul tau a fost activat cu succes. Te rugam sa te <a href="login.php">loghezi</a></h2>
 	<?php  
 	} else if (isset($_GET['email'], $_GET['email_code']) === true) {
 		$email = trim($_GET['email']);

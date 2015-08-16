@@ -6,7 +6,7 @@
 		foreach ($_POST as $key => $value) {
 			if (empty($value) && in_array($key, $required_fields) === true) {	
 				$errors[] = 'Campurile marcate cu * sunt obligatorii';
-				break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+				break 1; 
 			} 
 		}
 		if (md5($_POST['current_password']) === $user_data['password']) { // codificam parola pe care userul o introduce si verificam daca aceasta exista in baza de date
@@ -18,7 +18,7 @@
 		} else {
 			$errors[] = 'Se pare ca ai introdus gresit parola curenta.';
 		}
-	} // for every item that we post ($key = name attribute from form) verify this.
+	} 
 ?>
 
 <!DOCTYPE html>

@@ -16,7 +16,7 @@
 		if (isset($_GET['mode']) === true && in_array($_GET['mode'], $mode_allowed) === true) {
 			if (isset($_POST['email']) === true && empty($_POST['email']) === false) {
 				if (email_exists($_POST['email']) === true) {
-					recover($_GET['mode'], $_POST['email']);
+					recover($_GET['mode'], $_POST['email']); // modul poate fi numele de utilizator sau parola
 					header('Location: recover.php?success');
 					exit();
 				} else {

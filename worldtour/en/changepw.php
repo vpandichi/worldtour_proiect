@@ -6,7 +6,7 @@
 		foreach ($_POST as $key => $value) {
 			if (empty($value) && in_array($key, $required_fields) === true) {	
 				$errors[] = 'Fields marked with an asterisk are required';
-				break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+				break 1; 
 			} 
 		}
 
@@ -19,7 +19,7 @@
 		} else {
 			$errors[] = 'Whoops... you misspelled your current password, try again.';
 		}
-	} // for every item that we post ($key = name attribute from form) verify this.
+	} 
 ?>
 
 <!DOCTYPE html>

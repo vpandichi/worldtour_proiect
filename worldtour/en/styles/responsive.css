@@ -1,0 +1,13 @@
+.location {
+	position: absolute;
+	width:105px;
+	margin-top: -19.6px;
+	margin-left: 211px;
+	background: url(../img/blue_button2.png) no-repeat;
+	padding: 10px;
+	color: #70be12;
+	font-size: 14px;
+	text-align: center;
+}
+
+span#last {margin-left: 210px;}

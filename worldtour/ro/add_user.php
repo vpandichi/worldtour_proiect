@@ -8,15 +8,15 @@ if (empty($_POST) === false) {
 	foreach ($_POST as $key => $value) {
 		if (empty($value) && in_array($key, $required_fields) === true) {	
 			$errors[] = 'Campurile marcate cu * sunt obligatorii.';
-			break 1; // breaks to foreach (if 1 error is found, we can't do anything else so there's no point for checking further)
+			break 1; 
 		} 
-	} // iterating through our post data - doing a check on each one
+	} 
 
 	if (empty($errors) === true) {
 		if (user_exists($_POST['username']) === true) {
 		$errors[] = 'Utilizatorul \'' . $_POST['username'] . '\' este deja inregistrat. Poti incerca ' . $_POST['username'] . rand(7, 77);
 		}
-		if (preg_match("/\\s/", $_POST['username']) == true) { // regexp checking for any amount of spaces within the username 
+		if (preg_match("/\\s/", $_POST['username']) == true) { // verificam daca numele de untilizator contine spatii libere 
 			$errors[] = 'Numele de utilizator nu poate contine spatii libere.';
 		}
 		if (!ctype_alnum($_POST['username'])) {

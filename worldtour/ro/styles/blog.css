@@ -162,7 +162,11 @@ span #postedby {
 	font-size: 14px;
 }
 
-#submit {
+.comments_form {
+	margin-top: 0%;
+}
+
+#submit, #post {
 	border: none;
 	float: left;
 	padding:10px;
@@ -186,11 +190,17 @@ span #postedby {
 	font-size: 14px;
 }
 
-#submit:hover, #clear:hover {
+#submit:hover, #clear:hover, #post:hover {
 	background: url(../img/green_button.png) no-repeat;
 	cursor: pointer;
 	color: #05356E;
 	font-weight: bold;
+}
+
+#post {
+	width: 5%;
+	margin-top: -2.65%;
+	margin-left: -35%;
 }
 
 /********************************* =BEGIN FOOTER STYLE *********************************/
@@ -267,3 +277,41 @@ h5.posted_by {
 	position: absolute;
 	margin-top: 0.5%;
 }
+
+/*.captcha_num {
+	position: absolute;
+	color: #05356E;
+	margin-top: -20.2%;
+	margin-left: 51%;
+}*/
+
+#blog_comment_errors {
+	color: #05356E;
+	position: relative;
+	margin-left: 2%;
+}
+
+#contact_errors {
+	margin-top: 40%;
+	margin-left: 32%;
+	position: absolute;
+	color: #05356E;
+}
+
+.artline2 {
+	border: 1px dotted #70be12;
+    border-style: none none dotted; 
+    color: #fff; 
+}
+
+.commented_by, .comments {
+	color:#05356E;
+	font-size: 14px;
+	background-color: #eeffda;
+}
+
+.commented_by {
+	font-style: italic;
+	font-weight: bold;
+}
+

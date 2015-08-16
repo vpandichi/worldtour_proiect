@@ -4,7 +4,7 @@
 
 	if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
 	?>
-		<h2 class="wetried">Your account has been activated successfully. Please <a href="login.php">log in</a></h2>
+		<h4 class="activated_scsfly">Your account has been activated successfully. Please <a href="login.php">log in</a></h4>
 	<?php  
 	} else if (isset($_GET['email'], $_GET['email_code']) === true) {
 		$email = trim($_GET['email']);

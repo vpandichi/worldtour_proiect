@@ -110,22 +110,6 @@ div#google_translate_element span a {
 	margin-bottom: 2px;
 }
 
-.artline2 {
-	border: 1px dotted #70be12;
-    border-style: none none dotted; 
-    color: #fff; 
-}
-
-.commented_by, .comments {
-	color:#05356E;
-	font-size: 14px;
-	background-color: #D9F8B4;
-}
-
-.commented_by {
-	font-style: italic;
-	font-weight: bold;
-}
 /********************************* =BEGIN MISC STYLES *********************************/
 
 .content_headers {
@@ -294,7 +278,7 @@ h5.posted_by {
 	margin-top: 0.5%;
 }
 
-/*.captcha_num {
+.captcha_num {
 	position: absolute;
 	color: #05356E;
 	margin-top: -20.2%;
@@ -302,8 +286,9 @@ h5.posted_by {
 }
 
 #blog_comment_errors {
-	color: #f00;
+	color: #05356E;
 	position: relative;
+	margin-left: 2%;
 }
 
 #contact_errors {
@@ -313,4 +298,20 @@ h5.posted_by {
 	color: #05356E;
 }
 
-*/
+.artline2 {
+	border: 1px dotted #70be12;
+    border-style: none none dotted; 
+    color: #fff; 
+}
+
+.commented_by, .comments {
+	color:#05356E;
+	font-size: 14px;
+	background-color: #eeffda;
+}
+
+.commented_by {
+	font-style: italic;
+	font-weight: bold;
+}
+
