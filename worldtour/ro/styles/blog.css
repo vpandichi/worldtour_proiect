@@ -278,12 +278,12 @@ h5.posted_by {
 	margin-top: 0.5%;
 }
 
-/*.captcha_num {
+.captcha_num {
 	position: absolute;
 	color: #05356E;
 	margin-top: -20.2%;
 	margin-left: 51%;
-}*/
+}
 
 #blog_comment_errors {
 	color: #05356E;

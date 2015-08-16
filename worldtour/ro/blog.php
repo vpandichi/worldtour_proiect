@@ -44,6 +44,11 @@
 							if ($_POST['username'] != $user_data['username']) {
 								$errors[] = 'Nu poti posta sub un alt nume de utilizator';
 							}
+							if (empty($_POST['captcha_results']) === true) {
+								$errors[] = 'Te rugam sa introduci captcha.';
+							} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
+								$errors[] = "Raspunsul la captcha este incorect.";
+							}
 						} 
 						if (empty($_POST) === false && empty($errors) === true) {
 								insert_comments($_POST['comments'], $_POST['username'], $_POST['blog_id']);

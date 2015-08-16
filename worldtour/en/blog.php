@@ -46,6 +46,11 @@ include('core/init.php');
 							if ($_POST['username'] != $user_data['username']) {
 								$errors[] = 'You cannot post under a different username';
 							}
+							if (empty($_POST['captcha_results']) === true) {
+								$errors[] = 'Please enter captcha.';
+							} else if ($_POST['captcha_results'] != $_POST['num1'] + $_POST['num2']) {
+								$errors[] = "Incorrect captcha.";
+							}
 						} 
 						if (empty($_POST) === false && empty($errors) === true) {
 								insert_comments($_POST['comments'], $_POST['username'], $_POST['blog_id']);

@@ -37,6 +37,7 @@
 35. Created the final ro version of the website, both PHP functionality and javascript behavior.
 36. Fixed a bug where admins could only add active users. Created Posted By feature on blog posts
 37. Added article comments feature for registered users.
+38. Added captcha for article comments
 
 TO DO FOR TOMORROW 16/07: - fix logo not displaying on the nav bar after being dynamically generated; (might be a problem with the HTML positioning of the divs) - ok
                           - pick a def. color scheme - current red/green - debugging colors; - x
@@ -152,7 +153,8 @@ TO DO FOR TOMORROW 11/08: - fix current bugs - ok
 TO DO FOR TOMORROW 12/08 - implement article comments for both ro/eng pages -x [3-4 days]
                          - design user profile page -x
                          
-TO DO FOR TOMORROW 16/08 - implement article comments for the ro page, add validation.
+TO DO FOR TOMORROW 16/08 - implement article comments for the ro page, add validation. - ok
+                         - implement form captcha for blog comments - ok
 
 
 THINGS LEFT TO DO: - create official logo

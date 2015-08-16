@@ -278,7 +278,7 @@ function get_articles() { // obtine articolele din baza de date
     return $rows;
 }
 
-function comment_form($id) { //generam un formular pentru a permite comentarea la articole
+function comment_form($id, $captcha) { //generam un formular pentru a permite comentarea la articole
 	global $user_data;
 	if (logged_in() === true) {
 		return <<<EOT
@@ -286,6 +286,7 @@ function comment_form($id) { //generam un formular pentru a permite comentarea l
 		    <input type='text' name='username' placeholder='your name... *' id='name' value='{$user_data['username']}'>
 		    <textarea name='comments' id='textarea' placeholder='your comment... *' cols='30' rows='6'></textarea>
 		    <input type='hidden' name='blog_id' value='$id'>
+		    <div class='captcha_num'>$captcha</div>
 		    <input type='submit' name='submit' id='post' value='post'>
 	    </form>
 	    <hr class='artline'>
@@ -297,14 +298,15 @@ function list_articles($rows) { //listam articolele
     if(empty($rows)){
         return "There are no Articles to display";
     }
-    
+
+    $create_blog_captcha = create_blog_captcha();
     $previous_blog_id = 0; 
     $content = '';
 
     foreach($rows as $row) {
         if ($previous_blog_id != $row['content_id']) { // the blog id changed
             if($previous_blog_id != 0) { // not the first section, close out the previous section
-                $content .= comment_form($previous_blog_id); 
+                $content .= comment_form($previous_blog_id, $create_blog_captcha); 
             }
             // start a new blog section
             $content .= "<h5 class='posted_by'>Posted by {$row['posted_by']} on {$row['date']}</h5>
@@ -321,7 +323,7 @@ function list_articles($rows) { //listam articolele
     }
     
     if($previous_blog_id != 0){ 
-        $content .= comment_form($previous_blog_id); 
+        $content .= comment_form($previous_blog_id, $create_blog_captcha); 
     }
 
     return $content;
@@ -346,6 +348,16 @@ function generate_captcha($num1, $num2) { // genereaza un numar la intamplare
 	return $result;
 } 
 
+function create_blog_captcha() { // creaza formularul de captcha pentru pagina de blog
+	$num1 = generate_captcha(1, 20);
+	$num2 = generate_captcha(1, 20);
+	$captchanum = $num1 . ' + ' . $num2 . ' = ';
+	$captchanum .= '<input type="text" name="captcha_results" size="2">
+			       <input type="hidden" name=\'num1\' value=' . $num1 . '>
+			       <input type="hidden" name=\'num2\' value=' . $num2 . '>';
+	return $captchanum;
+}
+
 function create_captcha() { // creaza formularul de captcha
 	$num1 = generate_captcha(1, 20);
 	$num2 = generate_captcha(1, 20);
@@ -364,3 +376,4 @@ function create_captcha() { // creaza formularul de captcha
 // }
 
 ?>
+
